@@ -1,0 +1,30 @@
++Animations
++Images
+
++minecraft
+
+-minecraft/game
+-minecraft/assets
+-minecraft/.mc.jar
+-minecraft/.mc.exe
+-minecraft/launcher.jar
+-minecraft/launcher.pack
+-minecraft/launcher.pack.lzma
+-minecraft/nativelog.txt
+-minecraft/logs
+
+*minecraft/runtime
+*minecraft/libraries
+*minecraft/versions
+*minecraft/saves/Dragnoz - The Dash of Doom
+*minecraft/saves/Dragnoz - TRON Fire
+*minecraft/saves/Hypixel - Herobrine's Mansion 1.7
+*minecraft/saves/Hypixel - Wrath of the Fallen 1.7
+*minecraft/saves/Hypixel - Zombie Apocalypse 1.7
+*minecraft/saves/SethBling - 15Seconds
+*minecraft/saves/SethBling - BlocksVsZombies
+*minecraft/saves/SethBling - PizzaSpleef
+*minecraft/saves/SethBling - Redstone Challenge
+*minecraft/saves/SethBling - Redstone Challenge 2
+*minecraft/saves/SethBling - TheBuildingGame
+
