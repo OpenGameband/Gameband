@@ -1,5 +1,7 @@
 package com.nowcomputing.b.a;
 
+import com.nowcomputing.LockingUtil;
+
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -14,6 +16,6 @@ class f implements ChangeListener {
 
    public void stateChanged(ChangeEvent var1) {
       JSpinner var2 = (JSpinner)var1.getSource();
-      com.nowcomputing.b.a.a.a(this.a).c((Integer)var2.getValue());
+      LockingUtil.logger.a.a(this.a).c((Integer)var2.getValue());
    }
 }

@@ -1,5 +1,7 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.Utils;
+
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -11,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class q {
-   public static final Logger a = Logger.getLogger(com.nowcomputing.S.class.getName());
+   public static final Logger a = Logger.getLogger(Utils.class.getName());
    private static String[] D = new String[]{"en", "es", "fr", "de", "it", "pt"};
    private static boolean E = false;
    private static boolean F = false;

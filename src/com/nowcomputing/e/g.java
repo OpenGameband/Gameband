@@ -1,6 +1,7 @@
 package com.nowcomputing.e;
 
 import com.nowcomputing.GamebandConfig;
+import com.nowcomputing.ImageDoodad;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class g extends a {
    private List h;
    private List i = new ArrayList();
    Random g = new Random();
-   private com.nowcomputing.d j;
+   private ImageDoodad j;
    private b k;
 
    g(b var1) {
@@ -22,7 +23,7 @@ public class g extends a {
 
    protected void a() {
       if (this.f != null) {
-         this.j = new com.nowcomputing.d(20, 7);
+         this.j = new ImageDoodad(20, 7);
          if (this.e != null) {
             this.j.a(this.e);
          }
@@ -47,7 +48,7 @@ public class g extends a {
       return this.h.contains(var1);
    }
 
-   public com.nowcomputing.d e() {
+   public ImageDoodad e() {
       this.b(1);
       this.i();
       if (this.h.size() == 0 && this.i.size() == 0) {

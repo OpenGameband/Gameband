@@ -1,5 +1,6 @@
 package com.nowcomputing.f.b;
 
+import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.N;
 import com.nowcomputing.f.q;
 import com.nowcomputing.f.a.t;
@@ -11,10 +12,10 @@ import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 public class b extends e implements ActionListener {
-   com.nowcomputing.d.b a;
+   ImageDoodad.b a;
    private com.nowcomputing.a.g g;
 
-   public b(t var1, com.nowcomputing.d.b var2) {
+   public b(t var1, ImageDoodad.b var2) {
       super(var1, com.nowcomputing.f.a("DATE"));
       this.a = var2;
       this.h();
@@ -47,7 +48,7 @@ public class b extends e implements ActionListener {
       var4.addActionListener(this);
    }
 
-   public com.nowcomputing.d.g b() {
+   public ImageDoodad.g b() {
       return this.a;
    }
 
@@ -56,10 +57,10 @@ public class b extends e implements ActionListener {
       var1.setTimeZone(com.nowcomputing.f.e());
       String var2 = var1.format(new Date());
       this.a(this.e.d().c());
-      com.nowcomputing.d var3 = this.a(var2);
+      ImageDoodad var3 = this.a(var2);
       this.a.h().b(var3);
       this.a.i().a(var3);
-      this.a.i().b(new com.nowcomputing.d(20, 7));
+      this.a.i().b(new ImageDoodad(20, 7));
       this.g.a(var3, com.nowcomputing.a.h.a, 3000, 20);
       super.d();
    }
@@ -79,10 +80,10 @@ public class b extends e implements ActionListener {
 
    }
 
-   private com.nowcomputing.d a(String var1) {
+   private ImageDoodad a(String var1) {
       int var2 = this.e.d().a() == 0 ? 3 : 0;
-      com.nowcomputing.d var3 = new com.nowcomputing.d(20, 7);
-      var3.a((com.nowcomputing.d)com.nowcomputing.d.a(var1), var2, 1);
+      ImageDoodad var3 = new ImageDoodad(20, 7);
+      var3.a((ImageDoodad) ImageDoodad.a(var1), var2, 1);
       return var3;
    }
 }

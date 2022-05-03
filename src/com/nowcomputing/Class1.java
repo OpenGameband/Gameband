@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class Class1 implements i {
-   static final Logger logger = Logger.getLogger(S.class.getName());
+   static final Logger logger = Logger.getLogger(Utils.class.getName());
    protected File field2;
    protected File field3;
    protected R field4;
@@ -71,11 +71,11 @@ public abstract class Class1 implements i {
          this.field4.a();
       }
 
-      S.i(new File(this.field2, "Gameband_linux.bat"));
-      S.i(new File(this.field2, ".lib"));
-      S.i(new File(this.field2, "autorun.inf"));
-      S.i(new File(this.field2, ".VolumeIcon.icns"));
-      S.a((File)this.field2, (FilenameFilter)(new I(this)));
+      Utils.i(new File(this.field2, "Gameband_linux.bat"));
+      Utils.i(new File(this.field2, ".lib"));
+      Utils.i(new File(this.field2, "autorun.inf"));
+      Utils.i(new File(this.field2, ".VolumeIcon.icns"));
+      Utils.a((File)this.field2, (FilenameFilter)(new I(this)));
    }
 
    private void method2(long var1) {
@@ -87,16 +87,16 @@ public abstract class Class1 implements i {
    }
 
    private boolean method4(UpdateEntry var1) {
-      String var2 = S.c(new File(new File(this.field2, var1.d()), var1.getC()));
+      String var2 = Utils.c(new File(new File(this.field2, var1.d()), var1.getC()));
       return !var1.f().equals(var2);
    }
 
    private boolean method5(UpdateEntry var1) {
       File var2 = new File(this.field3, var1.e());
       String var3 = var2.getAbsolutePath();
-      S.f(var2);
+      Utils.f(var2);
       var2.mkdirs();
-      S.i(this.field3);
+      Utils.i(this.field3);
       File var4 = new File(var2, var1.e());
       logger.log(Level.FINE, "Downloading package " + var1.c() + " to " + var4.getPath());
 
@@ -119,7 +119,7 @@ public abstract class Class1 implements i {
       this.field8.run();
       if (!this.field8.b()) {
          throw this.field8.c();
-      } else if (!var1.e().equals(S.c(var2))) {
+      } else if (!var1.e().equals(Utils.c(var2))) {
          throw new IOException("Incorrect md5 for downloaded file " + var1.getC());
       }
    }
@@ -150,28 +150,28 @@ public abstract class Class1 implements i {
          return;
       }
 
-      if (S.a(var5, new File(this.field2, var1.d()), this.field9)) {
+      if (Utils.a(var5, new File(this.field2, var1.d()), this.field9)) {
          logger.log(Level.INFO, var1.getC() + " update ok");
       } else {
-         S.a(var6, this.field2, (FilenameFilter)null);
+         Utils.a(var6, this.field2, (FilenameFilter)null);
          logger.log(Level.WARNING, "Error applying update. Restored backup.");
       }
 
-      S.f(var3);
+      Utils.f(var3);
    }
 
    private void method8(File var1, File var2) {
-      S.f(var2);
+      Utils.f(var2);
       var2.mkdir();
-      S.c(var1, var2);
+      Utils.c(var1, var2);
    }
 
    private void method9(File var1, File var2) {
-      S.f(var2);
+      Utils.f(var2);
       var2.mkdir();
       ArrayList var3 = new ArrayList();
-      S.a(var1, var2, (List)var3);
-      if (!S.a((List)var3)) {
+      Utils.a(var1, var2, (List)var3);
+      if (!Utils.a((List)var3)) {
          throw new IOException("MD5 error when unpacking the update");
       }
    }

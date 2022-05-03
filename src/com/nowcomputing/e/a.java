@@ -1,15 +1,17 @@
 package com.nowcomputing.e;
 
+import com.nowcomputing.ImageDoodad;
+
 public abstract class a extends com.nowcomputing.a.a {
    protected short d;
-   protected com.nowcomputing.d e;
-   protected com.nowcomputing.d f;
+   protected ImageDoodad e;
+   protected ImageDoodad f;
 
-   public void a(com.nowcomputing.d var1) {
+   public void a(ImageDoodad var1) {
       this.e = var1;
    }
 
-   public void b(com.nowcomputing.d var1) {
+   public void b(ImageDoodad var1) {
       this.f = var1;
    }
 

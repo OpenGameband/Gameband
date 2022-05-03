@@ -1,14 +1,14 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class a extends g {
-   private static final Logger f = Logger.getLogger(S.class.getName());
+   private static final Logger f = Logger.getLogger(Utils.class.getName());
 
    public a(ExecutorService var1) {
       super((short)32, var1);

@@ -1,5 +1,7 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.Utils;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -12,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class M extends z {
-   private static final Logger a = Logger.getLogger(com.nowcomputing.S.class.getName());
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
    private JButton b = new y();
    private JButton h = new y();
    private JButton i = new y();

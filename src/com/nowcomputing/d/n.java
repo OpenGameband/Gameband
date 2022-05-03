@@ -1,5 +1,7 @@
 package com.nowcomputing.d;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -75,7 +77,7 @@ public class n {
       this.a[5] = var1;
    }
 
-   public com.nowcomputing.d k() {
+   public ImageDoodad k() {
       if (this.d() >= 16 && this.d() <= 31) {
          return a((short[])this.b, (int)0, this.j());
       } else {
@@ -83,9 +85,9 @@ public class n {
       }
    }
 
-   public void a(com.nowcomputing.d var1) {
+   public void a(ImageDoodad var1) {
       if (var1.a() < 20) {
-         com.nowcomputing.d var2 = new com.nowcomputing.d(20, 7);
+         ImageDoodad var2 = new ImageDoodad(20, 7);
          var2.a(var1);
          var1 = var2;
       }
@@ -132,7 +134,7 @@ public class n {
       return var2;
    }
 
-   static short[] b(com.nowcomputing.d var0) {
+   static short[] b(ImageDoodad var0) {
       int var1 = var0.a() / 2;
       short[] var2 = new short[var1];
 
@@ -143,7 +145,7 @@ public class n {
       return var2;
    }
 
-   private static short a(com.nowcomputing.d var0, int var1) {
+   private static short a(ImageDoodad var0, int var1) {
       short var2 = 0;
 
       for(int var3 = 0; var3 < 7; ++var3) {
@@ -159,8 +161,8 @@ public class n {
       return var2;
    }
 
-   static com.nowcomputing.d a(short[] var0, int var1, int var2) {
-      com.nowcomputing.d var3 = new com.nowcomputing.d(var2 * 2, 7);
+   static ImageDoodad a(short[] var0, int var1, int var2) {
+      ImageDoodad var3 = new ImageDoodad(var2 * 2, 7);
 
       for(int var4 = 0; var4 < var2; ++var4) {
          short var5 = var0[var1 + var4];
@@ -170,7 +172,7 @@ public class n {
       return var3;
    }
 
-   private static void a(com.nowcomputing.d var0, short var1, int var2) {
+   private static void a(ImageDoodad var0, short var1, int var2) {
       for(int var3 = 0; var3 < 7; ++var3) {
          var0.a(var2, var3, a(var1, var3));
          var0.a(var2 + 1, var3, a(var1, var3 + 7));

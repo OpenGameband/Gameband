@@ -3,18 +3,18 @@ package com.nowcomputing;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-public class d {
+public class ImageDoodad {
    boolean[][] a;
    private int b;
    private int c;
 
-   public d(int var1, int var2) {
+   public ImageDoodad(int var1, int var2) {
       this.b = var1;
       this.c = var2;
       this.a = new boolean[this.b][this.c];
    }
 
-   public d(d var1) {
+   public ImageDoodad(ImageDoodad var1) {
       this.b = var1.a();
       this.c = var1.b();
       this.a = new boolean[this.b][this.c];
@@ -46,19 +46,19 @@ public class d {
       return this.c;
    }
 
-   public void a(d var1) {
-      this.a((d)var1, 0, 0);
+   public void a(ImageDoodad var1) {
+      this.a((ImageDoodad)var1, 0, 0);
    }
 
-   public void a(d var1, int var2, int var3) {
+   public void a(ImageDoodad var1, int var2, int var3) {
       this.a(var1, 0, 0, var1.a(), var1.b(), var2, var3);
    }
 
-   public void a(d var1, int var2, int var3, int var4, int var5) {
+   public void a(ImageDoodad var1, int var2, int var3, int var4, int var5) {
       this.a(var1, 0, 0, var2, var3, var4, var5);
    }
 
-   public void a(d var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   public void a(ImageDoodad var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       for(int var8 = 0; var8 < var4; ++var8) {
          for(int var9 = 0; var9 < var5; ++var9) {
             this.a(var8 + var6, var9 + var7, var1.a(var8 + var2, var9 + var3));
@@ -92,16 +92,16 @@ public class d {
       return var1;
    }
 
-   public static d a(String var0) {
+   public static ImageDoodad a(String var0) {
       return a(o.b(var0));
    }
 
-   public static d a(BufferedImage var0) {
+   public static ImageDoodad a(BufferedImage var0) {
       return a(var0, var0.getWidth(), var0.getHeight());
    }
 
-   public static d a(BufferedImage var0, int var1, int var2) {
-      d var3 = new d(var1, var2);
+   public static ImageDoodad a(BufferedImage var0, int var1, int var2) {
+      ImageDoodad var3 = new ImageDoodad(var1, var2);
       int var4 = var0.getWidth();
       int var5 = var0.getHeight();
 

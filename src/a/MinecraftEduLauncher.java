@@ -12,8 +12,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class d extends AbstractMinecraftLauncher {
-    public d(GamebandConfig var1) {
+public class MinecraftEduLauncher extends AbstractMinecraftLauncher {
+    public MinecraftEduLauncher(GamebandConfig var1) {
         super(var1);
     }
 

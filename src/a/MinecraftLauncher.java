@@ -20,16 +20,16 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
    public String[] buildJavaCommand() {
       String[] stringArray = super.buildJavaCommand();
       if (this.validateJavaLaunchCommand(stringArray)) {
-         switch (i.a[S.b().ordinal()]) {
+         switch (i.a[Utils.b().ordinal()]) {
             case 1: {
-               File file = new File(D.c(), ".mc.exe");
+               File file = new File(D.getMinecraftPath(), ".mc.exe");
                if (!file.exists()) {
                   logger.log(Level.FINE, "File .mc.exe not found");
-                  File file2 = new File(D.c(), "minecraft.exe");
+                  File file2 = new File(D.getMinecraftPath(), "minecraft.exe");
                   if (file2.exists()) {
-                     S.a(file2, file);
+                     Utils.a(file2, file);
                      logger.log(Level.FINE, "Copied existing minecraft exe to .mc.exe");
-                     file = new File(D.c(), ".mc.exe");
+                     file = new File(D.getMinecraftPath(), ".mc.exe");
                      if (!file.exists()) {
                         file = file2;
                      }
@@ -42,7 +42,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
             }
             case 2: {
                if (!MinecraftLauncher.isOSVersionCompatible()) break;
-               File file = D.c();
+               File file = D.getMinecraftPath();
                File file3 = new File(new File(file, "runtime"), "Minecraft.app");
                String string = file3.getAbsolutePath() + "/Contents/MacOS/launcher";
                stringArray = new String[]{string, "--tmpDir", System.getProperty("java.io.tmpdir"), "--workDir", file.getAbsolutePath()};
@@ -91,7 +91,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
    }
 
    public void f() {
-      w var1 = new w(this.config);
+      MinecraftDownloader var1 = new MinecraftDownloader(this.config);
       if (var1.a() != M.a) {
          R infoDialog = new R("Getting the latest Minecraft Launcher", "This won't take long...", "", true);
          infoDialog.setVisible(true);
@@ -113,10 +113,10 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
 
    private void m() {
       try {
-         String var1 = D.a().getCanonicalPath();
-         String var2 = D.c().getPath();
-         File var3 = new File(D.c(), "launcher_profiles.json");
-         String var4 = S.a(var3);
+         String var1 = D.setMinecraftPath().getCanonicalPath();
+         String var2 = D.getMinecraftPath().getPath();
+         File var3 = new File(D.getMinecraftPath(), "launcher_profiles.json");
+         String var4 = Utils.readFile(var3);
          b var5 = new b();
          c var6 = (c)var5.a(var4);
          boolean var7 = false;
@@ -133,7 +133,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
                      if (var7) {
                         c.a.a.f var18 = new c.a.a.f();
                         var6.a((Writer)var18);
-                        S.a(var3, var18.toString());
+                        Utils.a(var3, var18.toString());
                      }
 
                      return;
@@ -149,7 +149,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
                if (!var13.startsWith(var1)) {
                   int var15 = var13.indexOf(var2);
                   if (var15 != -1) {
-                     String var16 = S.c(var13.substring(var15));
+                     String var16 = Utils.c(var13.substring(var15));
                      var14 = var1 + File.separator + var16;
                   } else {
                      var14 = "";
@@ -177,12 +177,12 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
    }
 
    private boolean n() {
-      if (S.b() == B.b) {
+      if (Utils.b() == B.b) {
          String[] var1 = this.buildJavaCommand();
          File var2 = new File(var1[0]);
          if (!var2.exists()) {
             N.a((Component)null, (String[])(new String[]{"We're having problems downloading Minecraft :(", "This is usually due to being blocked by antivirus or firewall software. Please add Gameband to your antivirus software's whitelist.", "Alternatively, you can manually download the minecraft.exe file and copy it into the minecraft folder on Gameband:"}), (String)"Gameband Error", (String)"https://launcher.mojang.com/download/Minecraft.exe");
-            File var3 = new File(D.c(), "minecraft.exe");
+            File var3 = new File(D.getMinecraftPath(), "minecraft.exe");
             return var3.exists();
          }
       }

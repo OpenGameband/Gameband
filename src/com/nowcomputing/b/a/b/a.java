@@ -1,14 +1,16 @@
 package com.nowcomputing.b.a.b;
 
+import com.nowcomputing.LockingUtil;
+
 import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public abstract class a implements MouseListener, MouseMotionListener {
-   protected com.nowcomputing.b.a.a a;
+   protected LockingUtil.a.a a;
 
-   a(com.nowcomputing.b.a.a var1) {
+   a(LockingUtil.a.a var1) {
       this.a = var1;
    }
 

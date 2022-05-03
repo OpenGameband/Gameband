@@ -84,7 +84,7 @@ public class h implements Runnable {
       } catch (IOException var14) {
          this.e = var14;
       } finally {
-         S.closeButUnsafe((Closeable)this.a);
+         Utils.closeButUnsafe((Closeable)this.a);
 
          try {
             if (var1 != null) {
@@ -94,7 +94,7 @@ public class h implements Runnable {
          } catch (IOException var13) {
          }
 
-         S.closeButUnsafe((Closeable)var1);
+         Utils.closeButUnsafe((Closeable)var1);
          this.d.countDown();
       }
 

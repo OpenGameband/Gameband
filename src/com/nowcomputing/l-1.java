@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class l {
-   protected static final Logger a = Logger.getLogger(S.class.getName());
+   protected static final Logger a = Logger.getLogger(Utils.class.getName());
    protected GamebandConfig b;
    protected c c;
    private Thread e;
@@ -47,7 +47,7 @@ public abstract class l {
       BufferedReader var3 = null;
 
       try {
-         a.log(Level.FINE, "Launching command: " + S.a(var0, " "));
+         a.log(Level.FINE, "Launching command: " + Utils.a(var0, " "));
          ProcessBuilder var4 = new ProcessBuilder(var0);
          var4.redirectErrorStream(true);
          var4.directory(new File(var1));

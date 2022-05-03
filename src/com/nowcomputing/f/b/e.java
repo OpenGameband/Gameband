@@ -1,6 +1,7 @@
 package com.nowcomputing.f.b;
 
 import com.nowcomputing.GamebandConfig;
+import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.f.q;
 import com.nowcomputing.f.a.t;
 import java.awt.LayoutManager;
@@ -11,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public abstract class e extends JPanel implements com.nowcomputing.d.m {
+public abstract class e extends JPanel implements ImageDoodad.m {
    private boolean a = true;
    private boolean g;
    protected final com.nowcomputing.f.n b;
@@ -74,21 +75,21 @@ public abstract class e extends JPanel implements com.nowcomputing.d.m {
    }
 
    public void d() {
-      this.b().a((com.nowcomputing.d.m)this);
+      this.b().a((ImageDoodad.m)this);
       this.b().f();
       this.g = false;
    }
 
    public void e() {
       this.g = true;
-      this.b().a((com.nowcomputing.d.m)null);
+      this.b().a((ImageDoodad.m)null);
       this.b().g();
       this.b.a(false);
    }
 
-   public abstract com.nowcomputing.d.g b();
+   public abstract ImageDoodad.g b();
 
-   public void a(com.nowcomputing.d var1) {
+   public void a(ImageDoodad var1) {
       if (var1 != null) {
          this.b.a(var1, 0, 0);
       }
@@ -96,7 +97,7 @@ public abstract class e extends JPanel implements com.nowcomputing.d.m {
    }
 
    public void a() {
-      com.nowcomputing.d.f.l().execute(new i(this));
+      ImageDoodad.f.l().execute(new i(this));
    }
 
    public boolean j() {

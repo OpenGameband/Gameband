@@ -47,7 +47,7 @@ public class b {
       try {
          return this.a((Reader)var3, var2);
       } catch (IOException var5) {
-         throw new c(-1, 2, var5);
+         throw new UnexpectedDoodadException(-1, 2, var5);
       }
    }
 
@@ -65,7 +65,7 @@ public class b {
             label67:
             switch(this.d) {
             case -1:
-               throw new c(this.b(), 1, this.c);
+               throw new UnexpectedDoodadException(this.b(), 1, this.c);
             case 0:
                switch(this.c.a) {
                case 0:
@@ -93,7 +93,7 @@ public class b {
                   return var4.removeFirst();
                }
 
-               throw new c(this.b(), 1, this.c);
+               throw new UnexpectedDoodadException(this.b(), 1, this.c);
             case 2:
                switch(this.c.a) {
                case 0:
@@ -197,14 +197,14 @@ public class b {
             }
 
             if (this.d == -1) {
-               throw new c(this.b(), 1, this.c);
+               throw new UnexpectedDoodadException(this.b(), 1, this.c);
             }
          } while(this.c.a != -1);
       } catch (IOException var9) {
          throw var9;
       }
 
-      throw new c(this.b(), 1, this.c);
+      throw new UnexpectedDoodadException(this.b(), 1, this.c);
    }
 
    private void c() {
@@ -217,19 +217,19 @@ public class b {
 
    private Map a(a var1) {
       if (var1 == null) {
-         return new c.a.a.c();
+         return new UnexpectedDoodadException.a.a.c();
       } else {
          Map var2 = var1.a();
-         return (Map)(var2 == null ? new c.a.a.c() : var2);
+         return (Map)(var2 == null ? new UnexpectedDoodadException.a.a.c() : var2);
       }
    }
 
    private List b(a var1) {
       if (var1 == null) {
-         return new c.a.a.a();
+         return new UnexpectedDoodadException.a.a.a();
       } else {
          List var2 = var1.b();
-         return (List)(var2 == null ? new c.a.a.a() : var2);
+         return (List)(var2 == null ? new UnexpectedDoodadException.a.a.a() : var2);
       }
    }
 }

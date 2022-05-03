@@ -1,5 +1,7 @@
 package com.nowcomputing.b.a;
 
+import com.nowcomputing.LockingUtil;
+
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -14,8 +16,8 @@ class i implements ChangeListener {
 
    public void stateChanged(ChangeEvent var1) {
       JSlider var2 = (JSlider)var1.getSource();
-      com.nowcomputing.b.a.a.a(this.a, var2.getValue());
+      LockingUtil.logger.a.a(this.a, var2.getValue());
       this.a.z();
-      this.a.a(com.nowcomputing.b.a.a.d(this.a));
+      this.a.a(LockingUtil.logger.a.d(this.a));
    }
 }

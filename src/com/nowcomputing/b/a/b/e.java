@@ -1,6 +1,7 @@
 package com.nowcomputing.b.a.b;
 
-import com.nowcomputing.S;
+import com.nowcomputing.LockingUtil;
+import com.nowcomputing.Utils;
 import com.nowcomputing.f.L;
 import java.awt.Cursor;
 import java.awt.Point;
@@ -13,7 +14,7 @@ public class e extends a {
    private L d;
    private L e;
 
-   e(com.nowcomputing.b.a.a var1) {
+   e(LockingUtil.a.a var1) {
       super(var1);
    }
 
@@ -56,9 +57,9 @@ public class e extends a {
          this.c = false;
          Point var2 = this.a.b().a(this.d);
          int var3 = this.d.getX() + var1.getPoint().x;
-         var3 = S.a(var3, 0, this.a.b().getWidth());
+         var3 = Utils.a(var3, 0, this.a.b().getWidth());
          int var4 = this.d.getY() + var1.getPoint().y;
-         var4 = S.a(var4, 0, this.a.b().getHeight());
+         var4 = Utils.a(var4, 0, this.a.b().getHeight());
          Point var5 = this.a.b().a(var3, var4);
          Point var6 = new Point(Math.min(var2.x, var5.x), Math.min(var2.y, var5.y));
          Point var7 = new Point(Math.max(var2.x, var5.x), Math.max(var2.y, var5.y));

@@ -5,11 +5,16 @@
 
 package a;
 
+import a.FTBLauncher;
+import com.nowcomputing.f.R;
 import com.nowcomputing.h;
 import com.nowcomputing.i;
-import com.nowcomputing.f.R;
 
 class b implements i {
+    final h a;
+    final R b;
+    final FTBLauncher c;
+
     b(FTBLauncher var1, h var2, R var3) {
         this.c = var1;
         this.a = var2;
@@ -17,8 +22,8 @@ class b implements i {
     }
 
     public void a(long var1) {
-        FTBLauncher.logger.a(this.c, var1);
-        int var3 = (int)((float) FTBLauncher.logger.a(this.c) / (float)this.a.a() * 100.0F);
+        FTBLauncher.a(this.c, var1);
+        int var3 = (int)((float) FTBLauncher.a(this.c) / (float)this.a.a() * 100.0F);
         if (var3 == 100) {
             this.b.b();
         } else {

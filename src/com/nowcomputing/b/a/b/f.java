@@ -1,5 +1,6 @@
 package com.nowcomputing.b.a.b;
 
+import com.nowcomputing.LockingUtil;
 import com.nowcomputing.f.h;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,11 +12,11 @@ import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
 public class f extends JToolBar implements ActionListener {
-   private com.nowcomputing.b.a.a b;
+   private LockingUtil.a.a b;
    private ButtonGroup c = new ButtonGroup();
    HashMap a = new HashMap();
 
-   public f(com.nowcomputing.b.a.a var1) {
+   public f(LockingUtil.a.a var1) {
       this.b = var1;
       this.setBorder(BorderFactory.createLineBorder(h.e, 1));
       this.setOrientation(1);

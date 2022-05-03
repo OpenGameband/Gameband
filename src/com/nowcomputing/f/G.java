@@ -1,11 +1,13 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.Utils;
+
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class G {
-   static final Logger a = Logger.getLogger(com.nowcomputing.S.class.getName());
+   static final Logger a = Logger.getLogger(Utils.class.getName());
    private File b = b();
    private boolean c;
 

@@ -1,5 +1,7 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.Utils;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -22,7 +24,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 public class b extends z {
-   private static final Logger h = Logger.getLogger(com.nowcomputing.S.class.getName());
+   private static final Logger h = Logger.getLogger(Utils.class.getName());
    private boolean i = false;
    private final e j;
    protected final JPanel a = new JPanel();

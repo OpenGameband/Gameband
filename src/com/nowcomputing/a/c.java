@@ -1,5 +1,7 @@
 package com.nowcomputing.a;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.io.File;
 
 public class c extends a {
@@ -22,8 +24,8 @@ public class c extends a {
       return this.e < this.d.a();
    }
 
-   public com.nowcomputing.d e() {
-      com.nowcomputing.d var1 = null;
+   public ImageDoodad e() {
+      ImageDoodad var1 = null;
       if (this.e == this.d.a()) {
          this.a(true);
       } else {

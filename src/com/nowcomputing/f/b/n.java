@@ -1,8 +1,9 @@
 package com.nowcomputing.f.b;
 
+import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.N;
-import com.nowcomputing.S;
-import com.nowcomputing.d.q;
+import com.nowcomputing.Utils;
+import com.nowcomputing.ImageDoodad.q;
 import com.nowcomputing.f.a.t;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 public class n extends e implements ActionListener {
-   private static final Logger g = Logger.getLogger(S.class.getName());
+   private static final Logger g = Logger.getLogger(Utils.class.getName());
    q a;
    private com.nowcomputing.a.g h;
 
@@ -52,7 +53,7 @@ public class n extends e implements ActionListener {
       var4.addActionListener(this);
    }
 
-   public com.nowcomputing.d.g b() {
+   public ImageDoodad.g b() {
       return this.a;
    }
 
@@ -64,7 +65,7 @@ public class n extends e implements ActionListener {
       String var3 = var1.format(var2);
       g.log(Level.FINE, "PF: formatted time: " + var3);
       this.a(this.e.d().c());
-      com.nowcomputing.d var4 = this.a(var3);
+      ImageDoodad var4 = this.a(var3);
       if (this.a.b() == N.b) {
          Calendar var5 = Calendar.getInstance();
          this.a(var4, var5.get(11) > 11);
@@ -72,7 +73,7 @@ public class n extends e implements ActionListener {
 
       this.a.h().b(var4);
       this.a.i().a(var4);
-      this.a.i().b(new com.nowcomputing.d(20, 7));
+      this.a.i().b(new ImageDoodad(20, 7));
       this.h.a(var4, com.nowcomputing.a.h.a, 3000, 0);
       super.d();
    }
@@ -92,7 +93,7 @@ public class n extends e implements ActionListener {
 
    }
 
-   private com.nowcomputing.d a(String var1) {
+   private ImageDoodad a(String var1) {
       boolean var2 = false;
       int var4;
       if (this.e.d().a() == 0) {
@@ -101,12 +102,12 @@ public class n extends e implements ActionListener {
          var4 = var1.length() == 4 ? 4 : 0;
       }
 
-      com.nowcomputing.d var3 = new com.nowcomputing.d(20, 7);
-      var3.a((com.nowcomputing.d)com.nowcomputing.d.a(var1), var4, 1);
+      ImageDoodad var3 = new ImageDoodad(20, 7);
+      var3.a((ImageDoodad) ImageDoodad.a(var1), var4, 1);
       return var3;
    }
 
-   private void a(com.nowcomputing.d var1, boolean var2) {
+   private void a(ImageDoodad var1, boolean var2) {
       int var3 = this.e.d().a() == 0 ? 1 : 18;
       var1.a(var3, var2 ? var1.b() - 3 : 1, true);
       var1.a(var3, var2 ? var1.b() - 2 : 2, true);

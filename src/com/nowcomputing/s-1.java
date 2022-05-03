@@ -22,7 +22,7 @@ public class s extends Class1 {
    private String i;
 
    public s() {
-      super(D.a());
+      super(D.setMinecraftPath());
       this.a();
    }
 

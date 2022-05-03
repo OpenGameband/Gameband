@@ -19,7 +19,7 @@ public class GamebandConfig {
 
       try { // Note from
          this.properties.load(new FileInputStream(defaultConfigFile));
-         D.a(this.getProperty("minecraft_dir", "minecraft"));
+         D.setMinecraftPath(this.getProperty("minecraft_dir", "minecraft"));
       } catch (Exception ignored) {
       }
 

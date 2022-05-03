@@ -1,9 +1,7 @@
 package com.nowcomputing.f;
 
 import b.a.a.a.Class3;
-import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.Main;
-import com.nowcomputing.WindowsVersionComparator;
+import com.nowcomputing.*;
 
 import java.awt.Component;
 import java.awt.ComponentOrientation;
@@ -34,7 +32,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public class aa extends z implements ActionListener {
-   private static final Logger j = Logger.getLogger(com.nowcomputing.S.class.getName());
+   private static final Logger j = Logger.getLogger(Utils.class.getName());
    private ResourceBundle[] k = com.nowcomputing.f.d();
    private ArrayList l = new ArrayList();
    private ImageIcon m = new ImageIcon(this.getClass().getResource("/resources/left_hand_small.png"));
@@ -43,7 +41,7 @@ public class aa extends z implements ActionListener {
    JRadioButton b;
    private ButtonGroup o;
    private short p;
-   private com.nowcomputing.d.f q;
+   private ImageDoodad.f q;
    private GamebandConfig r;
    private JComboBox s;
    private JEditorPane t;
@@ -53,7 +51,7 @@ public class aa extends z implements ActionListener {
    JRadioButton i;
    private ButtonGroup w;
 
-   aa(com.nowcomputing.d.f var1, GamebandConfig var2) {
+   aa(ImageDoodad.f var1, GamebandConfig var2) {
       this.a = new JRadioButton(this.m);
       this.b = new JRadioButton(this.n);
       this.o = new ButtonGroup();
@@ -210,7 +208,7 @@ public class aa extends z implements ActionListener {
    }
 
    private JComponent r() {
-      Vector var1 = Main.b();
+      Vector var1 = Main.getLaunchers();
       this.s = new JComboBox(var1);
       this.s.setSelectedItem(Main.c());
       this.s.setPrototypeDisplayValue("1234567890");
@@ -245,7 +243,7 @@ public class aa extends z implements ActionListener {
       return var1;
    }
 
-   protected com.nowcomputing.d.f d() {
+   protected ImageDoodad.f d() {
       return this.q;
    }
 

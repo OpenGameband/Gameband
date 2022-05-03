@@ -1,5 +1,5 @@
 package com.nowcomputing;
-
+// This is a synthetic class, not my problem
 // $FF: synthetic class
 class A {
    // $FF: synthetic field

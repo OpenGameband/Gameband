@@ -1,8 +1,6 @@
 package com.nowcomputing.f;
 
-import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.Main;
-import com.nowcomputing.WindowsVersionComparator;
+import com.nowcomputing.*;
 
 import java.awt.Component;
 import java.awt.Cursor;
@@ -19,18 +17,18 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing.t, ActionListener {
-   private static final Logger a = Logger.getLogger(com.nowcomputing.S.class.getName());
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
    private GamebandConfig b;
    private com.nowcomputing.l c;
    private com.nowcomputing.f.a.p d;
    private M e;
    private aa f;
-   private com.nowcomputing.d.f g;
+   private ImageDoodad.f g;
    private boolean h;
    private b i;
    private CountDownLatch j = null;
 
-   public s(GamebandConfig var1, com.nowcomputing.d.f var2) {
+   public s(GamebandConfig var1, ImageDoodad.f var2) {
       this.b = var1;
       this.g = var2;
       this.c = new a.c(var1);
@@ -244,7 +242,7 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
    }
 
    // $FF: synthetic method
-   static com.nowcomputing.d.f e(s var0) {
+   static ImageDoodad.f e(s var0) {
       return var0.g;
    }
 

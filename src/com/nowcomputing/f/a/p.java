@@ -1,6 +1,8 @@
 package com.nowcomputing.f.a;
 
-import com.nowcomputing.S;
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.LockingUtil;
+import com.nowcomputing.Utils;
 import com.nowcomputing.f.z;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,8 +24,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 public class p {
-   private static final Logger a = Logger.getLogger(S.class.getName());
-   private com.nowcomputing.d.f b;
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
+   private ImageDoodad.f b;
    private z c;
    private a d;
    private t e;
@@ -33,7 +35,7 @@ public class p {
    private JFrame i;
    private JLayeredPane j;
 
-   public p(JFrame var1, com.nowcomputing.d.f var2) {
+   public p(JFrame var1, ImageDoodad.f var2) {
       this.i = var1;
       this.b = var2;
       JPanel var3 = new JPanel();
@@ -190,7 +192,7 @@ public class p {
       this.e.a();
    }
 
-   public com.nowcomputing.d.f g() {
+   public ImageDoodad.f g() {
       return this.b;
    }
 
@@ -200,7 +202,7 @@ public class p {
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
-         com.nowcomputing.d.g var4 = (com.nowcomputing.d.g)var3.next();
+         ImageDoodad.g var4 = (ImageDoodad.g)var3.next();
          short var5 = var4.e();
          if (var5 != 0 && var5 != 1 && var5 != 3 && var5 != 2) {
             ++var1;
@@ -230,7 +232,7 @@ public class p {
    }
 
    public void i() {
-      com.nowcomputing.b.a var1 = new com.nowcomputing.b.a(this.i, (com.nowcomputing.a)null, true);
+      LockingUtil.a var1 = new LockingUtil.a(this.i, (com.nowcomputing.a)null, true);
       var1.a();
       this.e.a(var1.b());
       this.d(true);
@@ -238,7 +240,7 @@ public class p {
 
    public void a(com.nowcomputing.f.b.e var1) {
       var1.e();
-      com.nowcomputing.b.a var2 = new com.nowcomputing.b.a(this.i, var1.c(), true);
+      LockingUtil.a var2 = new LockingUtil.a(this.i, var1.c(), true);
       var2.a();
       var1.a(var2.b());
       var1.d();

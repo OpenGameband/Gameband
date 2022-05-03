@@ -8,17 +8,17 @@ class l implements com.nowcomputing.i {
    // $FF: synthetic field
    final R b;
    // $FF: synthetic field
-   final k c;
+   final TechnicLauncher c;
 
-   l(k var1, com.nowcomputing.h var2, R var3) {
+   l(TechnicLauncher var1, com.nowcomputing.h var2, R var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;
    }
 
    public void a(long var1) {
-      k.a(this.c, var1);
-      int var3 = (int)((float)k.a(this.c) / (float)this.a.a() * 100.0F);
+      TechnicLauncher.a(this.c, var1);
+      int var3 = (int)((float) TechnicLauncher.a(this.c) / (float)this.a.a() * 100.0F);
       if (var3 == 100) {
          this.b.b();
       } else {

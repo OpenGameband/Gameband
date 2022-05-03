@@ -1,5 +1,7 @@
 package com.nowcomputing.b.a;
 
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.LockingUtil;
 import com.nowcomputing.f.L;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -41,7 +43,7 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 public class a extends JDialog implements ActionListener, MouseListener, MouseMotionListener {
-   private com.nowcomputing.b.a a;
+   private LockingUtil.a a;
    private com.nowcomputing.a b;
    private com.nowcomputing.f.n c;
    private Deque d;
@@ -49,10 +51,10 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
    private JMenuBar f;
    private JSlider g;
    private int h;
-   private com.nowcomputing.b.a.b.a i;
+   private LockingUtil.a.b.a i;
    private q j;
    private p k;
-   private com.nowcomputing.b.a.b.f l;
+   private LockingUtil.a.b.f l;
    private n m;
    private JButton n;
    private boolean o;
@@ -61,11 +63,11 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
    private SpinnerNumberModel r;
    private ImageIcon s;
    private ImageIcon t;
-   private com.nowcomputing.b.a.a.a u;
-   private com.nowcomputing.d v;
+   private LockingUtil.a.a.a u;
+   private ImageDoodad v;
    private boolean w;
 
-   public a(com.nowcomputing.b.a var1, JFrame var2, com.nowcomputing.a var3) {
+   public a(LockingUtil.a var1, JFrame var2, com.nowcomputing.a var3) {
       super(var2, true);
       this.c = new com.nowcomputing.f.n(com.nowcomputing.f.h.f, com.nowcomputing.f.n.a, 1);
       this.d = new ArrayDeque();
@@ -75,7 +77,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       this.b = var3;
       this.setDefaultCloseOperation(2);
       this.setResizable(false);
-      this.u = new com.nowcomputing.b.a.a.a(this);
+      this.u = new LockingUtil.a.a.a(this);
       this.B();
       this.c.setFocusable(true);
       this.a(this.h);
@@ -111,7 +113,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       return this.c;
    }
 
-   public com.nowcomputing.d c() {
+   public ImageDoodad c() {
       return this.b.a(this.h);
    }
 
@@ -195,7 +197,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
          int var2 = this.j.a().width;
          int var3 = this.j.a().height;
          if (this.v == null) {
-            com.nowcomputing.d var4 = new com.nowcomputing.d(var2, var3);
+            ImageDoodad var4 = new ImageDoodad(var2, var3);
             var4.a(this.c.a(), this.j.a().x, this.j.a().y, var2, var3, 0, 0);
             var1.a(var4);
          } else {
@@ -210,7 +212,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
    public void h() {
       this.f();
       p var1 = this.g();
-      com.nowcomputing.d var2 = new com.nowcomputing.d(var1.a().a(), var1.a().b());
+      ImageDoodad var2 = new ImageDoodad(var1.a().a(), var1.a().b());
       this.c().a(var2, var1.b().x, var1.b().y);
       this.m();
    }
@@ -236,7 +238,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
 
    public void k() {
       if (this.k != null) {
-         this.v = new com.nowcomputing.d(this.k.a().a(), this.k.a().b());
+         this.v = new ImageDoodad(this.k.a().a(), this.k.a().b());
          this.v.a(this.k.a());
          this.a(this.h);
          this.b().a(this.v, this.k.b().x, this.k.b().y);
@@ -246,11 +248,11 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
 
    }
 
-   public com.nowcomputing.b.a.b.a l() {
+   public LockingUtil.a.b.a l() {
       return this.i;
    }
 
-   public void a(com.nowcomputing.b.a.b.a var1) {
+   public void a(LockingUtil.a.b.a var1) {
       this.i = var1;
    }
 
@@ -335,7 +337,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
    }
 
    public void u() {
-      com.nowcomputing.d var1 = new com.nowcomputing.d(20, 7);
+      ImageDoodad var1 = new ImageDoodad(20, 7);
       var1.a(this.b.a(this.h));
       this.b.a(this.h, var1);
       this.m();
@@ -343,7 +345,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       this.u.q().setEnabled(this.b.a() < 50);
    }
 
-   public com.nowcomputing.b.a.a.a v() {
+   public LockingUtil.a.a.a v() {
       return this.u;
    }
 
@@ -386,7 +388,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       var1.setBackground(com.nowcomputing.f.h.d);
       var1.setBorder(new EmptyBorder(0, 33, 0, 0));
       var1.add(Box.createHorizontalStrut(49));
-      this.l = new com.nowcomputing.b.a.b.f(this);
+      this.l = new LockingUtil.a.b.f(this);
       this.l.setBackground(com.nowcomputing.f.h.e);
       JPanel var2 = new JPanel(new BorderLayout());
       var2.add(this.l, "Center");
@@ -594,7 +596,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       this.a(var1, this.u.k());
    }
 
-   private void a(JMenu var1, com.nowcomputing.b.a.a.b var2) {
+   private void a(JMenu var1, LockingUtil.a.a.b var2) {
       JMenuItem var3 = new JMenuItem(var2);
       var3.setIcon((Icon)null);
       var1.add(var3);
@@ -660,7 +662,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
 
    public void w() {
       if (this.d.size() > 0) {
-         this.a((com.nowcomputing.d)null);
+         this.a((ImageDoodad)null);
          this.e.push(new k(this.b, this.h));
          this.u.j().setEnabled(true);
          this.a((k)this.d.pop());
@@ -701,7 +703,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       this.a(var1.b());
    }
 
-   public void a(com.nowcomputing.d var1) {
+   public void a(ImageDoodad var1) {
       this.v = var1;
    }
 
@@ -713,7 +715,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
             this.c().a(this.v, var1.a().x, var1.a().y);
             this.m();
             this.a((Rectangle)null);
-            this.a((com.nowcomputing.d)null);
+            this.a((ImageDoodad)null);
          }
       }
 
@@ -725,7 +727,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
       } else if (this.d.size() == 0) {
          return true;
       } else {
-         com.nowcomputing.b.a.a.i var1 = this.u.h();
+         LockingUtil.a.a.i var1 = this.u.h();
          var1.actionPerformed((ActionEvent)null);
          return true;
       }
@@ -753,7 +755,7 @@ public class a extends JDialog implements ActionListener, MouseListener, MouseMo
    }
 
    // $FF: synthetic method
-   static com.nowcomputing.b.a.a.a c(a var0) {
+   static LockingUtil.a.a.a c(a var0) {
       return var0.u;
    }
 

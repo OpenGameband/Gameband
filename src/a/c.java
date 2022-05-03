@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 public class c extends l {
     public c(GamebandConfig var1) {
         super(var1);
-        File var2 = D.c();
+        File var2 = D.getMinecraftPath();
         if (!var2.exists()) {
             var2.mkdir();
         }

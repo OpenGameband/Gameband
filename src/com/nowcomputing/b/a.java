@@ -1,10 +1,12 @@
 package com.nowcomputing.b;
 
+import com.nowcomputing.LockingUtil;
+
 import javax.swing.JFrame;
 
 public class a {
    private JFrame a;
-   private com.nowcomputing.b.a.a b;
+   private LockingUtil.a.a b;
 
    public a(JFrame var1, com.nowcomputing.a var2, boolean var3) {
       this.a = var1;
@@ -12,7 +14,7 @@ public class a {
          var2 = new com.nowcomputing.a(10, 20);
       }
 
-      this.b = new com.nowcomputing.b.a.a(this, this.a, var2);
+      this.b = new LockingUtil.a.a(this, this.a, var2);
       this.b.a(var3);
    }
 

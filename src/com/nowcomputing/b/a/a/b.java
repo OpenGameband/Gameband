@@ -1,13 +1,15 @@
 package com.nowcomputing.b.a.a;
 
+import com.nowcomputing.LockingUtil;
+
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
 public abstract class b extends AbstractAction {
-   protected com.nowcomputing.b.a.a a;
+   protected LockingUtil.a.a a;
 
-   public b(com.nowcomputing.b.a.a var1, String var2, ImageIcon var3, String var4, Integer var5, KeyStroke var6) {
+   public b(LockingUtil.a.a var1, String var2, ImageIcon var3, String var4, Integer var5, KeyStroke var6) {
       super(var2, var3);
       this.a = var1;
       this.putValue("ShortDescription", var4);

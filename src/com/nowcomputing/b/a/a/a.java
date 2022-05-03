@@ -1,5 +1,7 @@
 package com.nowcomputing.b.a.a;
 
+import com.nowcomputing.LockingUtil;
+
 import java.awt.Toolkit;
 import java.net.URL;
 import javax.swing.ImageIcon;
@@ -24,7 +26,7 @@ public class a {
    private f p;
    private g q;
 
-   public a(com.nowcomputing.b.a.a var1) {
+   public a(LockingUtil.a.a var1) {
       this.a = new k(var1, com.nowcomputing.f.a("IMPORT_MENU"), a("import.png"), com.nowcomputing.f.a("IMPORT_MENU_DESC"), new Integer(73), (KeyStroke)null);
       this.b = new i(var1, com.nowcomputing.f.a("EXPORT_MENU"), a("export.png"), com.nowcomputing.f.a("EXPORT_MENU_DESC"), new Integer(69), (KeyStroke)null);
       this.c = new h(var1, com.nowcomputing.f.a("EXIT_MENU"), (ImageIcon)null, com.nowcomputing.f.a("EXIT_MENU_DESC"), new Integer(88), (KeyStroke)null);
@@ -46,7 +48,7 @@ public class a {
 
    static ImageIcon a(String var0) {
       String var1 = "/resources/" + var0;
-      URL var2 = com.nowcomputing.b.a.a.class.getResource(var1);
+      URL var2 = LockingUtil.a.a.class.getResource(var1);
       if (var2 == null) {
          System.err.println("Resource not found: " + var1);
          return null;

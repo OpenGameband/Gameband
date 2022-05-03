@@ -1,7 +1,8 @@
 package com.nowcomputing.f.b;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.d.o;
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.ImageDoodad.o;
 import com.nowcomputing.f.a.t;
 
 public class m extends e {
@@ -14,13 +15,13 @@ public class m extends e {
       this.g = new com.nowcomputing.a.g();
       this.a.a(this.g);
       this.a(GamebandConfig.d.a);
-      this.a.h().b(new com.nowcomputing.d(20, 7));
-      this.a.i().b(new com.nowcomputing.d(20, 7));
+      this.a.h().b(new ImageDoodad(20, 7));
+      this.a.i().b(new ImageDoodad(20, 7));
       this.g.a(var2.b(), com.nowcomputing.a.h.a, 0, 20);
       this.f();
    }
 
-   public com.nowcomputing.d.g b() {
+   public ImageDoodad.g b() {
       return this.a;
    }
 }

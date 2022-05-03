@@ -1,7 +1,7 @@
 package a;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import com.nowcomputing.X;
 import com.nowcomputing.f.R;
 import java.io.BufferedReader;
@@ -12,10 +12,10 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.logging.Level;
 
-public class m extends AbstractMinecraftLauncher {
+public class VoidLauncher extends AbstractMinecraftLauncher {
    private int c;
 
-   public m(GamebandConfig var1) {
+   public VoidLauncher(GamebandConfig var1) {
       super(var1);
    }
 
@@ -58,7 +58,7 @@ public class m extends AbstractMinecraftLauncher {
 
    private X l() {
       try {
-         InputStream var1 = S.e("http://voidswrath.com/release/releases/version.txt");
+         InputStream var1 = Utils.e("http://voidswrath.com/release/releases/version.txt");
          BufferedReader var2 = new BufferedReader(new InputStreamReader(var1));
          String var3 = var2.readLine();
          return new X(var3);
@@ -72,7 +72,7 @@ public class m extends AbstractMinecraftLauncher {
       try {
          File var1 = new File(this.h(), "void/VoidLauncher/jarversion");
          if (var1.exists()) {
-            String var2 = S.b(var1);
+            String var2 = Utils.readFileLazy(var1);
             return new X(var2);
          }
       } catch (Exception var3) {
@@ -103,12 +103,12 @@ public class m extends AbstractMinecraftLauncher {
    }
 
    // $FF: synthetic method
-   static int a(m var0, long var1) {
+   static int a(VoidLauncher var0, long var1) {
       return var0.c = (int)((long)var0.c + var1);
    }
 
    // $FF: synthetic method
-   static int a(m var0) {
+   static int a(VoidLauncher var0) {
       return var0.c;
    }
 }

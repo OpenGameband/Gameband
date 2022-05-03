@@ -1,7 +1,9 @@
 package com.nowcomputing.d;
 
+import com.nowcomputing.ImageDoodad;
+
 public interface m {
-   void a(com.nowcomputing.d var1);
+   void a(ImageDoodad var1);
 
    void a();
 }

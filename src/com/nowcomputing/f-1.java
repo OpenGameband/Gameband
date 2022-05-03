@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class f {
-   public static final Logger a = Logger.getLogger(S.class.getName());
+   public static final Logger a = Logger.getLogger(Utils.class.getName());
    private static final File f = new File(D.b(), "locale");
    private static final File g = new File(D.b(), "tz");
    private static final File h = new File(D.b(), "tzone");
@@ -30,7 +30,7 @@ public class f {
    private static void f() {
       Object var0 = null;
       if (f.exists()) {
-         var0 = S.h(f);
+         var0 = Utils.h(f);
       }
 
       if (var0 != null && var0 instanceof Locale) {
@@ -56,7 +56,7 @@ public class f {
    private static void a(File var0) {
       Object var1 = null;
       if (var0.exists()) {
-         var1 = S.h(var0);
+         var1 = Utils.h(var0);
       }
 
       if (var1 != null && var1 instanceof TimeZone) {
@@ -95,7 +95,7 @@ public class f {
          c = var0;
          b();
          ResourceBundle.clearCache();
-         ClassLoader var1 = S.a(D.b().getPath());
+         ClassLoader var1 = Utils.a(D.b().getPath());
          b = ResourceBundle.getBundle("translations", a(), var1);
          Iterator var2 = d.iterator();
 
@@ -104,7 +104,7 @@ public class f {
             var3.c();
          }
 
-         S.a((Object)c, (File)f);
+         Utils.writeLocaleFile((Object)c, (File)f);
       } catch (Exception var4) {
          a.log(Level.FINE, "Error setting locale " + var0.getDisplayName(), var4);
       }
@@ -124,7 +124,7 @@ public class f {
       if (b == null) {
          try {
             if (k == null) {
-               k = S.a(D.b().getPath());
+               k = Utils.a(D.b().getPath());
             }
 
             b = ResourceBundle.getBundle("translations", a(), k);
@@ -140,7 +140,7 @@ public class f {
       ResourceBundle[] var0 = new ResourceBundle[0];
 
       try {
-         ClassLoader var1 = S.a(D.b().getPath());
+         ClassLoader var1 = Utils.a(D.b().getPath());
          HashSet var2 = new HashSet();
          Locale[] var3 = Locale.getAvailableLocales();
          int var4 = var3.length;
@@ -185,6 +185,6 @@ public class f {
 
    public static void a(TimeZone var0) {
       e = var0;
-      S.a((Object)e, (File)h);
+      Utils.writeLocaleFile((Object)e, (File)h);
    }
 }

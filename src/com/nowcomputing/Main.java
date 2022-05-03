@@ -3,31 +3,33 @@ package com.nowcomputing;
 import com.codeminders.hidapi.ClassPathLibraryLoader;
 import com.nowcomputing.f.ak;
 import com.nowcomputing.f.am;
+import com.nowcomputing.f.s;
 import java.awt.Cursor;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import a.*;
 
 public class Main {
    private static final Logger logger;
    private static com.nowcomputing.d.f b;
-   private static Vector c;
-   private static com.nowcomputing.f.s d;
-   private static b e;
+   private static Vector<AbstractMinecraftLauncher> vec;
+   private static s d;
+   private static LockingUtil e;
 
-   public static void main(String[] var0) {
+   public static void main(String[] args) {
       System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
       Runtime.getRuntime().addShutdownHook(new u());
 
       try {
-         GamebandConfig var1 = new GamebandConfig(GamebandConfig.defaultConfigFile);
+         GamebandConfig config = new GamebandConfig(GamebandConfig.defaultConfigFile);
          am.a();
-         e = new b("Gameband");
+         e = new LockingUtil("Gameband");
 
          try {
-            if (!e.a()) {
+            if (!e.lock()) {
                logger.log(Level.INFO, "Another instance of this application is already running. Exiting.");
                System.out.println("Another instance of this application is already running. Exiting.");
                System.exit(0);
@@ -37,12 +39,12 @@ public class Main {
             var6.printStackTrace();
          }
 
-         ak var2 = new ak(var1, 1000);
-         logger.log(Level.FINE, S.e());
-         h();
-         S.d();
+         ak var2 = new ak(config, 1000);
+         logger.log(Level.FINE, Utils.e());
+         removeOldPixelFurnaceBinariesBecauseYay();
+         Utils.d();
          ClassPathLibraryLoader.loadNativeHIDLibrary(D.b());
-         a(var1);
+         addLaunchers(config);
          F.a(D.b());
 
          try {
@@ -52,7 +54,7 @@ public class Main {
             logger.log(Level.INFO, "Error reading serial: " + var5);
          }
 
-         d = new com.nowcomputing.f.s(var1, b);
+         d = new com.nowcomputing.f.s(config, b);
          var2.b();
          var2.a();
          logger.log(Level.FINE, "Splash finished");
@@ -75,8 +77,8 @@ public class Main {
 
    }
 
-   private static void h() {
-      S.f(new File("PixelFurnace.app"));
+   private static void removeOldPixelFurnaceBinariesBecauseYay() {
+      Utils.f(new File("PixelFurnace.app"));
       File var0 = new File("PixelFurnace.exe");
       if (var0.exists()) {
          var0.delete();
@@ -100,35 +102,34 @@ public class Main {
       }
    }
 
-   public static void a(GamebandConfig var0) {
-      c = new Vector();
-      c.add(new a.g(var0));
-      c.add(new a.k(var0));
-      c.add(new a.a(var0));
-      c.add(new a.m(var0));
-      if (Boolean.parseBoolean(var0.getProperty("launcher.minecraftedu", "false"))) {
-         c.add(new a.d(var0));
+   public static void addLaunchers(GamebandConfig config) {
+      vec = new Vector<>();
+      vec.add(new MinecraftLauncher(config));
+      vec.add(new TechnicLauncher(config));
+      vec.add(new FTBLauncher(config));
+      vec.add(new VoidLauncher(config));
+      if (Boolean.parseBoolean(config.getProperty("launcher.minecraftedu", "false"))) {
+         vec.add(new MinecraftEduLauncher(config));
       }
-
    }
 
-   public static Vector b() {
-      return c;
+   public static Vector getLaunchers() {
+      return vec;
    }
 
-   public static a.e c() {
-      Iterator var0 = c.iterator();
+   public static AbstractMinecraftLauncher c() {
+      Iterator<AbstractMinecraftLauncher> var0 = vec.iterator();
 
-      a.e var1;
+      AbstractMinecraftLauncher launcher;
       do {
          if (!var0.hasNext()) {
-            return (a.e)c.get(0);
+            return vec.get(0);
          }
 
-         var1 = (a.e)var0.next();
-      } while(!var1.e());
+         launcher = var0.next();
+      } while(!launcher.isJavaLaunchCommandValid());
 
-      return var1;
+      return launcher;
    }
 
    public static v d() {
@@ -150,20 +151,20 @@ public class Main {
    }
 
    // $FF: synthetic method
-   static Logger f() {
+   static Logger getLogger() {
       return logger;
    }
 
    // $FF: synthetic method
-   static b g() {
+   static LockingUtil g() {
       return e;
    }
 
    static {
       System.setProperty("java.util.logging.manager", V.class.getName());
       logger = Logger.getLogger("com.nowcomputing");
-      b = new com.nowcomputing.d.f();
-      c = null;
+      b = new ImageDoodad.f();
+      vec = null;
       e = null;
    }
 }

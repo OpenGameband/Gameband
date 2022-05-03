@@ -6,76 +6,76 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class D {
-   public static final Logger a = Logger.getLogger(S.class.getName());
-   private static File b = e();
-   private static File c;
-   private static File d;
-   private static File e;
+   public static final Logger logger = Logger.getLogger(Utils.class.getName());
+   private static File gamebandPath = getJarLocation();
+   private static File libPath;
+   private static File minecraftPath;
+   private static File tmpPath;
 
-   public static File a() {
-      return b;
+   public static File getGamebandPath() {
+      return gamebandPath;
    }
 
-   public static File b() {
-      return c;
+   public static File getLibPath() {
+      return libPath;
    }
 
-   public static File c() {
-      return d;
+   public static File getMinecraftPath() {
+      return minecraftPath;
    }
 
-   private static void d() {
-      c = new File(b, ".lib");
-      e = new File(b, ".tmp");
-      d = new File(b, "minecraft");
+   private static void setPaths() {
+      libPath = new File(gamebandPath, ".lib");
+      tmpPath = new File(gamebandPath, ".tmp");
+      minecraftPath = new File(gamebandPath, "minecraft");
    }
 
-   private static File e() {
-      File var0 = null;
+   private static File getJarLocation() {
+      File gamebandPath = null;
 
       try {
-         File var1 = new File(D.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-         var0 = var1.getParentFile().getParentFile();
+         File jarPath = new File(D.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+         gamebandPath = jarPath.getParentFile().getParentFile();
       } catch (URISyntaxException var2) {
       }
 
-      return var0;
+      return gamebandPath;
    }
 
-   private static File f() {
-      File var0 = null;
+   private static File getUSBMount() {
+      File mountPath = null;
 
       try {
-         String var1 = GbUtilNative.getUsbMount(10896, 49);
-         a.log(Level.INFO, "getUsbMount:  " + var1);
-         a.log(Level.INFO, "getUsbMount.getAbsolutePath:  " + (new File(var1)).getAbsolutePath());
-         var0 = new File(var1);
-      } catch (Throwable var2) {
-         a.log(Level.INFO, "Error from getUsbMount: " + var2);
+         String mountPathString = GbUtilNative.getUsbMount(10896, 49);
+         logger.log(Level.INFO, "getUsbMount:  " + mountPathString);
+         logger.log(Level.INFO, "getUsbMount.getAbsolutePath:  " + (new File(mountPathString)).getAbsolutePath());
+         mountPath = new File(mountPathString);
+      } catch (Throwable e) {
+         logger.log(Level.INFO, "Error from getUsbMount: " + e);
       }
 
-      return var0;
+      return mountPath;
    }
 
-   public static void a(String var0) {
-      d = new File(b, var0);
+   public static void setMinecraftPath(String var0) {
+      minecraftPath = new File(gamebandPath, var0);
    }
 
    static {
-      if (b == null) {
-         b = new File(".");
+      if (gamebandPath == null) {
+         gamebandPath = new File(".");
       }
 
-      String var0 = System.getProperties().getProperty("GAMEBAND_WORKING_DIR");
-      if (var0 != null && !var0.isEmpty()) {
-         b = new File(var0);
+      String gamebandWorkingDir = System.getProperties().getProperty("GAMEBAND_WORKING_DIR");
+      if (gamebandWorkingDir != null && !gamebandWorkingDir.isEmpty()) {
+         gamebandPath = new File(gamebandWorkingDir);
       }
 
-      d();
-      S.e(new File(c, "gameband.properties"));
-      File var1 = f();
-      if (!b.equals(var1)) {
-         a.log(Level.INFO, "Working dir [" + b.getAbsolutePath() + "] != gbMount [" + var1 + "]");
+      setPaths();
+      Utils.e(new File(libPath, "gameband.properties"));
+      File usbMountPath = getUSBMount();
+      if (!gamebandPath.equals(usbMountPath)) {
+         logger.log(Level.INFO, "Working dir [" + gamebandPath.getAbsolutePath() + "] != gbMount [" + usbMountPath + "]");
       }
 
    }

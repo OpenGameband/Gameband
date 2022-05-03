@@ -3,18 +3,17 @@ package a;
 import c.a.a.c;
 import c.a.a.a.b;
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import com.nowcomputing.f.R;
 import java.io.File;
-import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
 import java.util.logging.Level;
 
-public class k extends AbstractMinecraftLauncher {
+public class TechnicLauncher extends AbstractMinecraftLauncher {
    private int c;
 
-   public k(GamebandConfig var1) {
+   public TechnicLauncher(GamebandConfig var1) {
       super(var1);
    }
 
@@ -37,7 +36,7 @@ public class k extends AbstractMinecraftLauncher {
    }
 
    public void f() {
-      try {
+//      try {
          String var1 = this.h();
          a(new File(var1, "technic"));
          this.a(new File(var1), "TechnicLauncher.jar");
@@ -60,16 +59,16 @@ public class k extends AbstractMinecraftLauncher {
                } catch (InterruptedException var7) {
                }
 
-               if (S.b(var4, var5)) {
+               if (Utils.b(var4, var5)) {
                   logger.log(Level.FINE, "TechnicLauncher updated");
                } else {
                   logger.log(Level.WARNING, "Error updating TechnicLauncher");
                }
             }
          }
-      } catch (IOException var8) {
-         logger.log(Level.WARNING, "Error updating TechnicLauncher", var8);
-      }
+//      } catch (IOException e) {
+//         logger.log(Level.WARNING, "Error updating TechnicLauncher", e);
+//      }
 
    }
 
@@ -84,7 +83,7 @@ public class k extends AbstractMinecraftLauncher {
          var4.setVisible(true);
 
          try {
-            String var5 = S.a(S.e("http://api.technicpack.net/launcher/version/stable4"));
+            String var5 = Utils.getAllFromInputStream(Utils.e("http://api.technicpack.net/launcher/version/stable4"));
             b var6 = new b();
             c var7 = (c)var6.a(var5);
             c var8 = (c)var7.get("url");
@@ -109,7 +108,7 @@ public class k extends AbstractMinecraftLauncher {
       File var1 = new File(var0, "settings.json");
       if (var1 != null && var1.exists()) {
          try {
-            String var2 = S.b(var1);
+            String var2 = Utils.readFileLazy(var1);
             b var3 = new b();
             c var4 = (c)var3.a(var2);
             String var5 = (String)var4.get("directory");
@@ -134,7 +133,7 @@ public class k extends AbstractMinecraftLauncher {
       var1.put("directory", "portable");
       c.a.a.f var2 = new c.a.a.f();
       var1.a((Writer)var2);
-      S.a(var0, var2.toString());
+      Utils.a(var0, var2.toString());
    }
 
    public boolean g() {
@@ -142,12 +141,12 @@ public class k extends AbstractMinecraftLauncher {
    }
 
    // $FF: synthetic method
-   static int a(k var0, long var1) {
+   static int a(TechnicLauncher var0, long var1) {
       return var0.c = (int)((long)var0.c + var1);
    }
 
    // $FF: synthetic method
-   static int a(k var0) {
+   static int a(TechnicLauncher var0) {
       return var0.c;
    }
 }

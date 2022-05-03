@@ -7,7 +7,7 @@ package a;
 
 import com.nowcomputing.D;
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import com.nowcomputing.l;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class AbstractMinecraftLauncher {
-    protected static final Logger logger = Logger.getLogger(S.class.getName());
+    protected static final Logger logger = Logger.getLogger(Utils.class.getName());
     protected GamebandConfig config;
 
     protected AbstractMinecraftLauncher(GamebandConfig var1) {
@@ -48,20 +48,20 @@ public abstract class AbstractMinecraftLauncher {
 
             l.a(var1, this.h(), this.k());
         } catch (Exception var3) {
-            throw new IOException("Error launching '" + S.a(var1, " ") + "' : " + var3.toString());
+            throw new IOException("Error launching '" + Utils.a(var1, " ") + "' : " + var3.toString());
         }
     }
 
     public static String j() {
-        switch(f.a[S.b().ordinal()]) {
+        switch(f.a[Utils.b().ordinal()]) {
             case 1:
                 String var0 = System.getProperty("os.arch");
-                File var1 = new File(D.c(), "runtime");
+                File var1 = new File(D.getMinecraftPath(), "runtime");
                 File var2 = new File(var1, var0.contains("x86") ? "jre-x32" : "jre-x64");
                 return getJavaPath(var2.getAbsoluteFile());
             case 2:
                 if (MinecraftLauncher.isOSVersionCompatible()) {
-                    return getJavaPath(new File(D.c(), "Minecraft.app/Contents/runtime/jre-x64"));
+                    return getJavaPath(new File(D.getMinecraftPath(), "Minecraft.app/Contents/runtime/jre-x64"));
                 }
             case 3:
             case 4:
@@ -108,7 +108,7 @@ public abstract class AbstractMinecraftLauncher {
         } catch (Exception e) {
             logger.log(Level.FINE, "Error running java: ", e);
         } finally {
-            S.closeButUnsafe(buf);
+            Utils.closeButUnsafe(buf);
         }
 
         return false;
@@ -120,7 +120,7 @@ public abstract class AbstractMinecraftLauncher {
     }
 
     public String h() {
-        String var1 = D.c().getAbsolutePath();
+        String var1 = D.getMinecraftPath().getAbsolutePath();
         var1 = GamebandConfig.fixPath(var1);
         return var1;
     }

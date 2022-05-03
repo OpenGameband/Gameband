@@ -4,53 +4,65 @@ import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// Some of the only "sane" code in here, makes minimal references to the rest of the code, though I don't think it's even used
 public class GbUtilNative {
    private static final Logger logger = Logger.getLogger(GbUtilNative.class.getName());
-   private static final String[] b = new String[]{"gbutil_jni_64.dll", "gbutil_jni_32.dll"};
-   private static final String[] c = new String[]{"libgbutil_jni_64.dylib", "libgbutil_jni_32.dylib"};
-   private static final String[] d = new String[]{"libgbutil_jni_64.so", "libgbutil_jni_32.so"};
+   private static final String[] windowsGBUtil = new String[]{"gbutil_jni_64.dll", "gbutil_jni_32.dll"};
+   private static final String[] macGBUtil = new String[]{"libgbutil_jni_64.dylib", "libgbutil_jni_32.dylib"};
+   private static final String[] linuxGBUtil = new String[]{"libgbutil_jni_64.so", "libgbutil_jni_32.so"};
 
-   public static boolean a() {
-      // $FF: Couldn't be decompiled
+   public static boolean loadNativeLibrary() {
+      switch (p.a[Utils.b().ordinal()]) {
+         case 1: {
+            return GbUtilNative.loadNativeLibrary(windowsGBUtil);
+         }
+         case 2: {
+            return GbUtilNative.loadNativeLibrary(macGBUtil);
+         }
+         case 3: {
+            return GbUtilNative.loadNativeLibrary(linuxGBUtil);
+         }
+      }
+      return false;
    }
 
-   private static boolean a(String[] var0) {
-      String[] var1 = var0;
+   private static boolean loadNativeLibrary(String[] var0) {
+      String[] libArray = var0;
       int var2 = var0.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         String var4 = var1[var3];
-         File var5 = new File(D.b(), var4);
+         String nativeLib = libArray[var3];
+         File libFile = new File(D.b(), nativeLib);
 
          try {
-            Runtime.getRuntime().load(var5.getAbsolutePath());
-            logger.log(Level.FINE, "Successfully loaded native library: " + var5.getAbsolutePath());
+            Runtime.getRuntime().load(libFile.getAbsolutePath());
+            logger.log(Level.FINE, "Successfully loaded native library: " + libFile.getAbsolutePath());
             return true;
-         } catch (Exception var7) {
-            logger.log(Level.INFO, "Error loading library: " + var5.getAbsolutePath(), var7);
-         } catch (UnsatisfiedLinkError var8) {
-            logger.log(Level.INFO, var8.toString());
+         } catch (Exception e) {
+            logger.log(Level.INFO, "Error loading library: " + libFile.getAbsolutePath(), e);
+         } catch (UnsatisfiedLinkError ex) {
+            logger.log(Level.INFO, ex.toString());
          }
       }
 
       return false;
    }
 
-   public static native String getUsbMount(int var0, int var1);
+   public static native String getUsbMount(int vid, int pid);
 
-   public static native String getUsbSerial(int var0, int var1);
+   public static native String getUsbSerial(int vid, int pid);
 
-   public static native int lockInstance(String var0);
+   public static native int lockInstance(String name); // don't know why these exist, nor what they do
 
-   public static native void unlockInstance(int var0, String var1);
+   public static native void unlockInstance(int instance, String name);
 
    static {
       try {
-         a();
-      } catch (UnsatisfiedLinkError var1) {
-         logger.log(Level.INFO, var1.toString());
-      } catch (Throwable var2) {
-         logger.log(Level.INFO, "Exception loading native library: ", var2);
+         loadNativeLibrary();
+      } catch (UnsatisfiedLinkError e) {
+         logger.log(Level.INFO, e.toString());
+      } catch (Throwable ex) { // TODO: this is really bad exception handling, why.
+         logger.log(Level.INFO, "Exception loading native library: ", ex);
       }
 
    }

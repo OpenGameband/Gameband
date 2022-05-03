@@ -1,5 +1,7 @@
 package com.nowcomputing.b.a;
 
+import com.nowcomputing.LockingUtil;
+
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -14,10 +16,10 @@ class e implements ChangeListener {
 
    public void stateChanged(ChangeEvent var1) {
       JSpinner var2 = (JSpinner)var1.getSource();
-      com.nowcomputing.b.a.a.a(this.a).b((Integer)var2.getValue());
-      com.nowcomputing.b.a.a.b(this.a).setMaximum(com.nowcomputing.b.a.a.a(this.a).a() - 1);
-      com.nowcomputing.b.a.a.c(this.a).o().setEnabled(com.nowcomputing.b.a.a.a(this.a).a() > 1);
-      com.nowcomputing.b.a.a.c(this.a).n().setEnabled(com.nowcomputing.b.a.a.a(this.a).a() < 50);
-      com.nowcomputing.b.a.a.c(this.a).q().setEnabled(com.nowcomputing.b.a.a.a(this.a).a() < 50);
+      LockingUtil.logger.a.a(this.a).b((Integer)var2.getValue());
+      LockingUtil.logger.a.b(this.a).setMaximum(LockingUtil.logger.a.a(this.a).a() - 1);
+      LockingUtil.logger.a.c(this.a).o().setEnabled(LockingUtil.logger.a.a(this.a).a() > 1);
+      LockingUtil.logger.a.c(this.a).n().setEnabled(LockingUtil.logger.a.a(this.a).a() < 50);
+      LockingUtil.logger.a.c(this.a).q().setEnabled(LockingUtil.logger.a.a(this.a).a() < 50);
    }
 }

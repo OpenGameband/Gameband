@@ -1,6 +1,7 @@
 package com.nowcomputing.d;
 
-import com.nowcomputing.S;
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Utils;
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
 
@@ -9,7 +10,7 @@ public class c extends g {
 
    public c(ExecutorService var1) {
       super((short)17, var1);
-      this.a(S.c());
+      this.a(Utils.c());
    }
 
    public c(n var1, ExecutorService var2) {
@@ -62,8 +63,8 @@ public class c extends g {
 
       this.e.a(this.e());
       this.e.d(this.j());
-      this.a(S.c());
-      this.e.a(com.nowcomputing.d.a(this.b()));
+      this.a(Utils.c());
+      this.e.a(ImageDoodad.a(this.b()));
       return this.e;
    }
 }

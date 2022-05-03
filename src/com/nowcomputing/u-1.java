@@ -2,24 +2,25 @@ package com.nowcomputing;
 
 import java.util.logging.Level;
 
+// this does mac shenanigans
 final class u extends Thread {
    public void run() {
       try {
-         Main.f().log(Level.FINE, "Gameband application exiting...");
+         Main.getLogger().log(Level.FINE, "Gameband application exiting...");
          if (Main.g() != null) {
             try {
-               Main.g().b();
+               Main.g().unlock();
             } catch (Throwable var7) {
             }
          }
 
          try {
-            S.f();
+            Utils.f();
          } catch (Exception var6) {
-            Main.f().log(Level.WARNING, "Error calling lsregister", var6);
+            Main.getLogger().log(Level.WARNING, "Error calling lsregister", var6);
          }
 
-         Main.f().log(Level.FINE, "Gameband application exited.");
+         Main.getLogger().log(Level.FINE, "Gameband application exited.");
       } finally {
          V.a();
       }

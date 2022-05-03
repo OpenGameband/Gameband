@@ -1,7 +1,9 @@
 package com.nowcomputing.b.a.b;
 
-import com.nowcomputing.b.a.p;
-import com.nowcomputing.b.a.q;
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.LockingUtil;
+import com.nowcomputing.LockingUtil.a.p;
+import com.nowcomputing.LockingUtil.a.q;
 import com.nowcomputing.f.L;
 import java.awt.Cursor;
 import java.awt.Point;
@@ -22,7 +24,7 @@ public class b extends a {
    private c j = new c(this, 40);
    private c k = new c(this, 10);
 
-   b(com.nowcomputing.b.a.a var1) {
+   b(LockingUtil.a.a var1) {
       super(var1);
    }
 
@@ -89,7 +91,7 @@ public class b extends a {
 
       this.c = this.a.g();
       if (!this.c.c()) {
-         com.nowcomputing.d var2 = new com.nowcomputing.d(this.c.a().a(), this.c.a().b());
+         ImageDoodad var2 = new ImageDoodad(this.c.a().a(), this.c.a().b());
          this.a.c().a(var2, this.c.b().x, this.c.b().y);
          this.a.a(this.c.a());
       }

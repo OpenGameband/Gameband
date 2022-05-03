@@ -6,6 +6,6 @@ public enum v {
    c;
 
    public static v[] a() {
-      return (v[])d.clone();
+      return (v[]) ImageDoodad.clone();
    }
 }

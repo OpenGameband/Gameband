@@ -1,5 +1,7 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +19,7 @@ class k implements ActionListener {
       this.a.setCursor(Cursor.getPredefinedCursor(3));
 
       try {
-         com.nowcomputing.d.f var2 = new com.nowcomputing.d.f();
+         ImageDoodad.f var2 = new ImageDoodad.f();
          var2.f();
          var2.i();
          var2.j();

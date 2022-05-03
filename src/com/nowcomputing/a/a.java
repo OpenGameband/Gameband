@@ -1,5 +1,7 @@
 package com.nowcomputing.a;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -7,7 +9,7 @@ import javax.swing.Timer;
 public abstract class a implements ActionListener {
    protected int a = 20;
    protected b b;
-   protected Timer c;
+   protected Timer timer;
    private boolean d;
 
    protected void a() {
@@ -15,27 +17,27 @@ public abstract class a implements ActionListener {
    }
 
    public void b() {
-      this.c();
+      this.stopAndDestroyTimer();
       this.a();
       if (this.a < 1) {
          this.a = 1;
       }
 
-      this.c = new Timer(1000 / this.a, this);
-      this.c.start();
+      this.timer = new Timer(1000 / this.a, this);
+      this.timer.start();
    }
 
-   public void c() {
-      if (this.c != null) {
-         this.c.stop();
-         this.c = null;
+   public void stopAndDestroyTimer() {
+      if (this.timer != null) {
+         this.timer.stop();
+         this.timer = null;
       }
 
    }
 
    public abstract boolean d();
 
-   public abstract com.nowcomputing.d e();
+   public abstract ImageDoodad e();
 
    public void actionPerformed(ActionEvent var1) {
       if (this.b != null && this.d()) {

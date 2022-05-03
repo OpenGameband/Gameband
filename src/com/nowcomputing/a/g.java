@@ -1,7 +1,9 @@
 package com.nowcomputing.a;
 
+import com.nowcomputing.ImageDoodad;
+
 public class g extends a {
-   private com.nowcomputing.d d;
+   private ImageDoodad d;
    private int e;
    private int f;
    private h g;
@@ -11,14 +13,14 @@ public class g extends a {
    private boolean k;
 
    public void a(String var1, h var2, int var3, int var4, boolean var5) {
-      this.d = com.nowcomputing.d.a(var1);
+      this.d = ImageDoodad.a(var1);
       this.g = var2;
       this.h = var3;
       this.i = var4;
       this.k = var5;
    }
 
-   public void a(com.nowcomputing.d var1, h var2, int var3, int var4) {
+   public void a(ImageDoodad var1, h var2, int var3, int var4) {
       this.d = var1;
       this.g = var2;
       this.h = var3;
@@ -50,7 +52,7 @@ public class g extends a {
       }
    }
 
-   public com.nowcomputing.d e() {
+   public ImageDoodad e() {
       if (this.g == com.nowcomputing.a.h.a && this.f == 0) {
          if (--this.j > 0) {
             return this.d;
@@ -59,7 +61,7 @@ public class g extends a {
          return this.a(this.d, this.f, 0);
       }
 
-      com.nowcomputing.d var1 = null;
+      ImageDoodad var1 = null;
       var1 = this.a(this.d, this.f--, 0);
       if (--this.e < 0) {
          this.a(true);
@@ -68,8 +70,8 @@ public class g extends a {
       return var1;
    }
 
-   private com.nowcomputing.d a(com.nowcomputing.d var1, int var2, int var3) {
-      com.nowcomputing.d var4 = new com.nowcomputing.d(20, 7);
+   private ImageDoodad a(ImageDoodad var1, int var2, int var3) {
+      ImageDoodad var4 = new ImageDoodad(20, 7);
       var4.a(var1, var2, var3);
       return var4;
    }

@@ -1,5 +1,7 @@
 package com.nowcomputing.e;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +10,14 @@ import java.util.Random;
 public class i extends a {
    private List h;
    Random g = new Random();
-   private com.nowcomputing.d i;
+   private ImageDoodad i;
 
    i() {
       this.d = 2;
    }
 
    protected synchronized void a() {
-      this.i = new com.nowcomputing.d(20, 7);
+      this.i = new ImageDoodad(20, 7);
       if (this.e != null) {
          this.i.a(this.e, 20, 7, 0, 0);
       }
@@ -31,7 +33,7 @@ public class i extends a {
       super.a();
    }
 
-   public synchronized com.nowcomputing.d e() {
+   public synchronized ImageDoodad e() {
       this.b(8);
       if (this.h.size() == 0) {
          this.a(true);

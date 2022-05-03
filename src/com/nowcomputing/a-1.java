@@ -25,7 +25,7 @@ public class a {
       this.a = new ArrayList(var1);
 
       for(int var3 = 0; var3 < var1; ++var3) {
-         this.a.add(new d(20, 7));
+         this.a.add(new ImageDoodad(20, 7));
       }
 
    }
@@ -35,7 +35,7 @@ public class a {
       this.a = new ArrayList(var1.a.size());
 
       for(int var2 = 0; var2 < var1.a.size(); ++var2) {
-         this.a.add(new d((d)var1.a.get(var2)));
+         this.a.add(new ImageDoodad((ImageDoodad)var1.a.get(var2)));
       }
 
    }
@@ -57,14 +57,14 @@ public class a {
          this.a = new ArrayList(var2);
 
          for(int var3 = 0; var3 < var2; ++var3) {
-            this.a.add(d.a((BufferedImage)((r)var1.get(var3)).a, 20, 7));
+            this.a.add(ImageDoodad.a((BufferedImage)((r)var1.get(var3)).a, 20, 7));
          }
       }
 
    }
 
-   public d a(int var1) {
-      return (d)this.a.get(var1);
+   public ImageDoodad a(int var1) {
+      return (ImageDoodad)this.a.get(var1);
    }
 
    public int a() {
@@ -77,7 +77,7 @@ public class a {
       }
 
       while(var1 > this.a.size()) {
-         this.a.add(new d(20, 7));
+         this.a.add(new ImageDoodad(20, 7));
       }
 
    }
@@ -129,7 +129,7 @@ public class a {
       Iterator var14 = this.a.iterator();
 
       while(var14.hasNext()) {
-         d var15 = (d)var14.next();
+         ImageDoodad var15 = (ImageDoodad)var14.next();
          var2.writeToSequence(new IIOImage(var15.d(), (List)null, var5), var3);
       }
 
@@ -163,17 +163,17 @@ public class a {
       Iterator var1 = this.a.iterator();
 
       while(var1.hasNext()) {
-         d var2 = (d)var1.next();
+         ImageDoodad var2 = (ImageDoodad)var1.next();
          var2.c();
       }
 
    }
 
    public void d(int var1) {
-      this.a(var1, new d(20, 7));
+      this.a(var1, new ImageDoodad(20, 7));
    }
 
-   public void a(int var1, d var2) {
+   public void a(int var1, ImageDoodad var2) {
       this.a.add(var1, var2);
    }
 

@@ -1,7 +1,7 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +16,7 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
 public class f {
-   private static final Logger a = Logger.getLogger(S.class.getName());
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
    private p b = new p();
    private List c = new ArrayList();
    private d d = new d();
@@ -214,7 +214,7 @@ public class f {
 
    private short[] b(short[] var1) {
       byte[] var2 = a(var1, 12, var1[9]);
-      short[] var3 = S.a(var2);
+      short[] var3 = Utils.a(var2);
       return var3;
    }
 

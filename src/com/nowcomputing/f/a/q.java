@@ -1,5 +1,6 @@
 package com.nowcomputing.f.a;
 
+import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.f.y;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,7 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class q extends JPanel implements com.nowcomputing.d.m {
+public class q extends JPanel implements ImageDoodad.m {
    private final com.nowcomputing.f.n a;
    private BufferedImage b;
    private List c;
@@ -67,7 +68,7 @@ public class q extends JPanel implements com.nowcomputing.d.m {
 
    public void a(List var1) {
       if (this.d != 0) {
-         ((com.nowcomputing.d.g)this.c.get(this.d - 1)).g();
+         ((ImageDoodad.g)this.c.get(this.d - 1)).g();
          this.d = 0;
       }
 
@@ -76,15 +77,15 @@ public class q extends JPanel implements com.nowcomputing.d.m {
       Iterator var2 = this.c.iterator();
 
       while(var2.hasNext()) {
-         com.nowcomputing.d.g var3 = (com.nowcomputing.d.g)var2.next();
-         var3.a((com.nowcomputing.d.m)this);
+         ImageDoodad.g var3 = (ImageDoodad.g)var2.next();
+         var3.a((ImageDoodad.m)this);
       }
 
    }
 
    public void b() {
       if (this.d != 0) {
-         ((com.nowcomputing.d.g)this.c.get(this.d - 1)).g();
+         ((ImageDoodad.g)this.c.get(this.d - 1)).g();
       }
 
       if (this.d == this.c.size()) {
@@ -92,12 +93,12 @@ public class q extends JPanel implements com.nowcomputing.d.m {
       }
 
       if (this.c.size() > 0) {
-         ((com.nowcomputing.d.g)this.c.get(this.d++)).f();
+         ((ImageDoodad.g)this.c.get(this.d++)).f();
       }
 
    }
 
-   public void a(com.nowcomputing.d var1) {
+   public void a(ImageDoodad var1) {
       if (var1 != null) {
          this.a.a(var1, 0, 0);
       }

@@ -1,5 +1,7 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.Utils;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -23,7 +25,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public class i extends at implements ActionListener, MouseListener {
-   private static final Logger d = Logger.getLogger(com.nowcomputing.S.class.getName());
+   private static final Logger d = Logger.getLogger(Utils.class.getName());
    private JList e;
    private JLabel f;
    private JLabel g;

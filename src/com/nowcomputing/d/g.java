@@ -1,6 +1,7 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.GamebandConfig;
+import com.nowcomputing.ImageDoodad;
 
 import java.util.concurrent.ExecutorService;
 
@@ -55,7 +56,7 @@ public abstract class g implements com.nowcomputing.a.b {
 
    }
 
-   public void a(com.nowcomputing.d var1) {
+   public void a(ImageDoodad var1) {
       if (this.d != null) {
          this.d.a(var1);
       }

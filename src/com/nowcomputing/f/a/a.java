@@ -1,7 +1,7 @@
 package com.nowcomputing.f.a;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import java.awt.Color;
 import java.awt.LayoutManager;
 import java.util.logging.Logger;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class a extends JPanel {
-   private static final Logger a = Logger.getLogger(S.class.getName());
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
    private JComboBox b;
    private JButton c;
 

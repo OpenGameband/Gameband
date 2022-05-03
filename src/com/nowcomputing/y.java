@@ -11,11 +11,11 @@ class y implements Callable {
    }
 
    public Void a() {
-      if (w.a(this.a.a)) {
+      if (MinecraftDownloader.a(this.a.a)) {
          return null;
       } else {
-         w.a(this.a.a, 0L);
-         w.b(this.a.a, 0L);
+         MinecraftDownloader.a(this.a.a, 0L);
+         MinecraftDownloader.b(this.a.a, 0L);
          this.a.a.d();
          return null;
       }

@@ -1,5 +1,7 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Point;
@@ -55,7 +57,7 @@ public class n extends JPanel {
 
    }
 
-   public void a(com.nowcomputing.d var1, int var2, int var3) {
+   public void a(ImageDoodad var1, int var2, int var3) {
       int var4 = var1.a();
       int var5 = var1.b();
 
@@ -68,8 +70,8 @@ public class n extends JPanel {
       this.repaint();
    }
 
-   public com.nowcomputing.d a() {
-      com.nowcomputing.d var1 = new com.nowcomputing.d(20, 7);
+   public ImageDoodad a() {
+      ImageDoodad var1 = new ImageDoodad(20, 7);
 
       for(int var2 = 0; var2 < 7; ++var2) {
          for(int var3 = 0; var3 < 20; ++var3) {

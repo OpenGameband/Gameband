@@ -1,11 +1,11 @@
 package c.a.a.a;
 
-public class c extends Exception {
+public class UnexpectedDoodadException extends Exception {
    private int a;
    private Object b;
    private int c;
 
-   public c(int var1, int var2, Object var3) {
+   public UnexpectedDoodadException(int var1, int var2, Object var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;

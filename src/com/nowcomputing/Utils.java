@@ -1,21 +1,6 @@
 package com.nowcomputing;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -42,17 +27,19 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 
-public class S {
-   public static final Logger a = Logger.getLogger(S.class.getName());
+public class Utils {
+   public static final Logger logger = Logger.getLogger(Utils.class.getName());
 
-   public static String a(InputStream var0) {
+   public static String getAllFromInputStream(InputStream var0) {
       String var1 = "";
       BufferedReader var2 = null;
 
       String var3;
       try {
-         for(var2 = new BufferedReader(new InputStreamReader(var0)); (var3 = var2.readLine()) != null; var1 = var1 + var3) {
+         for (var2 = new BufferedReader(new InputStreamReader(var0)); (var3 = var2.readLine()) != null; var1 = var1 + var3) {
          }
+      }catch (IOException e){
+         logger.log(Level.WARNING, e.toString());
       } finally {
          closeButUnsafe((Closeable)var2);
       }
@@ -60,27 +47,32 @@ public class S {
       return var1;
    }
 
-   public static String a(File var0) {
-      return a((InputStream)(new FileInputStream(var0)));
+   public static String readFile(File var0) throws IOException{
+      return getAllFromInputStream(new FileInputStream(var0));
    }
 
-   public static String b(File var0) {
+   /**
+    * Does the exact same thing as readFile but badly
+    * @param f The file to get all text from
+    * @return the contents of the file as a string, or null if the file doesn't exist
+    */
+   public static String readFileLazy(File f) {
       try {
-         return a(var0);
-      } catch (IOException var2) {
+         return readFile(f);
+      } catch (IOException e) {
          return null;
       }
    }
 
    public static void a(File var0, String var1) {
-      OutputStreamWriter var2 = null;
-      FileOutputStream var3 = null;
+      OutputStreamWriter outputStreamWriter = null;
+      FileOutputStream fos = null;
 
       try {
          if (var0.exists()) {
             var0.setWritable(true);
             if (b() == B.c) {
-               ProcessBuilder var4 = new ProcessBuilder(new String[]{"chflags", "-R", "nouchg", var0.getPath()});
+               ProcessBuilder var4 = new ProcessBuilder("chflags", "-R", "nouchg", var0.getPath());
                var4.start();
             }
 
@@ -89,27 +81,27 @@ public class S {
 
          if (var1 != null) {
             var0.getParentFile().mkdirs();
-            var3 = new FileOutputStream(var0);
-            var2 = new OutputStreamWriter(var3);
-            var2.write(var1);
+            fos = new FileOutputStream(var0);
+            outputStreamWriter = new OutputStreamWriter(fos);
+            outputStreamWriter.write(var1);
          }
       } catch (IOException var13) {
-         a.log(Level.FINE, "Error writing file " + var0.getName(), var13);
+         logger.log(Level.FINE, "Error writing file " + var0.getName(), var13);
       } finally {
-         if (var3 != null) {
+         if (fos != null) {
             try {
-               if (var2 != null) {
-                  var2.flush();
+               if (outputStreamWriter != null) {
+                  outputStreamWriter.flush();
                }
 
-               var3.flush();
-               var3.getFD().sync();
+               fos.flush();
+               fos.getFD().sync();
             } catch (IOException var12) {
             }
          }
 
-         closeButUnsafe((Closeable)var3);
-         closeButUnsafe((Closeable)var2);
+         closeButUnsafe(fos);
+         closeButUnsafe(outputStreamWriter);
       }
 
    }
@@ -142,9 +134,9 @@ public class S {
          String var16 = var6.toString();
          return var16;
       } catch (NoSuchAlgorithmException var13) {
-         a.log(Level.FINE, "Error calculating md5 of file " + var0.getName(), var13);
+         logger.log(Level.FINE, "Error calculating md5 of file " + var0.getName(), var13);
       } catch (IOException var14) {
-         a.log(Level.FINE, "Error calculating md5 of file " + var0.getName(), var14);
+         logger.log(Level.FINE, "Error calculating md5 of file " + var0.getName(), var14);
       } finally {
          closeButUnsafe((Closeable)var1);
          closeButUnsafe((Closeable)var2);
@@ -156,7 +148,7 @@ public class S {
    public static boolean d(File var0) {
       File var1 = new File(var0.getPath() + ".MD5");
       if (var0.exists() && var1.exists()) {
-         String var2 = b(var1);
+         String var2 = readFileLazy(var1);
          String var3 = c(var0);
          return var2.equals(var3);
       } else {
@@ -185,13 +177,13 @@ public class S {
          if (var0.exists()) {
             var1 = new FileInputStream(var0);
          } else {
-            var1 = S.class.getClassLoader().getResourceAsStream(var0.getName());
+            var1 = Utils.class.getClassLoader().getResourceAsStream(var0.getName());
          }
 
          Properties var2 = new Properties();
          var2.load((InputStream)var1);
          String var3 = var2.getProperty("java.util.logging.FileHandler.pattern");
-         File var4 = new File(D.a(), var3);
+         File var4 = new File(D.setMinecraftPath(), var3);
          var2.setProperty("java.util.logging.FileHandler.pattern", var4.getAbsolutePath());
          ByteArrayOutputStream var5 = new ByteArrayOutputStream();
          var2.store(var5, "");
@@ -214,9 +206,11 @@ public class S {
          boolean var4 = true;
 
          int var8;
-         while((var8 = var0.read(var3)) > 0) {
+         while ((var8 = var0.read(var3)) > 0) {
             var2.write(var3, 0, var8);
          }
+      }catch (FileNotFoundException e){
+         throw new RuntimeException(e);
       } finally {
          closeButUnsafe((Closeable)var0);
          if (var2 != null) {
@@ -266,12 +260,12 @@ public class S {
          }
       }
 
-      a.log(Level.FINE, "Error deleting file " + var0.getPath());
+      logger.log(Level.FINE, "Error deleting file " + var0.getPath());
       return false;
    }
 
    public static boolean a(File var0, File var1, FilenameFilter var2) {
-      a.log(Level.FINE, "Moving files from " + var0.getPath() + " to " + var1.getPath());
+      logger.log(Level.FINE, "Moving files from " + var0.getPath() + " to " + var1.getPath());
       File[] var3 = var0.listFiles(var2);
       int var4 = var3.length;
 
@@ -284,7 +278,7 @@ public class S {
             }
 
             if (!a(var6, var7, var2)) {
-               a.log(Level.FINE, "Error moving directory from " + var6.getPath() + " to " + var7.getPath());
+               logger.log(Level.FINE, "Error moving directory from " + var6.getPath() + " to " + var7.getPath());
                return false;
             }
          } else if (!b(var6, var7)) {
@@ -299,13 +293,13 @@ public class S {
       if (var1.exists() && !g(var1)) {
          return false;
       } else {
-         a.log(Level.FINER, "Renaming file from " + var0.getPath() + " to " + var1.getPath());
+         logger.log(Level.FINER, "Renaming file from " + var0.getPath() + " to " + var1.getPath());
          if (var1.getParentFile() != null) {
             var1.getParentFile().mkdirs();
          }
 
          if (!var0.renameTo(var1)) {
-            a.log(Level.FINE, "Error renaming file from " + var0.getPath() + " to " + var1.getPath());
+            logger.log(Level.FINE, "Error renaming file from " + var0.getPath() + " to " + var1.getPath());
             return false;
          } else {
             return true;
@@ -344,13 +338,13 @@ public class S {
       ZipInputStream var3 = null;
 
       try {
-         a.log(Level.FINE, "Unzipping file: " + var0.getPath() + " to dir " + var1.getPath());
+         logger.log(Level.FINE, "Unzipping file: " + var0.getPath() + " to dir " + var1.getPath());
          byte[] var4 = new byte[1024];
          var3 = new ZipInputStream(new FileInputStream(var0));
 
          for(ZipEntry var5 = var3.getNextEntry(); var5 != null; var5 = var3.getNextEntry()) {
             String var6 = var5.getName();
-            a.log(Level.FINER, "Extracting file: " + var6);
+            logger.log(Level.FINER, "Extracting file: " + var6);
             File var7 = new File(var1 + File.separator + var6);
             if (var5.isDirectory()) {
                if (!var7.exists()) {
@@ -422,7 +416,7 @@ public class S {
                var3.append(String.format("%02X%s", var2[var4], var4 < var2.length - 1 ? ":" : ""));
             }
 
-            if (f(var3.toString())) {
+            if (isMacAddressAllowed(var3.toString())) {
                if (!"".equals(var0.toString())) {
                   var0.append(',');
                }
@@ -431,12 +425,12 @@ public class S {
             }
          }
       } catch (SocketException var5) {
-         a.log(Level.FINE, "Error reading Mac address", var5);
+         logger.log(Level.FINE, "Error reading Mac address", var5);
          return var0.toString();
       }
    }
 
-   private static boolean f(String var0) {
+   private static boolean isMacAddressAllowed(String var0) {
       return var0 != null && !var0.equals("") && !var0.equals("00:00:00:00:00:00:00:E0") && !var0.startsWith("00:1C:42") && !var0.startsWith("00:16:3E") && !var0.startsWith("08:00:27") && !var0.startsWith("00:03:FF") && !var0.startsWith("00:50:56") && !var0.startsWith("00:0C:29") && !var0.startsWith("00:05:69");
    }
 
@@ -490,21 +484,21 @@ public class S {
 
    public static void d() {
       try {
-         TrustManager[] var0 = new TrustManager[]{new T()};
-         SSLContext var1 = SSLContext.getInstance("SSL");
-         var1.init((KeyManager[])null, var0, new SecureRandom());
-         HttpsURLConnection.setDefaultSSLSocketFactory(var1.getSocketFactory());
+         TrustManager[] trustManagers = new TrustManager[]{new T()};
+         SSLContext sslContext = SSLContext.getInstance("SSL");
+         sslContext.init((KeyManager[])null, trustManagers, new SecureRandom());
+         HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
          U var2 = new U();
          HttpsURLConnection.setDefaultHostnameVerifier(var2);
-      } catch (KeyManagementException var3) {
-         a.log(Level.WARNING, var3.toString(), var3);
-      } catch (NoSuchAlgorithmException var4) {
-         a.log(Level.WARNING, var4.toString(), var4);
+      } catch (KeyManagementException e) {
+         logger.log(Level.WARNING, e.toString(), e);
+      } catch (NoSuchAlgorithmException ex) {
+         logger.log(Level.WARNING, ex.toString(), ex);
       }
 
    }
 
-   public static void a(Object var0, File var1) {
+   public static void writeLocaleFile(Object var0, File var1) {
       FileOutputStream var2 = null;
       ObjectOutputStream var3 = null;
 
@@ -513,10 +507,10 @@ public class S {
          var3 = new ObjectOutputStream(var2);
          var3.writeObject(var0);
       } catch (IOException var8) {
-         a.log(Level.FINE, "Error writing locale file " + var1, var8);
+         logger.log(Level.FINE, "Error writing locale file " + var1, var8);
       } finally {
-         closeButUnsafe((Closeable)var3);
-         closeButUnsafe((Closeable)var2);
+         closeButUnsafe(var3);
+         closeButUnsafe(var2);
       }
 
    }
@@ -531,7 +525,7 @@ public class S {
          var3 = new ObjectInputStream(var2);
          var1 = var3.readObject();
       } catch (Throwable var8) {
-         a.log(Level.FINE, "Error deserializing object file " + var0.getPath());
+         logger.log(Level.FINE, "Error deserializing object file " + var0.getPath());
       } finally {
          closeButUnsafe((Closeable)var3);
          closeButUnsafe((Closeable)var2);
@@ -541,7 +535,7 @@ public class S {
    }
 
    public static InputStream b(String var0) {
-      a.log(Level.FINE, "Getting URL " + var0);
+      logger.log(Level.FINE, "Getting URL " + var0);
       HttpURLConnection var1 = (HttpURLConnection)(new URL(var0)).openConnection();
       var1.setRequestMethod("GET");
       var1.setDoInput(true);
@@ -643,7 +637,7 @@ public class S {
             var2.start();
          }
       } catch (IOException var3) {
-         a.log(Level.INFO, "Error making file " + var0.getAbsolutePath() + " hidden");
+         logger.log(Level.INFO, "Error making file " + var0.getAbsolutePath() + " hidden");
       }
 
    }
@@ -670,14 +664,14 @@ public class S {
          }
 
          String var5 = "sleep 1 \n";
-         String var6 = var0 + " -u " + (new File(D.a(), "Gameband.app")).getAbsolutePath() + " " + System.getProperty("user.dir") + "/PixelFurnace.app \n";
+         String var6 = var0 + " -u " + (new File(D.setMinecraftPath(), "Gameband.app")).getAbsolutePath() + " " + System.getProperty("user.dir") + "/PixelFurnace.app \n";
          File var7 = new File("/tmp/gbunreg.sh");
          a(var7, var5 + var6);
          var7.setExecutable(true);
          ProcessBuilder var8 = new ProcessBuilder(new String[]{"/tmp/gbunreg.sh"});
          var8.directory(new File("/tmp"));
          var8.start();
-         a.log(Level.FINE, "Called lsregister");
+         logger.log(Level.FINE, "Called lsregister");
       }
    }
 
@@ -823,7 +817,7 @@ public class S {
    }
 
    public static InputStream e(String var0) {
-      a.log(Level.FINE, "Getting URL " + var0);
+      logger.log(Level.FINE, "Getting URL " + var0);
       URL var1 = new URL(var0);
       HttpURLConnection var2 = (HttpURLConnection)var1.openConnection();
       var2.setRequestMethod("GET");

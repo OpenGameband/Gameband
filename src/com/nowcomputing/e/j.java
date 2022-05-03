@@ -1,5 +1,7 @@
 package com.nowcomputing.e;
 
+import com.nowcomputing.ImageDoodad;
+
 public class j extends a {
    protected int g;
    protected l h;
@@ -15,7 +17,7 @@ public class j extends a {
       // $FF: Couldn't be decompiled
    }
 
-   public com.nowcomputing.d e() {
+   public ImageDoodad e() {
       // $FF: Couldn't be decompiled
    }
 
@@ -27,8 +29,8 @@ public class j extends a {
       }
    }
 
-   protected com.nowcomputing.d a(com.nowcomputing.d var1, int var2, int var3) {
-      com.nowcomputing.d var4 = new com.nowcomputing.d(20, 7);
+   protected ImageDoodad a(ImageDoodad var1, int var2, int var3) {
+      ImageDoodad var4 = new ImageDoodad(20, 7);
       var4.a(var1, var2, var3);
       return var4;
    }

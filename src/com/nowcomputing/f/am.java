@@ -1,5 +1,6 @@
 package com.nowcomputing.f;
 
+import com.nowcomputing.Utils;
 import com.sun.java.swing.Painter;
 import java.awt.Color;
 import java.awt.Component;
@@ -95,7 +96,7 @@ public abstract class am {
 
          com.nowcomputing.f.a((com.nowcomputing.t)(new an()));
       } catch (Exception var7) {
-         com.nowcomputing.S.a.log(Level.SEVERE, (String)null, var7);
+         Utils.logger.log(Level.SEVERE, (String)null, var7);
       }
 
    }

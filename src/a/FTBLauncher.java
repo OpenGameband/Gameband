@@ -6,7 +6,7 @@
 package a;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.Utils;
 import com.nowcomputing.h;
 import com.nowcomputing.i;
 import com.nowcomputing.f.R;
@@ -31,7 +31,7 @@ public class FTBLauncher extends AbstractMinecraftLauncher {
 
     public String[] buildJavaCommand() {
         String[] var1 = super.buildJavaCommand();
-        if (S.arrContains(var1, "--cache-dir")) {
+        if (Utils.arrContains(var1, "--cache-dir")) {
             this.config.setProperty("launch_cmd", "java -jar FTB_Launcher.jar --dynamic-dir FTB --pack-dir FTB --skip-first");
 
             var1 = "launch_cmd".split(" ");
@@ -85,5 +85,15 @@ public class FTBLauncher extends AbstractMinecraftLauncher {
 
     public boolean g() {
         return (new File(this.h(), "FTB_Launcher.jar")).exists();
+    }
+
+    // $FF: synthetic method
+    static int a(a.FTBLauncher var0, long var1) {
+        return var0.c = (int)((long)var0.c + var1);
+    }
+
+    // $FF: synthetic method
+    static int a(a.FTBLauncher var0) {
+        return var0.c;
     }
 }

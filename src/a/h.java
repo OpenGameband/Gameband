@@ -1,17 +1,17 @@
 package a;
 
 import com.nowcomputing.R;
-import com.nowcomputing.w;
+import com.nowcomputing.MinecraftDownloader;
 
 class h implements R {
    // $FF: synthetic field
    final com.nowcomputing.f.R a;
    // $FF: synthetic field
-   final w b;
+   final MinecraftDownloader b;
    // $FF: synthetic field
    final MinecraftLauncher c;
 
-   h(MinecraftLauncher var1, com.nowcomputing.f.R var2, w var3) {
+   h(MinecraftLauncher var1, com.nowcomputing.f.R var2, MinecraftDownloader var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;

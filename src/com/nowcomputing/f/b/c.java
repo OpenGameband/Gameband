@@ -1,6 +1,7 @@
 package com.nowcomputing.f.b;
 
 import com.nowcomputing.GamebandConfig;
+import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.f.a.t;
 import javax.swing.border.Border;
 
@@ -12,7 +13,7 @@ public class c extends e {
       this.remove(this.f);
    }
 
-   public com.nowcomputing.d.g b() {
+   public ImageDoodad.g b() {
       return null;
    }
 

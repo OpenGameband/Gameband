@@ -1,14 +1,15 @@
 package com.nowcomputing.d;
 
-import com.nowcomputing.S;
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Utils;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class o extends g {
-   private static final Logger f = Logger.getLogger(S.class.getName());
-   private com.nowcomputing.d g;
+   private static final Logger f = Logger.getLogger(Utils.class.getName());
+   private ImageDoodad g;
 
    public o(ExecutorService var1) {
       super((short)16, var1);
@@ -26,11 +27,11 @@ public class o extends g {
 
    }
 
-   public void b(com.nowcomputing.d var1) {
+   public void b(ImageDoodad var1) {
       this.g = var1;
    }
 
-   public com.nowcomputing.d b() {
+   public ImageDoodad b() {
       return this.g;
    }
 

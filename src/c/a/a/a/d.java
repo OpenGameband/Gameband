@@ -254,7 +254,7 @@ class d {
          this.l = var4;
          switch(var2 < 0 ? var2 : c[var2]) {
          case 1:
-            throw new c(this.q, 0, new Character(this.b(0)));
+            throw new UnexpectedDoodadException(this.q, 0, new Character(this.b(0)));
          case 2:
             Long var17 = Long.valueOf(this.b());
             return new e(0, var17);
@@ -344,7 +344,7 @@ class d {
                this.u.append((char)var14);
                break;
             } catch (Exception var13) {
-               throw new c(this.q, 2, var13);
+               throw new UnexpectedDoodadException(this.q, 2, var13);
             }
          default:
             if (var1 == -1 && this.n == this.m) {

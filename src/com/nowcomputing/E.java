@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class E {
-   private static final Logger a = Logger.getLogger(S.class.getName());
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
    private final int b;
    private final int c;
 

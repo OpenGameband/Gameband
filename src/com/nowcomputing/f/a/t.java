@@ -1,7 +1,8 @@
 package com.nowcomputing.f.a;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.S;
+import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Utils;
 import com.nowcomputing.f.N;
 import java.awt.Component;
 import java.awt.Point;
@@ -21,7 +22,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 public class t extends JPanel implements MouseListener, MouseMotionListener {
-   private static final Logger a = Logger.getLogger(S.class.getName());
+   private static final Logger a = Logger.getLogger(Utils.class.getName());
    private final List b = new ArrayList();
    private final com.nowcomputing.f.b.c c = new com.nowcomputing.f.b.c(this);
    private com.nowcomputing.f.b.e d;
@@ -76,18 +77,18 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
          Object var4;
          if (var2 == com.nowcomputing.a.d.a) {
             this.d();
-            com.nowcomputing.d.o var5 = new com.nowcomputing.d.o(com.nowcomputing.d.f.l());
-            com.nowcomputing.d var6;
+            ImageDoodad.o var5 = new ImageDoodad.o(ImageDoodad.f.l());
+            ImageDoodad var6;
             if (var3) {
-               var6 = com.nowcomputing.d.a("     " + var1 + "     ");
+               var6 = ImageDoodad.a("     " + var1 + "     ");
             } else {
-               var6 = com.nowcomputing.d.a("     " + var1);
+               var6 = ImageDoodad.a("     " + var1);
             }
 
             var5.b(var6);
             var4 = new com.nowcomputing.f.b.m(this, var5, var3);
          } else {
-            var4 = new com.nowcomputing.f.b.l(this, new com.nowcomputing.d.a(com.nowcomputing.d.f.l()), var1, var2, var3);
+            var4 = new com.nowcomputing.f.b.l(this, new ImageDoodad.a(ImageDoodad.f.l()), var1, var2, var3);
          }
 
          this.c((com.nowcomputing.f.b.e)var4);
@@ -99,7 +100,7 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
    public void a(File var1, com.nowcomputing.a.d var2, boolean var3) {
       try {
          BufferedImage var4 = ImageIO.read(var1);
-         com.nowcomputing.f.b.j var5 = new com.nowcomputing.f.b.j(this, new com.nowcomputing.d.a(com.nowcomputing.d.f.l()), com.nowcomputing.d.a(var4, Math.min(49, var4.getWidth()), Math.min(49, var4.getHeight())), var2, var3);
+         com.nowcomputing.f.b.j var5 = new com.nowcomputing.f.b.j(this, new ImageDoodad.a(ImageDoodad.f.l()), ImageDoodad.a(var4, Math.min(49, var4.getWidth()), Math.min(49, var4.getHeight())), var2, var3);
          this.c(var5);
          var5.a(true);
       } catch (IOException var6) {
@@ -108,14 +109,14 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
    }
 
    public void a(File var1) {
-      com.nowcomputing.f.b.a var2 = new com.nowcomputing.f.b.a(this, new com.nowcomputing.d.a(com.nowcomputing.d.f.l()));
+      com.nowcomputing.f.b.a var2 = new com.nowcomputing.f.b.a(this, new ImageDoodad.a(ImageDoodad.f.l()));
       ((com.nowcomputing.f.b.a)var2).a(var1);
       this.c(var2);
       var2.a(true);
    }
 
    public void a(com.nowcomputing.a var1) {
-      com.nowcomputing.f.b.a var2 = new com.nowcomputing.f.b.a(this, new com.nowcomputing.d.a(com.nowcomputing.d.f.l()));
+      com.nowcomputing.f.b.a var2 = new com.nowcomputing.f.b.a(this, new ImageDoodad.a(ImageDoodad.f.l()));
       var2.a(var1);
       this.c(var2);
       var2.a(true);
@@ -146,7 +147,7 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       }
    }
 
-   public com.nowcomputing.d.f d() {
+   public ImageDoodad.f d() {
       return this.g.g();
    }
 
@@ -162,34 +163,34 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       Iterator var5 = var1.iterator();
 
       while(var5.hasNext()) {
-         com.nowcomputing.d.g var6 = (com.nowcomputing.d.g)var5.next();
+         ImageDoodad.g var6 = (ImageDoodad.g)var5.next();
          switch(var6.e()) {
          case 0:
          case 1:
-            this.c(new com.nowcomputing.f.b.n(this, (com.nowcomputing.d.q)var6));
+            this.c(new com.nowcomputing.f.b.n(this, (ImageDoodad.q)var6));
             var2 = true;
             break;
          case 2:
          case 3:
-            this.c(new com.nowcomputing.f.b.b(this, (com.nowcomputing.d.b)var6));
+            this.c(new com.nowcomputing.f.b.b(this, (ImageDoodad.b)var6));
             var3 = true;
             break;
          case 16:
             boolean var7 = false;
-            com.nowcomputing.d.n var8 = var6.c();
+            ImageDoodad.n var8 = var6.c();
             GamebandConfig.d var9 = GamebandConfig.c.a(var8.i());
             var7 = var9 == GamebandConfig.d.b;
-            com.nowcomputing.f.b.m var10 = new com.nowcomputing.f.b.m(this, (com.nowcomputing.d.o)var6, var7);
+            com.nowcomputing.f.b.m var10 = new com.nowcomputing.f.b.m(this, (ImageDoodad.o)var6, var7);
             this.c(var10);
             break;
          case 17:
-            this.c(new com.nowcomputing.f.b.d(this, new com.nowcomputing.d.c(com.nowcomputing.d.f.l())));
+            this.c(new com.nowcomputing.f.b.d(this, new ImageDoodad.c(ImageDoodad.f.l())));
             var4 = true;
             break;
          case 32:
             try {
-               com.nowcomputing.f.b.a var11 = new com.nowcomputing.f.b.a(this, (com.nowcomputing.d.a)var6);
-               var11.a(((com.nowcomputing.d.a)var6).b());
+               com.nowcomputing.f.b.a var11 = new com.nowcomputing.f.b.a(this, (ImageDoodad.a)var6);
+               var11.a(((ImageDoodad.a)var6).b());
                this.c(var11);
             } catch (IOException var12) {
                a.log(Level.WARNING, "", var12);
@@ -199,19 +200,19 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       }
 
       if (!var2) {
-         com.nowcomputing.f.b.n var13 = new com.nowcomputing.f.b.n(this, new com.nowcomputing.d.q(com.nowcomputing.d.f.l()));
+         com.nowcomputing.f.b.n var13 = new com.nowcomputing.f.b.n(this, new ImageDoodad.q(ImageDoodad.f.l()));
          var13.a(false);
          this.c(var13);
       }
 
       if (!var3) {
-         com.nowcomputing.f.b.b var14 = new com.nowcomputing.f.b.b(this, new com.nowcomputing.d.b(com.nowcomputing.d.f.l()));
+         com.nowcomputing.f.b.b var14 = new com.nowcomputing.f.b.b(this, new ImageDoodad.b(ImageDoodad.f.l()));
          var14.a(false);
          this.c(var14);
       }
 
       if (!var4) {
-         com.nowcomputing.f.b.d var15 = new com.nowcomputing.f.b.d(this, new com.nowcomputing.d.c(com.nowcomputing.d.f.l()));
+         com.nowcomputing.f.b.d var15 = new com.nowcomputing.f.b.d(this, new ImageDoodad.c(ImageDoodad.f.l()));
          var15.a(false);
          this.c(var15);
       }
@@ -302,9 +303,9 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
          this.d(this.d);
       }
 
-      int var2 = S.a(35 + var1.getX() - this.e, -485, 520);
+      int var2 = Utils.a(35 + var1.getX() - this.e, -485, 520);
       int var3 = this.getY() + (this.b.size() - 1) * 60;
-      int var4 = S.a(this.getY() + var1.getY() - this.f, this.getY() - 24, var3 + 24);
+      int var4 = Utils.a(this.getY() + var1.getY() - this.f, this.getY() - 24, var3 + 24);
       this.d.setLocation(var2, var4);
       this.a(var4);
       this.g.l().repaint();

@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UpdateStreamDecoder {
-   private static final Logger logger = Logger.getLogger(S.class.getName());
+   private static final Logger logger = Logger.getLogger(Utils.class.getName());
    private ArrayList b = new ArrayList();
    private boolean c;
 

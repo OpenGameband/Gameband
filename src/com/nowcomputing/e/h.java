@@ -1,5 +1,7 @@
 package com.nowcomputing.e;
 
+import com.nowcomputing.ImageDoodad;
+
 import java.awt.Point;
 
 public class h {
@@ -16,7 +18,7 @@ public class h {
       this.d = var4;
    }
 
-   public boolean a(com.nowcomputing.d var1) {
+   public boolean a(ImageDoodad var1) {
       int var2 = this.c.x;
       Point var10000 = this.c;
       var10000.x -= this.d;

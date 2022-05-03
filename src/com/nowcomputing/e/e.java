@@ -1,6 +1,7 @@
 package com.nowcomputing.e;
 
 import com.nowcomputing.GamebandConfig;
+import com.nowcomputing.ImageDoodad;
 
 public class e extends a {
    private boolean g;
@@ -13,13 +14,13 @@ public class e extends a {
    public void b() {
       if (this.h == GamebandConfig.b.b) {
          this.g = false;
-         com.nowcomputing.d.f.l().execute(new f(this));
+         ImageDoodad.f.l().execute(new f(this));
       }
 
       super.b();
    }
 
-   public com.nowcomputing.d e() {
+   public ImageDoodad e() {
       if (this.h == GamebandConfig.b.b) {
          if (this.g) {
             this.a(true);
