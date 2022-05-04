@@ -1,6 +1,7 @@
 package com.nowcomputing.a;
 
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.otherImageThingy;
 
 public class g extends a {
    private ImageDoodad d;

@@ -1,5 +1,7 @@
 package c.a.a.a;
 
+import c.a.a.dingusList;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -37,26 +39,26 @@ public class b {
       return this.b.a();
    }
 
-   public Object a(String var1) {
+   public Object a(String var1) throws UnexpectedDoodadException {
       return this.a(var1, (a)null);
    }
 
-   public Object a(String var1, a var2) {
+   public Object a(String var1, a var2) throws UnexpectedDoodadException {
       StringReader var3 = new StringReader(var1);
 
-      try {
+//      try {
          return this.a((Reader)var3, var2);
-      } catch (IOException var5) {
-         throw new UnexpectedDoodadException(-1, 2, var5);
-      }
+//      } catch (IOException var5) {
+//         throw new UnexpectedDoodadException(-1, 2, var5);
+//      }
    }
 
-   public Object a(Reader var1, a var2) {
+   public Object a(Reader var1, a var2) throws UnexpectedDoodadException {
       this.a(var1);
       LinkedList var3 = new LinkedList();
       LinkedList var4 = new LinkedList();
 
-      try {
+//      try {
          do {
             this.c();
             String var5;
@@ -200,9 +202,9 @@ public class b {
                throw new UnexpectedDoodadException(this.b(), 1, this.c);
             }
          } while(this.c.a != -1);
-      } catch (IOException var9) {
-         throw var9;
-      }
+//      } catch (IOException var9) {
+//         throw var9;
+//      }
 
       throw new UnexpectedDoodadException(this.b(), 1, this.c);
    }
@@ -217,19 +219,19 @@ public class b {
 
    private Map a(a var1) {
       if (var1 == null) {
-         return new UnexpectedDoodadException.a.a.c();
+         return new c.a.a.c();
       } else {
          Map var2 = var1.a();
-         return (Map)(var2 == null ? new UnexpectedDoodadException.a.a.c() : var2);
+         return (Map)(var2 == null ? new c.a.a.c() : var2);
       }
    }
 
    private List b(a var1) {
       if (var1 == null) {
-         return new UnexpectedDoodadException.a.a.a();
+         return new c.a.a.dingusList();
       } else {
          List var2 = var1.b();
-         return (List)(var2 == null ? new UnexpectedDoodadException.a.a.a() : var2);
+         return (List)(var2 == null ? new c.a.a.dingusList() : var2);
       }
    }
 }

@@ -5,17 +5,16 @@
 
 package a;
 
-import a.FTBLauncher;
-import com.nowcomputing.f.R;
-import com.nowcomputing.h;
-import com.nowcomputing.i;
+import com.nowcomputing.uistuff.GamebandDialog;
+import com.nowcomputing.DownloadRunnable;
+import com.nowcomputing.randomInterfaceThatDoesNothing;
 
-class b implements i {
-    final h a;
-    final R b;
+class b implements randomInterfaceThatDoesNothing {
+    final DownloadRunnable a;
+    final GamebandDialog b;
     final FTBLauncher c;
 
-    b(FTBLauncher var1, h var2, R var3) {
+    b(FTBLauncher var1, DownloadRunnable var2, GamebandDialog var3) {
         this.c = var1;
         this.a = var2;
         this.b = var3;
@@ -27,7 +26,7 @@ class b implements i {
         if (var3 == 100) {
             this.b.b();
         } else {
-            this.b.a(var3);
+            this.b.setProgressBarValue(var3);
         }
 
     }

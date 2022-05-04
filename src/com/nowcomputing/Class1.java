@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public abstract class Class1 implements i {
+public abstract class Class1 implements randomInterfaceThatDoesNothing {
    static final Logger logger = Logger.getLogger(Utils.class.getName());
    protected File field2;
    protected File field3;
@@ -18,7 +18,7 @@ public abstract class Class1 implements i {
    protected long field5;
    protected long field6;
    protected boolean field7;
-   protected h field8;
+   protected DownloadRunnable field8;
    private final FilenameFilter field9 = new H(this);
 
    protected Class1(File var1) {
@@ -68,7 +68,7 @@ public abstract class Class1 implements i {
       }
 
       if (this.field4 != null) {
-         this.field4.a();
+         this.field4.exit();
       }
 
       Utils.i(new File(this.field2, "Gameband_linux.bat"));
@@ -101,7 +101,7 @@ public abstract class Class1 implements i {
       logger.log(Level.FINE, "Downloading package " + var1.c() + " to " + var4.getPath());
 
       try {
-         (new E(3, 500)).a(new J(this, var1, var4));
+         (new Retrier(3, 500)).a(new J(this, var1, var4));
          return true;
       } catch (Exception var6) {
          logger.log(Level.WARNING, "Error downloading file " + var1.c(), var6);
@@ -115,7 +115,7 @@ public abstract class Class1 implements i {
          var2.delete();
       }
 
-      this.field8 = new h(this.method10(var1.c()), var2, this);
+      this.field8 = new DownloadRunnable(this.method10(var1.c()), var2, this);
       this.field8.run();
       if (!this.field8.b()) {
          throw this.field8.c();
@@ -132,7 +132,7 @@ public abstract class Class1 implements i {
       File var5 = new File(var3, "unpack");
 
       try {
-         (new E(3, 500)).a(new K(this, var4, var5));
+         (new Retrier(3, 500)).a(new K(this, var4, var5));
       } catch (Exception var8) {
          logger.log(Level.WARNING, "unpack error: " + var8.toString());
          return;
@@ -141,7 +141,7 @@ public abstract class Class1 implements i {
       File var6 = new File(var3, "backup");
 
       try {
-         (new E(3, 500)).a(new L(this, var4, var6));
+         (new Retrier(3, 500)).a(new L(this, var4, var6));
       } catch (Exception var9) {
          if (!var9.toString().contains("autorun.inf")) {
             logger.log(Level.WARNING, "Error creating package backup: " + var9.toString());
@@ -183,7 +183,7 @@ public abstract class Class1 implements i {
       if (this.field4 != null) {
          int var3 = (int)((float)this.field6 / (float)this.field5 * 100.0F);
          logger.log(Level.FINE, "bytesDownloaded = " + this.field6 + "; " + var3 + "% of " + this.field5);
-         this.field4.a(var3);
+         this.field4.setProgress(var3);
       }
 
    }

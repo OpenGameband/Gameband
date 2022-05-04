@@ -1,5 +1,7 @@
 package com.nowcomputing.a;
 
+import com.nowcomputing.LocaleUtil;
+
 public enum d {
    a("LEFT"),
    b("RIGHT"),
@@ -8,8 +10,10 @@ public enum d {
 
    private String e;
 
+   private static final /* synthetic */ d[] f;
+
    public static d[] a() {
-      return (d[])f.clone();
+      return (com.nowcomputing.a.d[])f.clone();
    }
 
    private d(String var3) {
@@ -17,6 +21,9 @@ public enum d {
    }
 
    public String toString() {
-      return com.nowcomputing.f.a(this.e);
+      return LocaleUtil.getLocalizedString(this.e);
+   }
+   static {
+      f = new d[] { d.a, d.b, d.c, d.d };
    }
 }

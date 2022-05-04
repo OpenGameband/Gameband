@@ -49,7 +49,7 @@ public class o {
    }
 
    static {
-      com.nowcomputing.f.q.a("/resources/gameband.ttf");
+      LocaleUtil.q.a("/resources/gameband.ttf");
       a = a(8);
    }
 }

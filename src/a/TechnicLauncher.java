@@ -2,9 +2,8 @@ package a;
 
 import c.a.a.c;
 import c.a.a.a.b;
-import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.Utils;
-import com.nowcomputing.f.R;
+import com.nowcomputing.*;
+import com.nowcomputing.uistuff.GamebandDialog;
 import java.io.File;
 import java.io.Writer;
 import java.net.URL;
@@ -47,7 +46,7 @@ public class TechnicLauncher extends AbstractMinecraftLauncher {
             var2[0] = var3;
          }
 
-         com.nowcomputing.l.a(var2, var1, false);
+         latchedCommandRun.a(var2, var1, false);
          File var4 = new File(var1 + File.separatorChar + "technic", "temp.jar");
          if (var4.exists()) {
             File var5 = new File(var1, "TechnicLauncher.jar");
@@ -79,7 +78,7 @@ public class TechnicLauncher extends AbstractMinecraftLauncher {
 
       File var3 = new File(var1, var2);
       if (!var3.exists()) {
-         R var4 = new R("Getting the latest Launcher", "This won't take long...", "", false);
+         GamebandDialog var4 = new GamebandDialog("Getting the latest Launcher", "This won't take long...", "", false);
          var4.setVisible(true);
 
          try {
@@ -89,7 +88,7 @@ public class TechnicLauncher extends AbstractMinecraftLauncher {
             c var8 = (c)var7.get("url");
             String var9 = (String)var8.get("jar");
             this.c = 0;
-            com.nowcomputing.h var10 = new com.nowcomputing.h(new URL(var9), var3, (com.nowcomputing.i)null);
+            DownloadRunnable var10 = new DownloadRunnable(new URL(var9), var3, (randomInterfaceThatDoesNothing)null);
             var10.a(new l(this, var10, var4));
             var10.run();
             var4.c();

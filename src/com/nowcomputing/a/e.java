@@ -1,6 +1,7 @@
 package com.nowcomputing.a;
 
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.otherImageThingy;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,27 @@ public class e extends a {
    }
 
    protected void a() {
-      // $FF: Couldn't be decompiled
+      super.a();
+      int n = this.d.a();
+      int n2 = this.d.b();
+      this.e = this.h == com.nowcomputing.a.d.a || this.h == com.nowcomputing.a.d.b ? (this.i ? 20 + n + 1 : (n < 20 ? 21 : n + 1)) : (this.i ? 7 + n2 + 1 : (n2 < 7 ? 8 : n2 + 1));
+      switch (com.nowcomputing.a.f.a[this.h.ordinal()]) {
+         case 1: {
+            this.f = 20;
+            break;
+         }
+         case 2: {
+            this.f = -n;
+            break;
+         }
+         case 3: {
+            this.g = 7;
+            break;
+         }
+         case 4: {
+            this.g = -n2;
+         }
+      }
    }
 
    public boolean d() {
@@ -31,7 +52,29 @@ public class e extends a {
    }
 
    public ImageDoodad e() {
-      // $FF: Couldn't be decompiled
+      ImageDoodad d2 = null;
+      --this.e;
+      switch (com.nowcomputing.a.f.a[this.h().ordinal()]) {
+         case 1: {
+            d2 = this.a(this.d, this.f--, 0);
+            break;
+         }
+         case 2: {
+            d2 = this.a(this.d, this.f++, 0);
+            break;
+         }
+         case 3: {
+            d2 = this.a(this.d, 0, this.g--);
+            break;
+         }
+         case 4: {
+            d2 = this.a(this.d, 0, this.g++);
+         }
+      }
+      if (this.e == 0) {
+         this.a(true);
+      }
+      return d2;
    }
 
    public void a(ImageDoodad var1) {
@@ -52,7 +95,7 @@ public class e extends a {
       return var4;
    }
 
-   public com.nowcomputing.a i() {
+   public otherImageThingy i() {
       this.a();
       this.a(false);
       ArrayList var1 = new ArrayList();
@@ -61,6 +104,6 @@ public class e extends a {
          var1.add(this.e());
       }
 
-      return new com.nowcomputing.a(var1, this.a);
+      return new otherImageThingy(var1, this.a);
    }
 }

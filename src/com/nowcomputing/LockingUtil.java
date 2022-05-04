@@ -3,6 +3,9 @@ package com.nowcomputing;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Originally called com.nowcomputing.b
+ */
 public class LockingUtil {
    public static final Logger logger = Logger.getLogger(Utils.class.getName());
    private final String handle;

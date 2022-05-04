@@ -2,7 +2,7 @@ package com.nowcomputing.b.a.b;
 
 import com.nowcomputing.LockingUtil;
 import com.nowcomputing.Utils;
-import com.nowcomputing.f.L;
+import com.nowcomputing.uistuff.L;
 import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -14,7 +14,7 @@ public class e extends a {
    private L d;
    private L e;
 
-   e(LockingUtil.a.a var1) {
+   e(com.nowcomputing.b.a.CustomDialog var1) {
       super(var1);
    }
 

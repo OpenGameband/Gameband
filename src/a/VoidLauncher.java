@@ -1,9 +1,7 @@
 package a;
 
-import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.Utils;
-import com.nowcomputing.X;
-import com.nowcomputing.f.R;
+import com.nowcomputing.*;
+import com.nowcomputing.uistuff.GamebandDialog;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -83,12 +81,12 @@ public class VoidLauncher extends AbstractMinecraftLauncher {
    }
 
    public void a(File var1) {
-      R var2 = new R("Getting the latest Launcher", "This won't take long...", "", false);
+      GamebandDialog var2 = new GamebandDialog("Getting the latest Launcher", "This won't take long...", "", false);
       var2.setVisible(true);
 
       try {
          this.c = 0;
-         com.nowcomputing.h var3 = new com.nowcomputing.h(new URL("http://vl4.voidswrath.com/release/releases/linux/VoidLauncher.jar"), var1, (com.nowcomputing.i)null);
+         DownloadRunnable var3 = new DownloadRunnable(new URL("http://vl4.voidswrath.com/release/releases/linux/VoidLauncher.jar"), var1, (randomInterfaceThatDoesNothing)null);
          var3.a(new n(this, var3, var2));
          var3.run();
          var2.c();

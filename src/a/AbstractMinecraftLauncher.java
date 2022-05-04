@@ -8,7 +8,7 @@ package a;
 import com.nowcomputing.D;
 import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.Utils;
-import com.nowcomputing.l;
+import com.nowcomputing.latchedCommandRun;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public abstract class AbstractMinecraftLauncher {
 
     public abstract void f();
 
-    public void i() {
+    public void i() throws IOException {
         String[] var1 = this.buildJavaCommand();
 
         try {
@@ -46,7 +46,7 @@ public abstract class AbstractMinecraftLauncher {
                 }
             }
 
-            l.a(var1, this.h(), this.k());
+            latchedCommandRun.a(var1, this.h(), this.k());
         } catch (Exception var3) {
             throw new IOException("Error launching '" + Utils.a(var1, " ") + "' : " + var3.toString());
         }

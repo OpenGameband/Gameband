@@ -7,9 +7,10 @@ package a;
 
 import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.Utils;
-import com.nowcomputing.h;
-import com.nowcomputing.i;
-import com.nowcomputing.f.R;
+import com.nowcomputing.DownloadRunnable;
+import com.nowcomputing.randomInterfaceThatDoesNothing;
+import com.nowcomputing.uistuff.GamebandDialog;
+
 import java.io.File;
 import java.net.URL;
 import java.util.logging.Level;
@@ -67,12 +68,12 @@ public class FTBLauncher extends AbstractMinecraftLauncher {
 
         File var2 = new File(var1, "FTB_Launcher.jar");
         if (!var2.exists()) {
-            R var3 = new R("Getting the latest Launcher", "This won't take long...", "", false);
+            GamebandDialog var3 = new GamebandDialog("Getting the latest Launcher", "This won't take long...", "", false);
             var3.setVisible(true);
 
             try {
                 this.c = 0;
-                h var4 = new h(new URL("http://ftb.cursecdn.com/FTB2/launcher/FTB_Launcher.jar"), var2, (i)null);
+                DownloadRunnable var4 = new DownloadRunnable(new URL("http://ftb.cursecdn.com/FTB2/launcher/FTB_Launcher.jar"), var2, (randomInterfaceThatDoesNothing)null);
                 var4.a(new b(this, var4, var3));
                 var4.run();
                 var3.c();

@@ -1,11 +1,7 @@
 package com.nowcomputing;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.URL;
-import java.net.URLClassLoader;
+import java.net.*;
 import java.security.DigestInputStream;
 import java.security.KeyManagementException;
 import java.security.MessageDigest;
@@ -183,7 +179,7 @@ public class Utils {
          Properties var2 = new Properties();
          var2.load((InputStream)var1);
          String var3 = var2.getProperty("java.util.logging.FileHandler.pattern");
-         File var4 = new File(D.setMinecraftPath(), var3);
+         File var4 = new File(D.getGamebandPath(), var3);
          var2.setProperty("java.util.logging.FileHandler.pattern", var4.getAbsolutePath());
          ByteArrayOutputStream var5 = new ByteArrayOutputStream();
          var2.store(var5, "");
@@ -193,30 +189,30 @@ public class Utils {
 
    }
 
-   public static void a(File var0, File var1) {
+   public static void a(File var0, File var1) throws IOException {
       a((InputStream)(new FileInputStream(var0)), (File)var1);
    }
 
-   public static void a(InputStream var0, File var1) {
-      FileOutputStream var2 = null;
+   public static void a(InputStream is, File f) throws IOException{
+      FileOutputStream fos = null;
 
       try {
-         var2 = new FileOutputStream(var1);
+         fos = new FileOutputStream(f);
          byte[] var3 = new byte[4096];
          boolean var4 = true;
 
          int var8;
-         while ((var8 = var0.read(var3)) > 0) {
-            var2.write(var3, 0, var8);
+         while ((var8 = is.read(var3)) > 0) {
+            fos.write(var3, 0, var8);
          }
       }catch (FileNotFoundException e){
          throw new RuntimeException(e);
       } finally {
-         closeButUnsafe((Closeable)var0);
-         if (var2 != null) {
-            var2.flush();
-            var2.getFD().sync();
-            closeButUnsafe((Closeable)var2);
+         closeButUnsafe((Closeable)is);
+         if (fos != null) {
+            fos.flush();
+            fos.getFD().sync();
+            closeButUnsafe((Closeable)fos);
          }
 
       }
@@ -307,7 +303,7 @@ public class Utils {
       }
    }
 
-   public static void c(File var0, File var1) {
+   public static void c(File var0, File var1) throws IOException {
       ZipInputStream var2 = null;
 
       try {
@@ -334,7 +330,7 @@ public class Utils {
       }
    }
 
-   public static void a(File var0, File var1, List var2) {
+   public static void a(File var0, File var1, List var2) throws IOException {
       ZipInputStream var3 = null;
 
       try {
@@ -475,7 +471,7 @@ public class Utils {
       return var0.getUsableSpace();
    }
 
-   public static ClassLoader a(String var0) {
+   public static ClassLoader a(String var0) throws MalformedURLException {
       File var1 = new File(var0);
       URL[] var2 = new URL[]{var1.toURI().toURL()};
       URLClassLoader var3 = new URLClassLoader(var2);
@@ -515,7 +511,7 @@ public class Utils {
 
    }
 
-   public static Object h(File var0) {
+   public static Object deserializeFile(File var0) {
       Object var1 = null;
       FileInputStream var2 = null;
       ObjectInputStream var3 = null;
@@ -534,7 +530,7 @@ public class Utils {
       return var1;
    }
 
-   public static InputStream b(String var0) {
+   public static InputStream b(String var0) throws IOException {
       logger.log(Level.FINE, "Getting URL " + var0);
       HttpURLConnection var1 = (HttpURLConnection)(new URL(var0)).openConnection();
       var1.setRequestMethod("GET");
@@ -642,7 +638,7 @@ public class Utils {
 
    }
 
-   public static void f() {
+   public static void f() throws IOException {
       if (b() == B.c) {
          String var0 = null;
          if ((new File("/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister")).exists()) {
@@ -664,7 +660,7 @@ public class Utils {
          }
 
          String var5 = "sleep 1 \n";
-         String var6 = var0 + " -u " + (new File(D.setMinecraftPath(), "Gameband.app")).getAbsolutePath() + " " + System.getProperty("user.dir") + "/PixelFurnace.app \n";
+         String var6 = var0 + " -u " + (new File(D.getGamebandPath(), "Gameband.app")).getAbsolutePath() + " " + System.getProperty("user.dir") + "/PixelFurnace.app \n";
          File var7 = new File("/tmp/gbunreg.sh");
          a(var7, var5 + var6);
          var7.setExecutable(true);
@@ -722,7 +718,7 @@ public class Utils {
       return var3;
    }
 
-   public static void a(String var0, String var1) {
+   public static void a(String var0, String var1) throws IOException {
       BufferedInputStream var2 = null;
       BufferedOutputStream var3 = null;
 
@@ -816,7 +812,7 @@ public class Utils {
       return false;
    }
 
-   public static InputStream e(String var0) {
+   public static InputStream e(String var0) throws IOException {
       logger.log(Level.FINE, "Getting URL " + var0);
       URL var1 = new URL(var0);
       HttpURLConnection var2 = (HttpURLConnection)var1.openConnection();

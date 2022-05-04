@@ -10,7 +10,7 @@ import java.util.Properties;
 GamebandConfig is a thin veneer around the Properties class
  */
 public class GamebandConfig {
-   public static final File defaultConfigFile = new File(D.b(), "gameband.properties");
+   public static final File defaultConfigFile = new File(D.getLibPath(), "gameband.properties");
    private final File configFile;
    Properties properties = new Properties();
 

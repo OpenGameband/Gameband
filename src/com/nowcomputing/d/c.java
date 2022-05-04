@@ -1,6 +1,7 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.Utils;
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
@@ -18,7 +19,7 @@ public class c extends g {
    }
 
    public void a(long var1) {
-      NumberFormat var3 = NumberFormat.getInstance(com.nowcomputing.f.a());
+      NumberFormat var3 = NumberFormat.getInstance(LocaleUtil.a());
       var3.setMaximumFractionDigits(1);
       long var4 = var1 / 1024L / 1024L;
       if (var4 > 999L) {

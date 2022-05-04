@@ -1,8 +1,9 @@
 package com.nowcomputing.e;
 
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.otherImageThingy;
 
-public abstract class a extends com.nowcomputing.a.a {
+public abstract class a extends otherImageThingy.a {
    protected short d;
    protected ImageDoodad e;
    protected ImageDoodad f;

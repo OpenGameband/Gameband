@@ -1,6 +1,6 @@
 package com.nowcomputing;
 
-import com.nowcomputing.f.ai;
+import com.nowcomputing.uistuff.ai;
 import java.io.File;
 
 public class F {

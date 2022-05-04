@@ -8,9 +8,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public abstract class a implements MouseListener, MouseMotionListener {
-   protected LockingUtil.a.a a;
+   protected com.nowcomputing.b.a.CustomDialog a;
 
-   a(LockingUtil.a.a var1) {
+   a(com.nowcomputing.b.a.CustomDialog var1) {
       this.a = var1;
    }
 

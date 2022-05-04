@@ -2,12 +2,13 @@ package com.nowcomputing.d;
 
 import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.otherImageThingy;
 
 import java.util.concurrent.ExecutorService;
 
-public abstract class g implements com.nowcomputing.a.b {
+public abstract class g implements otherImageThingy.b {
    protected GamebandConfig.a a;
-   protected com.nowcomputing.a.a b;
+   protected otherImageThingy.a b;
    protected GamebandConfig.a c;
    protected m d;
    protected n e;
@@ -73,7 +74,7 @@ public abstract class g implements com.nowcomputing.a.b {
 
    public void a(GamebandConfig.a var1) {
       if (this.a != null) {
-         this.a.a((com.nowcomputing.a.b)null);
+         this.a.a((otherImageThingy.b)null);
          this.a = null;
       }
 
@@ -87,7 +88,7 @@ public abstract class g implements com.nowcomputing.a.b {
 
    public void b(GamebandConfig.a var1) {
       if (this.c != null) {
-         this.c.a((com.nowcomputing.a.b)null);
+         this.c.a((otherImageThingy.b)null);
          this.c = null;
       }
 
@@ -95,7 +96,7 @@ public abstract class g implements com.nowcomputing.a.b {
       this.c.a(this);
    }
 
-   public void a(com.nowcomputing.a.a var1) {
+   public void a(otherImageThingy.a var1) {
       this.b = var1;
       this.b.a(this);
    }

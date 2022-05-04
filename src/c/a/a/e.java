@@ -31,7 +31,7 @@ public class e {
          } else if (var0 instanceof Map) {
             c.a((Map)var0, var1);
          } else if (var0 instanceof List) {
-            a.a((List)var0, var1);
+            dingusList.a((List)var0, var1);
          } else {
             var1.write(var0.toString());
          }
@@ -63,7 +63,7 @@ public class e {
       } else if (var0 instanceof Map) {
          return c.a((Map)var0);
       } else {
-         return var0 instanceof List ? a.a((List)var0) : var0.toString();
+         return var0 instanceof List ? dingusList.a((List)var0) : var0.toString();
       }
    }
 

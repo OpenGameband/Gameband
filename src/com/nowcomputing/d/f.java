@@ -1,6 +1,7 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.GamebandConfig;
+import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.Utils;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class f {
    private static final Logger a = Logger.getLogger(Utils.class.getName());
    private p b = new p();
    private List c = new ArrayList();
-   private d d = new d();
+   private GamebandHID d = new GamebandHID();
    private GamebandConfig.d e;
    private static final ExecutorService f = Executors.newCachedThreadPool();
    private boolean g;
@@ -40,7 +41,7 @@ public class f {
    }
 
    public void b() {
-      DateTimeZone var1 = DateTimeZone.forTimeZone(com.nowcomputing.f.e());
+      DateTimeZone var1 = DateTimeZone.forTimeZone(LocaleUtil.e());
       a.log(Level.FINE, "Setting Gameband timezone to: " + var1);
       long var2 = System.currentTimeMillis();
       int var4 = var1.getStandardOffset(var2) / '\uea60';

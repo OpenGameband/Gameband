@@ -1,5 +1,6 @@
 package c.a.a.a;
 
+import java.io.IOException;
 import java.io.Reader;
 
 class d {
@@ -129,7 +130,7 @@ class d {
       return var1;
    }
 
-   private boolean g() {
+   private boolean g() throws IOException {
       if (this.n > 0) {
          System.arraycopy(this.k, this.n, this.k, 0, this.o - this.n);
          this.o -= this.n;
@@ -194,7 +195,7 @@ class d {
       throw new Error(var2);
    }
 
-   public e c() {
+   public e c() throws UnexpectedDoodadException, IOException {
       int var5 = this.o;
       char[] var6 = this.k;
       char[] var7 = b;

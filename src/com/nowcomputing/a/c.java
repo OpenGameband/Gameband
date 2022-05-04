@@ -1,11 +1,12 @@
 package com.nowcomputing.a;
 
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.otherImageThingy;
 
 import java.io.File;
 
 public class c extends a {
-   private com.nowcomputing.a d;
+   private otherImageThingy d;
    private int e;
 
    protected void a() {
@@ -36,10 +37,10 @@ public class c extends a {
    }
 
    public void a(File var1) {
-      this.a(com.nowcomputing.a.a(var1));
+      this.a(otherImageThingy.a(var1));
    }
 
-   public void a(com.nowcomputing.a var1) {
+   public void a(otherImageThingy var1) {
       this.d = var1;
       if (this.d.a() > 0) {
          this.a(this.d.b());
@@ -48,7 +49,7 @@ public class c extends a {
       this.e = 0;
    }
 
-   public com.nowcomputing.a h() {
+   public otherImageThingy h() {
       return this.d;
    }
 }

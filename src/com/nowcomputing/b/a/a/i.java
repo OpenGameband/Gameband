@@ -1,7 +1,7 @@
 package com.nowcomputing.b.a.a;
 
-import com.nowcomputing.LockingUtil;
-import com.nowcomputing.f.N;
+import com.nowcomputing.LocaleUtil;
+import com.nowcomputing.uistuff.N;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -11,11 +11,11 @@ import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class i extends b {
+public class i extends DialogButton {
    private final JFileChooser b = new JFileChooser(".");
    private j c;
 
-   public i(LockingUtil.a.a var1, String var2, ImageIcon var3, String var4, Integer var5, KeyStroke var6) {
+   public i(com.nowcomputing.b.a.CustomDialog var1, String var2, ImageIcon var3, String var4, Integer var5, KeyStroke var6) {
       super(var1, var2, var3, var4, var5, var6);
       this.b.setFileFilter(new FileNameExtensionFilter("GIF Images", new String[]{"gif"}));
    }
@@ -32,7 +32,7 @@ public class i extends b {
             }
 
             if (var3.exists()) {
-               int var6 = N.a((Component)this.a, (String)com.nowcomputing.f.a("OVERWRITE_FILE_TEXT"), (String)com.nowcomputing.f.a("OVERWRITE_FILE_TITLE"), (String[])(new String[]{com.nowcomputing.f.a("YES"), com.nowcomputing.f.a("NO")}));
+               int var6 = N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("OVERWRITE_FILE_TEXT"), (String) LocaleUtil.getLocalizedString("OVERWRITE_FILE_TITLE"), (String[])(new String[]{LocaleUtil.getLocalizedString("YES"), LocaleUtil.getLocalizedString("NO")}));
                if (var6 == 1) {
                   return;
                }
@@ -40,10 +40,10 @@ public class i extends b {
 
             try {
                this.a.a().b(var3);
-               N.a((Component)this.a, (String)com.nowcomputing.f.a("EXPORT_FILE_SUCCESS_TEXT"), (String)com.nowcomputing.f.a("EXPORT_FILE_SUCCESS_TITLE"));
+               N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TITLE"));
                this.a(j.a);
             } catch (IOException var5) {
-               N.a((Component)this.a, (String)com.nowcomputing.f.a("EXPORT_FILE_ERROR_TEXT"), (String)com.nowcomputing.f.a("EXPORT_FILE_ERROR_TITLE"));
+               N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_ERROR_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_ERROR_TITLE"));
                var5.printStackTrace();
             }
          }

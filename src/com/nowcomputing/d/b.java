@@ -1,6 +1,8 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.N;
+import com.nowcomputing.LocaleUtil;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutorService;
@@ -43,7 +45,7 @@ public class b extends g {
    }
 
    public static short d() {
-      SimpleDateFormat var0 = (SimpleDateFormat)DateFormat.getDateInstance(3, com.nowcomputing.f.a());
+      SimpleDateFormat var0 = (SimpleDateFormat)DateFormat.getDateInstance(3, LocaleUtil.a());
       String var1 = var0.toPattern();
       return (short)(var1.equals("M/d/yy") ? 2 : 3);
    }

@@ -1,15 +1,17 @@
 package com.nowcomputing.b.a;
 
+import com.nowcomputing.otherImageThingy;
+
 public class k {
-   private final com.nowcomputing.a a;
+   private final otherImageThingy a;
    private int b;
 
-   public k(com.nowcomputing.a var1, int var2) {
-      this.a = new com.nowcomputing.a(var1);
+   public k(otherImageThingy var1, int var2) {
+      this.a = new otherImageThingy(var1);
       this.b = var2;
    }
 
-   public com.nowcomputing.a a() {
+   public otherImageThingy a() {
       return this.a;
    }
 

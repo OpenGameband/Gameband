@@ -1,9 +1,9 @@
 package com.nowcomputing;
 
 import com.codeminders.hidapi.ClassPathLibraryLoader;
-import com.nowcomputing.f.ak;
-import com.nowcomputing.f.am;
-import com.nowcomputing.f.s;
+import com.nowcomputing.uistuff.ak;
+import com.nowcomputing.uistuff.am;
+import com.nowcomputing.uistuff.s;
 import java.awt.Cursor;
 import java.io.File;
 import java.util.Iterator;
@@ -54,7 +54,7 @@ public class Main {
             logger.log(Level.INFO, "Error reading serial: " + var5);
          }
 
-         d = new com.nowcomputing.f.s(config, b);
+         d = new com.nowcomputing.uistuff.s(config, b);
          var2.b();
          var2.a();
          logger.log(Level.FINE, "Splash finished");
@@ -143,7 +143,7 @@ public class Main {
          b.g();
       } catch (Throwable var4) {
          logger.log(Level.SEVERE, "Error saving changes to Gameband: ", var4);
-         am.a(d, f.a("GAMEBAND_WRITE_ERROR_TITLE"), f.a("GAMEBAND_WRITE_ERROR_TEXT"), "", "", "");
+         am.a(d, LocaleUtil.getLocalizedString("GAMEBAND_WRITE_ERROR_TITLE"), LocaleUtil.getLocalizedString("GAMEBAND_WRITE_ERROR_TEXT"), "", "", "");
       } finally {
          d.setCursor(Cursor.getDefaultCursor());
       }

@@ -1,8 +1,10 @@
 package a;
 
+import com.nowcomputing.LocaleUtil;
+
 public class j extends AbstractMinecraftLauncher {
    public String getDisplayName() {
-      return com.nowcomputing.f.a("OTHER_LAUNCHER");
+      return LocaleUtil.getLocalizedString("OTHER_LAUNCHER");
    }
 
    public String getSupportURL() {

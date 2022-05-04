@@ -1,7 +1,7 @@
 package com.nowcomputing.b.a.b;
 
 import com.nowcomputing.LockingUtil;
-import com.nowcomputing.f.L;
+import com.nowcomputing.uistuff.L;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
@@ -14,7 +14,7 @@ public class d extends a {
    private Cursor c;
    private Cursor d;
 
-   d(LockingUtil.a.a var1, boolean var2) {
+   d(com.nowcomputing.b.a.CustomDialog var1, boolean var2) {
       super(var1);
       this.b = var2;
       Toolkit var3 = Toolkit.getDefaultToolkit();

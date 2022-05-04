@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 class h implements ActionListener {
    // $FF: synthetic field
-   final a a;
+   final CustomDialog a;
 
-   h(a var1) {
+   h(CustomDialog var1) {
       this.a = var1;
    }
 

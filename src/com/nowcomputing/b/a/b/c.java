@@ -6,9 +6,9 @@ import javax.swing.AbstractAction;
 class c extends AbstractAction {
    private int b;
    // $FF: synthetic field
-   final b a;
+   final mouseHandler a;
 
-   public c(b var1, int var2) {
+   public c(mouseHandler var1, int var2) {
       this.a = var1;
       this.b = var2;
    }

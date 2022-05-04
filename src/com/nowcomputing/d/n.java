@@ -1,6 +1,7 @@
 package com.nowcomputing.d;
 
 import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.otherImageThingy;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -98,7 +99,7 @@ public class n {
       System.arraycopy(var3, 0, this.b, 0, var3.length);
    }
 
-   public com.nowcomputing.a l() {
+   public otherImageThingy l() {
       if (this.d() >= 32 && this.d() <= 47) {
          int var1 = this.j() / 10;
          ArrayList var2 = new ArrayList(var1);
@@ -107,13 +108,13 @@ public class n {
             var2.add(a((short[])this.b, (int)(var3 * 10), 10));
          }
 
-         return new com.nowcomputing.a(var2, this.h());
+         return new otherImageThingy(var2, this.h());
       } else {
          throw new IOException("Screen is not an Animation");
       }
    }
 
-   public void a(com.nowcomputing.a var1) {
+   public void a(otherImageThingy var1) {
       int var2 = Math.min(var1.a(), 50);
       int var3 = var2 * 10;
       this.e((short)var3);

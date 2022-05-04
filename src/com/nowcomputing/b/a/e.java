@@ -8,9 +8,9 @@ import javax.swing.event.ChangeListener;
 
 class e implements ChangeListener {
    // $FF: synthetic field
-   final a a;
+   final CustomDialog a;
 
-   e(a var1) {
+   e(CustomDialog var1) {
       this.a = var1;
    }
 

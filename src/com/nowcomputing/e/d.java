@@ -1,5 +1,7 @@
 package com.nowcomputing.e;
 
+import com.nowcomputing.LocaleUtil;
+
 public enum d {
    a(0, "TRANSITION_NONE"),
    b(1, "TRANSITION_SCROLL"),
@@ -15,7 +17,7 @@ public enum d {
    }
 
    public String a() {
-      return com.nowcomputing.f.a(this.f);
+      return LocaleUtil.getLocalizedString(this.f);
    }
 
    public String toString() {

@@ -1,10 +1,10 @@
 package a;
 
 import c.a.a.c;
-import c.a.a.a.b;
 import com.nowcomputing.*;
-import com.nowcomputing.f.N;
-import com.nowcomputing.f.R;
+import com.nowcomputing.uistuff.GamebandDialog;
+import com.nowcomputing.uistuff.N;
+
 import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +27,11 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
                   logger.log(Level.FINE, "File .mc.exe not found");
                   File file2 = new File(D.getMinecraftPath(), "minecraft.exe");
                   if (file2.exists()) {
-                     Utils.a(file2, file);
+                     try {
+                        Utils.a(file2, file);
+                     } catch (IOException e) {
+                        e.printStackTrace();
+                     }
                      logger.log(Level.FINE, "Copied existing minecraft exe to .mc.exe");
                      file = new File(D.getMinecraftPath(), ".mc.exe");
                      if (!file.exists()) {
@@ -93,16 +97,16 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
    public void f() {
       MinecraftDownloader var1 = new MinecraftDownloader(this.config);
       if (var1.a() != M.a) {
-         R infoDialog = new R("Getting the latest Minecraft Launcher", "This won't take long...", "", true);
+         GamebandDialog infoDialog = new GamebandDialog("Getting the latest Minecraft Launcher", "This won't take long...", "", true);
          infoDialog.setVisible(true);
-         var1.a((com.nowcomputing.R)(new h(this, infoDialog, var1)));
+         var1.a((com.nowcomputing.R)(new MinecraftDownloadDialog(this, infoDialog, var1)));
          var1.c();
          infoDialog.c();
       }
 
    }
 
-   public void i() {
+   public void i() throws IOException {
       this.m();
       if (!this.n()) {
          throw new IOException("Can't download Minecraft.exe");
@@ -113,11 +117,11 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
 
    private void m() {
       try {
-         String var1 = D.setMinecraftPath().getCanonicalPath();
+         String var1 = D.getMinecraftPath().getCanonicalPath();
          String var2 = D.getMinecraftPath().getPath();
          File var3 = new File(D.getMinecraftPath(), "launcher_profiles.json");
          String var4 = Utils.readFile(var3);
-         b var5 = new b();
+         c.a.a.a.b var5 = new c.a.a.a.b();
          c var6 = (c)var5.a(var4);
          boolean var7 = false;
          c var8 = (c)var6.get("profiles");

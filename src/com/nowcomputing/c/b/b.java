@@ -1,5 +1,7 @@
 package com.nowcomputing.c.b;
 
+import com.nowcomputing.randomInterface;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 

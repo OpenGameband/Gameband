@@ -1,5 +1,7 @@
 package com.nowcomputing.c.b;
 
+import com.nowcomputing.randomInterface;
+
 class c {
    short[] a;
    com.nowcomputing.c.c.a[] b;

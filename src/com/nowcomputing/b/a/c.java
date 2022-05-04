@@ -6,9 +6,9 @@ import java.awt.event.MouseEvent;
 
 class c extends MouseAdapter {
    // $FF: synthetic field
-   final a a;
+   final CustomDialog a;
 
-   c(a var1) {
+   c(CustomDialog var1) {
       this.a = var1;
    }
 
