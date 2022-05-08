@@ -5,6 +5,7 @@ import com.nowcomputing.LocaleUtil;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -44,12 +45,12 @@ public class dialogPanel extends JPanel {
       this.k = var1;
    }
 
-   public void a() {
+   public void a() throws IOException {
       this.add(this.g(), "North");
       this.add(this.b(), "Center");
    }
 
-   protected Component g() {
+   protected Component g() throws IOException {
       this.c = new JPanel();
       this.c.setBackground(GamebandColors.b);
       this.c.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, GamebandColors.a(800, 1)));
@@ -67,13 +68,13 @@ public class dialogPanel extends JPanel {
 
    private JComponent d() {
       JLabel var1 = new JLabel(this.i, 0);
-      var1.setFont(q.j);
+      var1.setFont(GamebandFonts.j);
       var1.setForeground(GamebandColors.b());
       var1.setPreferredSize(new Dimension(100, 52));
       return var1;
    }
 
-   private Component m() {
+   private Component m() throws IOException {
       JPanel var1 = new JPanel();
       var1.setPreferredSize(new Dimension(180, 52));
       var1.setLayout(new BoxLayout(var1, 0));
@@ -81,7 +82,7 @@ public class dialogPanel extends JPanel {
       if (this.i()) {
 //         try {
             this.e = new B(new ImageIcon(this.getClass().getResource("/resources/home.png")));
-            this.e.setPressedIcon(new ImageIcon(GamebandColors.a("/resources/home_pressed.png")));
+            this.e.setPressedIcon(new ImageIcon(GamebandColors.getImage("/resources/home_pressed.png")));
             this.e.setToolTipText(LocaleUtil.getLocalizedString("GOTO_MAIN_MENU"));
 //         } catch (IOException var3) {
 //            this.e = new JButton("Home");
@@ -94,7 +95,7 @@ public class dialogPanel extends JPanel {
       return var1;
    }
 
-   private Component n() {
+   private Component n() throws IOException {
       JPanel var1 = new JPanel();
       var1.setPreferredSize(new Dimension(180, 52));
       var1.setLayout(new BoxLayout(var1, 0));
@@ -107,7 +108,7 @@ public class dialogPanel extends JPanel {
       if (this.j()) {
 //         try {
             this.f = new B(new ImageIcon(this.getClass().getResource("/resources/eject.png")));
-            this.f.setPressedIcon(new ImageIcon(GamebandColors.a("/resources/eject_pressed.png")));
+            this.f.setPressedIcon(new ImageIcon(GamebandColors.getImage("/resources/eject_pressed.png")));
             this.f.setToolTipText(LocaleUtil.getLocalizedString("EJECT"));
 //         } catch (IOException var3) {
 //            this.f = new JButton("Eject");
@@ -119,10 +120,10 @@ public class dialogPanel extends JPanel {
       return var1;
    }
 
-   private void a(JPanel var1) {
+   private void a(JPanel var1) throws IOException {
 //      try {
          this.g = new B(new ImageIcon(this.getClass().getResource("/resources/help.png")));
-         this.g.setPressedIcon(new ImageIcon(GamebandColors.a("/resources/help_pressed.png")));
+         this.g.setPressedIcon(new ImageIcon(GamebandColors.getImage("/resources/help_pressed.png")));
          this.g.setToolTipText(LocaleUtil.getLocalizedString("HELP"));
 //      } catch (IOException var3) {
 //         this.g = new JButton("Help");

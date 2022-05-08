@@ -1,9 +1,10 @@
 package com.nowcomputing;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.Callable;
 
-class K implements Callable {
+class K implements Callable<Void> {
    // $FF: synthetic field
    final File a;
    // $FF: synthetic field
@@ -17,13 +18,9 @@ class K implements Callable {
       this.b = var3;
    }
 
-   public Void a() {
+   @Override
+   public Void call() throws IOException {
       Class1.method13(this.c, this.a, this.b);
       return null;
-   }
-
-   // $FF: synthetic method
-   public Object call() {
-      return this.a();
    }
 }

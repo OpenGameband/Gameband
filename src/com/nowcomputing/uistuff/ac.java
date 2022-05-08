@@ -15,7 +15,7 @@ class ac implements ActionListener {
 
    public void actionPerformed(ActionEvent var1) {
       JComboBox var2 = (JComboBox)var1.getSource();
-      a.e var3 = (a.e)var2.getSelectedItem();
+      apackage.e var3 = (apackage.e)var2.getSelectedItem();
       SwingUtilities.invokeLater(new ad(this, var3));
    }
 }

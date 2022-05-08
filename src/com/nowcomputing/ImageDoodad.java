@@ -3,6 +3,9 @@ package com.nowcomputing;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+/**
+ * called com.nowcomputing.d
+ */
 public class ImageDoodad {
    boolean[][] a;
    private int b;

@@ -68,7 +68,7 @@ public abstract class am {
                var4.put("Button[Focused].backgroundPainter", b);
                var4.put("Button[MouseOver].backgroundPainter", b);
                var4.put("Button[Pressed].backgroundPainter", c);
-               var4.put("Button.font", q.n);
+               var4.put("Button.font", GamebandFonts.n);
                var4.put("Button.background", GamebandColors.j);
                var4.put("TextField[Enabled].borderPainter", d);
                var4.put("TextField[Focused].borderPainter", d);

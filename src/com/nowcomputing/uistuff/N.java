@@ -60,7 +60,7 @@ public class N extends JDialog {
       var2.setAlignmentX(0.5F);
       var2.setEditable(false);
       var2.setMargin((Insets)null);
-      var2.setFont(q.s);
+      var2.setFont(GamebandFonts.s);
       var2.setContentType("text/html");
       String var3 = "<html><body style='text-align:center'><a style='color:#e0d0d0;font-size:12px;font-family:helvetica;' href='" + var0 + "'>" + var0;
       var2.setText(var3);
@@ -85,7 +85,7 @@ public class N extends JDialog {
 
       for(int var4 = 0; var4 < var1.length; ++var4) {
          JButton var6 = new JButton(var1[var4]);
-         var6.setFont(q.n);
+         var6.setFont(GamebandFonts.n);
          var6.addActionListener(new Q(var0, var4));
          var3.add(var6);
       }
@@ -99,7 +99,7 @@ public class N extends JDialog {
       for(int var4 = 0; var4 < var3; ++var4) {
          String var5 = var2[var4];
          C var6 = new C(var5, 360, "center");
-         var6.setFont(q.k);
+         var6.setFont(GamebandFonts.k);
          var6.setForeground(Color.WHITE);
          var6.setAlignmentX(0.5F);
          var1.add(var6);

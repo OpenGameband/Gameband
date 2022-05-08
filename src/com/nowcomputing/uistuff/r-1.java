@@ -2,6 +2,6 @@ package com.nowcomputing.uistuff;
 
 final class r implements com.nowcomputing.t {
    public void c() {
-      q.a();
+      GamebandFonts.a();
    }
 }

@@ -13,7 +13,7 @@ final class an implements com.nowcomputing.t {
          LookAndFeelInfo var4 = var1[var3];
          if ("Nimbus".equals(var4.getName())) {
             UIDefaults var5 = UIManager.getLookAndFeelDefaults();
-            var5.put("Button.font", q.n);
+            var5.put("Button.font", GamebandFonts.n);
             break;
          }
       }

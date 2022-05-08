@@ -20,18 +20,18 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
    private static final Logger a = Logger.getLogger(Utils.class.getName());
    private GamebandConfig b;
    private latchedCommandRun c;
-   private com.nowcomputing.uistuff.a.p d;
+   private com.nowcomputing.uistuff.apackage.p d;
    private M e;
    private aa f;
-   private ImageDoodad.f g;
+   private com.nowcomputing.uistuff.f g;
    private boolean h;
    private b i;
    private CountDownLatch j = null;
 
-   public s(GamebandConfig var1, ImageDoodad.f var2) {
+   public s(GamebandConfig var1, com.nowcomputing.uistuff.f var2) {
       this.b = var1;
       this.g = var2;
-      this.c = new a.c(var1);
+      this.c = new com.nowcomputing.uistuff.c(var1);
       this.c.a((com.nowcomputing.n)this);
       this.setTitle("Gameband " + WindowsVersionComparator.getImplementationVersion().toString());
       this.setDefaultCloseOperation(0);
@@ -46,7 +46,7 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
 
       InputStream var5;
       try {
-         var5 = com.nowcomputing.uistuff.a.p.class.getResourceAsStream("/resources/icon.png");
+         var5 = com.nowcomputing.uistuff.apackage.p.class.getResourceAsStream("/resources/icon.png");
          if (var5 != null) {
             this.setIconImage(ImageIO.read(var5));
          }
@@ -118,7 +118,7 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
 
    private void m() {
       this.n();
-      this.d = new com.nowcomputing.uistuff.a.p(this, this.g);
+      this.d = new com.nowcomputing.uistuff.apackage.p(this, this.g);
       this.d.m().addActionListener(this);
       this.d.n().addActionListener(this);
       this.d.f();

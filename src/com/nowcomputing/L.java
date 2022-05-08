@@ -1,6 +1,7 @@
 package com.nowcomputing;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.Callable;
 
 class L implements Callable {
@@ -17,13 +18,13 @@ class L implements Callable {
       this.b = var3;
    }
 
-   public Void a() {
+   public Void a() throws IOException {
       Class1.method14(this.c, this.a, this.b);
       return null;
    }
 
    // $FF: synthetic method
-   public Object call() {
+   public Object call() throws IOException {
       return this.a();
    }
 }

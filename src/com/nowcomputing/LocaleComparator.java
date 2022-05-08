@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.ResourceBundle;
 
 final class LocaleComparator implements Comparator<ResourceBundle> {
+
    public int compare(ResourceBundle bundle1, ResourceBundle bundle2) {
       String locale1 = this.getLocale(bundle1).toLowerCase();
       String locale2 = this.getLocale(bundle2).toLowerCase();

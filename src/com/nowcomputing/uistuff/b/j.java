@@ -4,7 +4,7 @@ import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.otherImageThingy;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.apackage.t;
 
 public class j extends k {
    public j(t var1, ImageDoodad.a var2, ImageDoodad var3, otherImageThingy.d var4, boolean var5) {

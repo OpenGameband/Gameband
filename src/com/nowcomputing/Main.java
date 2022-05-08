@@ -43,9 +43,9 @@ public class Main {
          logger.log(Level.FINE, Utils.e());
          removeOldPixelFurnaceBinariesBecauseYay();
          Utils.d();
-         ClassPathLibraryLoader.loadNativeHIDLibrary(D.b());
+         ClassPathLibraryLoader.loadNativeHIDLibrary(D.getLibPath());
          addLaunchers(config);
-         F.a(D.b());
+         F.a(D.getLibPath());
 
          try {
             String var3 = GbUtilNative.getUsbSerial(10896, 49);
@@ -60,8 +60,8 @@ public class Main {
          logger.log(Level.FINE, "Splash finished");
          d.setVisible(true);
          logger.log(Level.FINE, "Showed Main window");
-         File var8 = new File(D.b(), ".acs");
-         File var4 = new File(D.b(), ".act");
+         File var8 = new File(D.getLibPath(), ".acs");
+         File var4 = new File(D.getLibPath(), ".act");
          if (var8.exists() || var4.exists()) {
             d.f();
             var8.delete();
@@ -78,7 +78,7 @@ public class Main {
    }
 
    private static void removeOldPixelFurnaceBinariesBecauseYay() {
-      Utils.f(new File("PixelFurnace.app"));
+      Utils.containsFiles(new File("PixelFurnace.app"));
       File var0 = new File("PixelFurnace.exe");
       if (var0.exists()) {
          var0.delete();
@@ -163,7 +163,7 @@ public class Main {
    static {
       System.setProperty("java.util.logging.manager", V.class.getName());
       logger = Logger.getLogger("com.nowcomputing");
-      b = new ImageDoodad.f();
+      b = new com.nowcomputing.d.f();
       vec = null;
       e = null;
    }

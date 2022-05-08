@@ -1,7 +1,5 @@
 package com.nowcomputing;
 
-//import java.util.logging.Logger;
-
 /**
  * This is crap, it is bad
  * but it maybe works

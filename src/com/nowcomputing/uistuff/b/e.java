@@ -4,8 +4,8 @@ import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.otherImageThingy;
-import com.nowcomputing.uistuff.q;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.GamebandFonts;
+import com.nowcomputing.uistuff.apackage.t;
 import java.awt.LayoutManager;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,7 +34,7 @@ public abstract class e extends JPanel implements ImageDoodad.m {
       var3.setBounds(16, 5, 104, 39);
       JLabel var4 = new JLabel(var2);
       var4.setVerticalAlignment(1);
-      var4.setFont(q.t);
+      var4.setFont(GamebandFonts.t);
       var4.setForeground(LocaleUtil.h.m);
       var4.setBounds(144, 14, 140, 50);
       this.add(var4);
@@ -58,7 +58,7 @@ public abstract class e extends JPanel implements ImageDoodad.m {
    protected void h() {
       this.c = new JCheckBox(LocaleUtil.getLocalizedString("ENABLED_BUTTON"));
       this.add(this.c);
-      this.c.setFont(q.u);
+      this.c.setFont(GamebandFonts.u);
       this.c.setForeground(LocaleUtil.h.m);
       this.c.setBounds(420, 15, 100, 20);
       this.c.setOpaque(false);

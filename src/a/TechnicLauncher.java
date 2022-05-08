@@ -1,7 +1,7 @@
 package a;
 
-import c.a.a.c;
-import c.a.a.a.b;
+import c.a.scanner.c;
+import c.a.scanner.a.b;
 import com.nowcomputing.*;
 import com.nowcomputing.uistuff.GamebandDialog;
 import java.io.File;
@@ -130,7 +130,7 @@ public class TechnicLauncher extends AbstractMinecraftLauncher {
 
    private static void a(File var0, c var1) {
       var1.put("directory", "portable");
-      c.a.a.f var2 = new c.a.a.f();
+      c.a.scanner.f var2 = new c.a.scanner.f();
       var1.a((Writer)var2);
       Utils.a(var0, var2.toString());
    }

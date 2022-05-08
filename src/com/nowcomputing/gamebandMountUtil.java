@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 /**
  * this is never used
+ * was called com.nowcomputing.j
  * @deprecated no use, as far as I can tell
  */
 public class gamebandMountUtil {

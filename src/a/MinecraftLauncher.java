@@ -1,6 +1,6 @@
 package a;
 
-import c.a.a.c;
+import c.a.scanner.c;
 import com.nowcomputing.*;
 import com.nowcomputing.uistuff.GamebandDialog;
 import com.nowcomputing.uistuff.N;
@@ -121,7 +121,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
          String var2 = D.getMinecraftPath().getPath();
          File var3 = new File(D.getMinecraftPath(), "launcher_profiles.json");
          String var4 = Utils.readFile(var3);
-         c.a.a.a.b var5 = new c.a.a.a.b();
+         c.a.scanner.a.b var5 = new c.a.scanner.a.b();
          c var6 = (c)var5.a(var4);
          boolean var7 = false;
          c var8 = (c)var6.get("profiles");
@@ -135,7 +135,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
                do {
                   if (!var9.hasNext()) {
                      if (var7) {
-                        c.a.a.f var18 = new c.a.a.f();
+                        c.a.scanner.f var18 = new c.a.scanner.f();
                         var6.a((Writer)var18);
                         Utils.a(var3, var18.toString());
                      }
@@ -153,7 +153,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
                if (!var13.startsWith(var1)) {
                   int var15 = var13.indexOf(var2);
                   if (var15 != -1) {
-                     String var16 = Utils.c(var13.substring(var15));
+                     String var16 = Utils.fixSeperator(var13.substring(var15));
                      var14 = var1 + File.separator + var16;
                   } else {
                      var14 = "";

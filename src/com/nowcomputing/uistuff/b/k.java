@@ -2,7 +2,7 @@ package com.nowcomputing.uistuff.b;
 
 import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.otherImageThingy;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.apackage.t;
 
 public class k extends e {
    private ImageDoodad.a a;

@@ -5,7 +5,7 @@ import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.ImageDoodad.o;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.otherImageThingy;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.apackage.t;
 
 public class m extends e {
    private o a;

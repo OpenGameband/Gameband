@@ -23,6 +23,9 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 
+/**
+ * originally called com.nowcomputing.S
+ */
 public class Utils {
    public static final Logger logger = Logger.getLogger(Utils.class.getName());
 
@@ -219,28 +222,28 @@ public class Utils {
 
    }
 
-   public static boolean f(File var0) {
-      if (!var0.exists()) {
+   public static boolean containsFiles(File dir) {
+      if (!dir.exists()) {
          return true;
       } else {
-         if (var0.isDirectory()) {
-            File[] var1 = var0.listFiles();
-            int var2 = var1.length;
+         if (dir.isDirectory()) {
+            File[] fileList = dir.listFiles();
+            int listLen = fileList.length;
 
-            for(int var3 = 0; var3 < var2; ++var3) {
-               File var4 = var1[var3];
-               if (!f(var4)) {
+            for(int i = 0; i < listLen; ++i) {
+               File f = fileList[i];
+               if (!containsFiles(f)) {
                   return false;
                }
             }
          }
 
-         return g(var0);
+         return g(dir);
       }
    }
 
    public static boolean g(File var0) {
-      int var1 = 5;
+      int var1 = 5; // Thanks magic numbers
 
       while(var1-- > 0) {
          try {
@@ -613,12 +616,12 @@ public class Utils {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          File var5 = var2[var4];
-         i(var5);
+         hideFile(var5);
       }
 
    }
 
-   public static void i(File var0) {
+   public static void hideFile(File var0) {
       try {
          String var1 = var0.getCanonicalPath();
          ProcessBuilder var2;
@@ -638,7 +641,7 @@ public class Utils {
 
    }
 
-   public static void f() throws IOException {
+   public static void lsregisterShenanigans() throws IOException {
       if (b() == B.c) {
          String var0 = null;
          if ((new File("/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister")).exists()) {
@@ -675,7 +678,7 @@ public class Utils {
       return var0 < var1 ? var1 : (var0 > var2 ? var2 : var0);
    }
 
-   public static String c(String var0) {
+   public static String fixSeperator(String var0) {
       if (File.separatorChar == '\\') {
          var0 = var0.replace('/', '\\');
       } else {

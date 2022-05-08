@@ -72,25 +72,25 @@ public class GamebandDialog extends JFrame {
       var1.setOpaque(false);
       JLabel var2 = new JLabel(this.str1);
       var2.setHorizontalAlignment(0);
-      am.a(var1, var2, q.i, Color.white, 0, 0, 800, 43);
-      var2.setFont(q.i);
+      am.a(var1, var2, GamebandFonts.i, Color.white, 0, 0, 800, 43);
+      var2.setFont(GamebandFonts.i);
       this.d = new JLabel(this.str2);
       this.d.setHorizontalAlignment(0);
-      am.a(var1, this.d, q.k, Color.white, 0, 45, 800, 43);
+      am.a(var1, this.d, GamebandFonts.k, Color.white, 0, 45, 800, 43);
       this.e = new JLabel(this.str3);
       this.e.setHorizontalAlignment(0);
-      am.a(var1, this.e, q.k, Color.white, 0, 71, 800, 43);
+      am.a(var1, this.e, GamebandFonts.k, Color.white, 0, 71, 800, 43);
       this.progressBar.setBorder(BorderFactory.createEmptyBorder());
-      am.a(var1, this.progressBar, q.p, GamebandColors.a(), 136, 114, 534, 24);
+      am.a(var1, this.progressBar, GamebandFonts.p, GamebandColors.a(), 136, 114, 534, 24);
       if (this.k) {
          this.cancelButton.setBackground(GamebandColors.k);
          this.cancelButton.addActionListener(new U(this));
-         am.a(var1, this.cancelButton, q.q, Color.white, 550, 152, 120, 32);
+         am.a(var1, this.cancelButton, GamebandFonts.q, Color.white, 550, 152, 120, 32);
       }
 
       this.okButton.setBackground(GamebandColors.e());
       this.okButton.addActionListener(new V(this));
-      am.a(var1, this.okButton, q.n, GamebandColors.f(), 387, 120, 60, 32);
+      am.a(var1, this.okButton, GamebandFonts.n, GamebandColors.f(), 387, 120, 60, 32);
       this.okButton.setVisible(false);
       return var1;
    }

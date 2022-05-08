@@ -62,14 +62,14 @@ public class i extends at implements ActionListener, MouseListener {
    protected void a() {
       this.setLayout(new BoxLayout(this, 1));
       this.setBorder(new EmptyBorder(40, 230, 0, 0));
-      this.a(LocaleUtil.getLocalizedString("WHERE_ARE_YOU"), q.k, LocaleUtil.h.a());
-      this.a(LocaleUtil.getLocalizedString("CONFIRM_TIMEZONE"), q.k, Color.WHITE);
+      this.a(LocaleUtil.getLocalizedString("WHERE_ARE_YOU"), GamebandFonts.k, LocaleUtil.h.a());
+      this.a(LocaleUtil.getLocalizedString("CONFIRM_TIMEZONE"), GamebandFonts.k, Color.WHITE);
       this.add(Box.createVerticalStrut(5));
       this.f();
       this.add(Box.createVerticalStrut(30));
-      this.a(LocaleUtil.getLocalizedString("LEFT_OR_RIGHT"), q.k, LocaleUtil.h.a());
-      this.a(LocaleUtil.getLocalizedString("ORIENTATION_1"), q.k, Color.WHITE);
-      this.a(LocaleUtil.getLocalizedString("ORIENTATION_2"), q.m, Color.WHITE);
+      this.a(LocaleUtil.getLocalizedString("LEFT_OR_RIGHT"), GamebandFonts.k, LocaleUtil.h.a());
+      this.a(LocaleUtil.getLocalizedString("ORIENTATION_1"), GamebandFonts.k, Color.WHITE);
+      this.a(LocaleUtil.getLocalizedString("ORIENTATION_2"), GamebandFonts.m, Color.WHITE);
       this.add(Box.createVerticalStrut(10));
       this.g();
       this.add(Box.createVerticalStrut(25));
@@ -95,7 +95,7 @@ public class i extends at implements ActionListener, MouseListener {
       var1.setAlignmentX(0.0F);
       var1.setBorder((Border)null);
       this.add(var1);
-      this.e.setFont(q.C);
+      this.e.setFont(GamebandFonts.C);
       this.e.addListSelectionListener(new j(this));
       String var2 = com.nowcomputing.O.a(LocaleUtil.e());
       this.e.setSelectedValue(var2, true);
@@ -136,7 +136,7 @@ public class i extends at implements ActionListener, MouseListener {
       var2.setOpaque(true);
       var2.setBackground(LocaleUtil.h.p);
       var2.setForeground(Color.WHITE);
-      var2.setFont(q.k);
+      var2.setFont(GamebandFonts.k);
       var3.add(var2);
       return var3;
    }
@@ -148,7 +148,7 @@ public class i extends at implements ActionListener, MouseListener {
       var1.setMaximumSize(new Dimension(340, 80));
       this.add(var1);
       JButton var2 = new JButton(LocaleUtil.getLocalizedString("CONFIRM"));
-      var2.setFont(q.n);
+      var2.setFont(GamebandFonts.n);
       var2.setBackground(LocaleUtil.h.e());
       var2.setForeground(LocaleUtil.h.f());
       var2.addActionListener(new k(this));

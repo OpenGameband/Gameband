@@ -2,11 +2,11 @@ package com.nowcomputing.uistuff;
 
 class ad implements Runnable {
    // $FF: synthetic field
-   final a.e a;
+   final apackage.e a;
    // $FF: synthetic field
    final ac b;
 
-   ad(ac var1, a.e var2) {
+   ad(ac var1, apackage.e var2) {
       this.b = var1;
       this.a = var2;
    }

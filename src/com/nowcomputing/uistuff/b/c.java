@@ -2,7 +2,7 @@ package com.nowcomputing.uistuff.b;
 
 import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.ImageDoodad;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.apackage.t;
 import javax.swing.border.Border;
 
 public class c extends e {

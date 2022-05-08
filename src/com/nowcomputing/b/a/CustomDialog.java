@@ -5,6 +5,7 @@ import com.nowcomputing.LockingUtil;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.otherImageThingy;
 import com.nowcomputing.uistuff.GamebandColors;
+import com.nowcomputing.uistuff.GamebandFonts;
 import com.nowcomputing.uistuff.L;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -442,7 +443,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       JPanel var3 = new JPanel(new FlowLayout(1, 0, 28));
       var3.setOpaque(false);
       JButton var4 = new JButton(LocaleUtil.getLocalizedString("DONE"));
-      var4.setFont(com.nowcomputing.uistuff.q.y);
+      var4.setFont(GamebandFonts.y);
       var4.setFocusPainted(false);
       var4.setFocusable(false);
       var4.addActionListener(new d(this));
@@ -463,7 +464,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       this.r = new SpinnerNumberModel(this.b.a(), 1, Math.max(this.b.a(), 50), 1);
       JSpinner var4 = new JSpinner(this.r);
       var4.setToolTipText(LocaleUtil.getLocalizedString("NUMBER_OF_FRAMES"));
-      var4.setFont(com.nowcomputing.uistuff.q.z);
+      var4.setFont(GamebandFonts.z);
       var4.addChangeListener(new e(this));
       var4.setFocusable(false);
       Component[] var5 = var4.getEditor().getComponents();
@@ -486,7 +487,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       this.q = new SpinnerNumberModel(this.b.b(), 1, Math.max(this.b.b(), 30), 1);
       JSpinner var14 = new JSpinner(this.q);
       var14.setToolTipText(LocaleUtil.getLocalizedString("FPS"));
-      var14.setFont(com.nowcomputing.uistuff.q.z);
+      var14.setFont(GamebandFonts.z);
       var14.addChangeListener(new f(this));
       var14.setFocusable(false);
       Component[] var15 = var14.getEditor().getComponents();
@@ -521,7 +522,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       var1.add(var2, "Before");
       this.g = new JSlider();
       this.g.setForeground(Color.WHITE);
-      this.g.setFont(com.nowcomputing.uistuff.q.z);
+      this.g.setFont(GamebandFonts.z);
       this.g.setMaximum(this.b.a() - 1);
       this.g.setMajorTickSpacing(5);
       this.g.setMinorTickSpacing(1);

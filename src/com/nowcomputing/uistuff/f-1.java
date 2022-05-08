@@ -23,15 +23,15 @@ public class f extends at {
       this.setLayout(new BoxLayout(this, 1));
       this.setBorder(new EmptyBorder(175, 246, 0, 0));
       C var1 = new C(LocaleUtil.getLocalizedString("CHOOSE_LANGUAGE_HEADING"), 240);
-      am.a(this, var1, q.i, GamebandColors.a());
+      am.a(this, var1, GamebandFonts.i, GamebandColors.a());
       var1.setAlignmentX(0.0F);
       this.add(Box.createVerticalStrut(8));
       C var2 = new C(LocaleUtil.getLocalizedString("CHOOSE_LANGUAGE_1"), 240);
-      am.a(this, var2, q.l, Color.WHITE);
+      am.a(this, var2, GamebandFonts.l, Color.WHITE);
       var2.setAlignmentX(0.0F);
       this.add(Box.createVerticalStrut(3));
       C var3 = new C(LocaleUtil.getLocalizedString("CHOOSE_LANGUAGE_2"), 240);
-      am.a(this, var3, q.m, Color.WHITE);
+      am.a(this, var3, GamebandFonts.m, Color.WHITE);
       var3.setAlignmentX(0.0F);
       this.add(Box.createVerticalStrut(30));
       this.add(this.d());
@@ -62,7 +62,7 @@ public class f extends at {
          var2.setForeground(GamebandColors.d());
       }
 
-      var2.setFont(q.b);
+      var2.setFont(GamebandFonts.b);
       var2.addActionListener(new g(this, var1));
       return var2;
    }

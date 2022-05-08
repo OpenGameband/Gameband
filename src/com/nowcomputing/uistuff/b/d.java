@@ -3,7 +3,7 @@ package com.nowcomputing.uistuff.b;
 import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.otherImageThingy;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.apackage.t;
 
 public class d extends e {
    private ImageDoodad.c a;

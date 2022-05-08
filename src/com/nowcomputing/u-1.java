@@ -15,7 +15,7 @@ final class u extends Thread {
          }
 
          try {
-            Utils.f();
+            Utils.lsregisterShenanigans();
          } catch (Exception var6) {
             Main.getLogger().log(Level.WARNING, "Error calling lsregister", var6);
          }

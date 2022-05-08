@@ -4,7 +4,7 @@ import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.ImageDoodad;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.otherImageThingy;
-import com.nowcomputing.uistuff.a.t;
+import com.nowcomputing.uistuff.apackage.t;
 import java.io.File;
 
 public class a extends e {

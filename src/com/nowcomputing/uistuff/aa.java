@@ -406,12 +406,12 @@ public class aa extends dialogPanel implements ActionListener {
       return this.p;
    }
 
-   public void a(a.e var1) {
-      if (var1 instanceof a.j) {
+   public void a(apackage.e var1) {
+      if (var1 instanceof apackage.j) {
          N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("OTHER_LAUNCHER_TEXT1"), LocaleUtil.getLocalizedString("OTHER_LAUNCHER_TEXT2")}), (String) LocaleUtil.getLocalizedString("OTHER_LAUNCHER_TITLE"), (String)"www.nowcomputing.com/contact");
          this.s.setSelectedIndex(0);
       } else {
-         if (!(var1 instanceof a.g) && !var1.g()) {
+         if (!(var1 instanceof apackage.g) && !var1.g()) {
             String[] var2 = new String[]{LocaleUtil.getLocalizedString("NO"), LocaleUtil.getLocalizedString("YES")};
             String[] var3 = new String[]{LocaleUtil.getLocalizedString("LAUNCHER_DISCLAIMER"), LocaleUtil.getLocalizedString("LAUNCHER_DISCLAIMER_1")};
             int var4 = N.a((Component)this, (String[])var3, (String)"Gameband", (String[])var2);

@@ -72,7 +72,7 @@ public class b extends dialogPanel {
       this.a.setOpaque(false);
       this.k.setText(LocaleUtil.getLocalizedString("BACKUP_PROGRESS_HEADING"));
       this.k.setAlignmentX(0.5F);
-      am.a(this.a, this.k, LocaleUtil.q.j, Color.white);
+      am.a(this.a, this.k, q.j, Color.white);
       this.a.add(Box.createVerticalStrut(4));
       this.l.setText(LocaleUtil.getLocalizedString("BACKUP_PROGRESS_1"));
       this.l.setAlignmentX(0.5F);

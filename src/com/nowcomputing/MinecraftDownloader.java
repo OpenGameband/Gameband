@@ -6,8 +6,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import c.a.a.dingusList.UnexpectedDoodadException;
-import c.a.a.dingusList.b;
+import c.a.scanner.dingusList.UnexpectedDoodadException;
+import c.a.scanner.dingusList.b;
 
 public class MinecraftDownloader {
    static final Logger log = Logger.getLogger(Utils.class.getName());
@@ -150,7 +150,7 @@ public class MinecraftDownloader {
       com.nowcomputing.c.a.a.c var2 = (com.nowcomputing.c.a.a.c)var1.get("windows");
       this.a((String)var2.get("applink"), i, (String)var2.get("apphash"));
       Utils.b(new File(i), new File(h));
-      Utils.i(new File(h));
+      Utils.hideFile(new File(h));
       if (this.j != null) {
          this.j.exit();
       }

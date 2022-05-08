@@ -71,10 +71,10 @@ public abstract class Class1 implements randomInterfaceThatDoesNothing {
          this.field4.exit();
       }
 
-      Utils.i(new File(this.field2, "Gameband_linux.bat"));
-      Utils.i(new File(this.field2, ".lib"));
-      Utils.i(new File(this.field2, "autorun.inf"));
-      Utils.i(new File(this.field2, ".VolumeIcon.icns"));
+      Utils.hideFile(new File(this.field2, "Gameband_linux.bat"));
+      Utils.hideFile(new File(this.field2, ".lib"));
+      Utils.hideFile(new File(this.field2, "autorun.inf"));
+      Utils.hideFile(new File(this.field2, ".VolumeIcon.icns"));
       Utils.a((File)this.field2, (FilenameFilter)(new I(this)));
    }
 
@@ -94,9 +94,9 @@ public abstract class Class1 implements randomInterfaceThatDoesNothing {
    private boolean method5(UpdateEntry var1) {
       File var2 = new File(this.field3, var1.e());
       String var3 = var2.getAbsolutePath();
-      Utils.f(var2);
+      Utils.containsFiles(var2);
       var2.mkdirs();
-      Utils.i(this.field3);
+      Utils.hideFile(this.field3);
       File var4 = new File(var2, var1.e());
       logger.log(Level.FINE, "Downloading package " + var1.c() + " to " + var4.getPath());
 
@@ -157,17 +157,17 @@ public abstract class Class1 implements randomInterfaceThatDoesNothing {
          logger.log(Level.WARNING, "Error applying update. Restored backup.");
       }
 
-      Utils.f(var3);
+      Utils.containsFiles(var3);
    }
 
-   private void method8(File var1, File var2) {
-      Utils.f(var2);
+   private void method8(File var1, File var2) throws IOException {
+      Utils.containsFiles(var2);
       var2.mkdir();
       Utils.c(var1, var2);
    }
 
-   private void method9(File var1, File var2) {
-      Utils.f(var2);
+   private void method9(File var1, File var2) throws IOException {
+      Utils.containsFiles(var2);
       var2.mkdir();
       ArrayList var3 = new ArrayList();
       Utils.a(var1, var2, (List)var3);
@@ -178,7 +178,8 @@ public abstract class Class1 implements randomInterfaceThatDoesNothing {
 
    protected abstract InputStream method10(String var1) throws IOException;
 
-   public void method11(long var1) {
+   @Override
+   public void a(long var1) {
       this.field6 += var1;
       if (this.field4 != null) {
          int var3 = (int)((float)this.field6 / (float)this.field5 * 100.0F);
@@ -189,17 +190,17 @@ public abstract class Class1 implements randomInterfaceThatDoesNothing {
    }
 
    // $FF: synthetic method
-   static void method12(Class1 var0, UpdateEntry var1, File var2) {
+   static void method12(Class1 var0, UpdateEntry var1, File var2) throws IOException {
       var0.method6(var1, var2);
    }
 
    // $FF: synthetic method
-   static void method13(Class1 var0, File var1, File var2) {
+   static void method13(Class1 var0, File var1, File var2) throws IOException {
       var0.method9(var1, var2);
    }
 
    // $FF: synthetic method
-   static void method14(Class1 var0, File var1, File var2) {
+   static void method14(Class1 var0, File var1, File var2) throws IOException {
       var0.method8(var1, var2);
    }
 }
