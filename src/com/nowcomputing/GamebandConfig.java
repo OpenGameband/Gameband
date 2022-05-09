@@ -6,8 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-/*
+/**
 GamebandConfig is a thin veneer around the Properties class
+com.nowcomputing.e
  */
 public class GamebandConfig {
    public static final File defaultConfigFile = new File(D.getLibPath(), "gameband.properties");

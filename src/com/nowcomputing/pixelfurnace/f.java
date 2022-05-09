@@ -1,4 +1,4 @@
-package com.nowcomputing.d;
+package com.nowcomputing.pixelfurnace;
 
 import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.LocaleUtil;
@@ -21,12 +21,12 @@ public class f {
    private p b = new p();
    private List c = new ArrayList();
    private GamebandHID d = new GamebandHID();
-   private GamebandConfig.d e;
+   private com.nowcomputing.e.d e;
    private static final ExecutorService f = Executors.newCachedThreadPool();
    private boolean g;
 
    public f() {
-      this.e = GamebandConfig.c.a;
+      this.e = com.nowcomputing.e.c.a;
    }
 
    public short a() {
@@ -57,20 +57,20 @@ public class f {
       this.b.a(var1.nextTransition(var2) / 1000L);
    }
 
-   public void a(GamebandConfig.d var1) {
+   public void a(com.nowcomputing.e.d var1) {
       this.e = var1;
       Iterator var2 = this.c.iterator();
 
       while(var2.hasNext()) {
          g var3 = (g)var2.next();
          if (!(var3 instanceof o)) {
-            var3.a(GamebandConfig.c.a(this.e));
+            var3.a(com.nowcomputing.e.c.a(this.e));
          }
       }
 
    }
 
-   public GamebandConfig.d c() {
+   public com.nowcomputing.e.d c() {
       return this.e;
    }
 
@@ -88,7 +88,7 @@ public class f {
       this.b.g((short)this.c.size());
    }
 
-   public void f() {
+   public void f() throws IOException {
       short[] var1;
       try {
          this.d.a();
@@ -121,7 +121,7 @@ public class f {
 
    }
 
-   public void g() {
+   public void g() throws IOException {
       a.log(Level.FINE, "Computer timezone: " + TimeZone.getDefault().getID());
       a.log(Level.FINE, "Computer local time: " + new Date());
       int var1 = (int)((new Date()).getTime() / 1000L);
@@ -191,7 +191,7 @@ public class f {
       return var8;
    }
 
-   private void a(short var1, short var2) {
+   private void a(short var1, short var2) throws IOException {
       short[] var3 = this.d.b();
       short[] var4 = this.b(var3);
       if (var1 != var4[0] || var1 != var3[10] || var2 != var4[1] || var2 != var3[11]) {
@@ -199,7 +199,7 @@ public class f {
       }
    }
 
-   private void a(short[] var1) {
+   private void a(short[] var1) throws IOException {
       if (var1.length > 2048) {
          throw new IOException("Sanity check: Data length too big: " + var1.length);
       } else {

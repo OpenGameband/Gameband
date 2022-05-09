@@ -1,4 +1,4 @@
-package com.nowcomputing.d;
+package com.nowcomputing.pixelfurnace;
 
 import com.codeminders.hidapi.HIDDevice;
 import com.codeminders.hidapi.HIDDeviceInfo;
@@ -22,19 +22,19 @@ public class GamebandHID {
       try {
          this.b = (HIDDevice)(new Retrier(3, 100)).a(new e(this));
       } catch (Exception var2) {
-         this.b = this.a(1240, 63, (String)null);
+         this.b = this.open(1240, 63, (String)null);
       }
 
    }
 
-   private HIDDevice a(int var1, int var2, String var3) throws IOException {
+   private HIDDevice open(int vid, int pid, String serial) throws IOException {
       HIDDeviceInfo[] var4 = this.a.listDevices();
       HIDDeviceInfo[] var5 = var4;
       int var6 = var4.length;
 
       for(int var7 = 0; var7 < var6; ++var7) {
          HIDDeviceInfo var8 = var5[var7];
-         if (var8.getVendor_id() == var1 && var8.getProduct_id() == var2 && (var3 == null || var8.getSerial_number().equals(var3))) {
+         if (var8.getVendor_id() == vid && var8.getProduct_id() == pid && (serial == null || var8.getSerial_number().equals(serial))) {
             this.c = var8.getRelease_number();
             return var8.open();
          }
@@ -218,6 +218,6 @@ public class GamebandHID {
 
    // $FF: synthetic method
    static HIDDevice a(GamebandHID var0, int var1, int var2, String var3) throws IOException {
-      return var0.a(var1, var2, var3);
+      return var0.open(var1, var2, var3);
    }
 }

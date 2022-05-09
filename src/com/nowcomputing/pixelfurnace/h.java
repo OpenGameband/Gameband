@@ -1,4 +1,4 @@
-package com.nowcomputing.d;
+package com.nowcomputing.pixelfurnace;
 
 class h implements Runnable {
    // $FF: synthetic field

@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 
 public class p {
    private static final Logger a = Logger.getLogger(Utils.class.getName());
-   private com.nowcomputing.d.f b;
+   private com.nowcomputing.pixelfurnace.f b;
    private dialogPanel c;
    private a d;
    private t e;
@@ -36,7 +36,7 @@ public class p {
    private JFrame i;
    private JLayeredPane j;
 
-   public p(JFrame var1, com.nowcomputing.d.f var2) throws IOException {
+   public p(JFrame var1, com.nowcomputing.pixelfurnace.f var2) throws IOException {
       this.i = var1;
       this.b = var2;
       JPanel var3 = new JPanel();
@@ -193,7 +193,7 @@ public class p {
       this.e.a();
    }
 
-   public com.nowcomputing.d.f g() {
+   public com.nowcomputing.pixelfurnace.f g() {
       return this.b;
    }
 
@@ -203,7 +203,7 @@ public class p {
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
-         com.nowcomputing.d.g var4 = (com.nowcomputing.d.g)var3.next();
+         com.nowcomputing.pixelfurnace.g var4 = (com.nowcomputing.pixelfurnace.g)var3.next();
          short var5 = var4.e();
          if (var5 != 0 && var5 != 1 && var5 != 3 && var5 != 2) {
             ++var1;
@@ -217,12 +217,12 @@ public class p {
       }
    }
 
-   public void a(String var1, otherImageThingy.d var2, boolean var3) {
+   public void a(String var1, com.nowcomputing.a.d var2, boolean var3) {
       this.e.a(var1, var2, var3);
       this.d(true);
    }
 
-   public void a(File var1, otherImageThingy.d var2, boolean var3) {
+   public void a(File var1, com.nowcomputing.a.d var2, boolean var3) {
       this.e.a(var1, var2, var3);
       this.d(true);
    }

@@ -17,7 +17,7 @@ import javax.imageio.metadata.IIOMetadataNode;
 import javax.imageio.stream.FileImageOutputStream;
 
 /**
- * 
+ * was com.nowcomputing.a
  */
 public class otherImageThingy {
    private ArrayList a;

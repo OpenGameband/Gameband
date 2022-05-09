@@ -1,4 +1,4 @@
-package com.nowcomputing.d;
+package com.nowcomputing.pixelfurnace;
 
 import com.nowcomputing.N;
 import com.nowcomputing.LocaleUtil;

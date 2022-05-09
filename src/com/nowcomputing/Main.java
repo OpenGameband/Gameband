@@ -14,7 +14,7 @@ import a.*;
 
 public class Main {
    private static final Logger logger;
-   private static com.nowcomputing.d.f b;
+   private static com.nowcomputing.pixelfurnace.f b;
    private static Vector<AbstractMinecraftLauncher> vec;
    private static s d;
    private static LockingUtil e;
@@ -163,7 +163,7 @@ public class Main {
    static {
       System.setProperty("java.util.logging.manager", V.class.getName());
       logger = Logger.getLogger("com.nowcomputing");
-      b = new com.nowcomputing.d.f();
+      b = new com.nowcomputing.pixelfurnace.f();
       vec = null;
       e = null;
    }

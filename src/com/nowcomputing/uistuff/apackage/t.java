@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 public class t extends JPanel implements MouseListener, MouseMotionListener {
    private static final Logger a = Logger.getLogger(Utils.class.getName());
    private final List b = new ArrayList();
-   private final com.nowcomputing.uistuff.b.c c = new com.nowcomputing.uistuff.b.c(this);
+   private final c c = new c(this);
    private com.nowcomputing.uistuff.b.e d;
    private int e;
    private int f;
