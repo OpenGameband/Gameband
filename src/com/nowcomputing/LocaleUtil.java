@@ -26,23 +26,23 @@ public class LocaleUtil {
    static Locale locale = null;
    static ArrayList list = new ArrayList();
    static TimeZone timeZone = null;
-   private static DateFormat i;
-   private static DateFormat j;
-   private static ClassLoader k;
+   private static DateFormat dateTimeFormat;
+   private static DateFormat dateFormat;
+   private static ClassLoader loader;
 
-   private static void f() {
-      Object var0 = null;
+   private static void setLocale() {
+      Object localeFile = null;
       if (localePath.exists()) {
-         var0 = Utils.deserializeFile(localePath);
+         localeFile = Utils.deserializeFile(localePath);
       }
 
-      if (var0 != null && var0 instanceof Locale) {
-         locale = (Locale)var0;
+      if (localeFile != null && localeFile instanceof Locale) {
+         locale = (Locale)localeFile;
       } else {
          locale = Locale.getDefault();
       }
 
-      b();
+      setDateStyle();
       g();
    }
 
@@ -87,7 +87,7 @@ public class LocaleUtil {
 
    public static Locale a() {
       if (locale == null) {
-         f();
+         setLocale();
       }
 
       return locale;
@@ -96,15 +96,15 @@ public class LocaleUtil {
    public static void a(Locale var0) {
       try {
          locale = var0;
-         b();
+         setDateStyle();
          ResourceBundle.clearCache();
          ClassLoader var1 = Utils.a(D.getLibPath().getPath());
          resourceBundle = ResourceBundle.getBundle("translations", a(), var1);
          Iterator var2 = list.iterator();
 
          while(var2.hasNext()) {
-            t var3 = (t)var2.next();
-            var3.c();
+            resetAction var3 = (resetAction)var2.next();
+            var3.reset();
          }
 
          Utils.writeLocaleFile((Object) locale, (File) localePath);
@@ -114,23 +114,23 @@ public class LocaleUtil {
 
    }
 
-   public static void b() {
-      i = DateFormat.getDateTimeInstance(2, 3, locale);
-      j = DateFormat.getDateInstance(2, locale);
+   public static void setDateStyle() {
+      dateTimeFormat = DateFormat.getDateTimeInstance(2, 3, locale);
+      dateFormat = DateFormat.getDateInstance(2, locale);
    }
 
-   public static void a(t var0) {
+   public static void a(resetAction var0) {
       list.add(var0);
    }
 
    public static ResourceBundle c() {
       if (resourceBundle == null) {
          try {
-            if (k == null) {
-               k = Utils.a(D.getLibPath().getPath());
+            if (loader == null) {
+               loader = Utils.a(D.getLibPath().getPath());
             }
 
-            resourceBundle = ResourceBundle.getBundle("translations", a(), k);
+            resourceBundle = ResourceBundle.getBundle("translations", a(), loader);
          } catch (Exception var1) {
             logger.log(Level.FINE, "Error getting translations", var1);
          }
@@ -180,7 +180,7 @@ public class LocaleUtil {
 
    public static TimeZone e() {
       if (timeZone == null) {
-         f();
+         setLocale();
       }
 
       return timeZone;

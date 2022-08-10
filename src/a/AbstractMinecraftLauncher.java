@@ -48,7 +48,7 @@ public abstract class AbstractMinecraftLauncher {
 
             latchedCommandRun.a(var1, this.h(), this.k());
         } catch (Exception var3) {
-            throw new IOException("Error launching '" + Utils.a(var1, " ") + "' : " + var3.toString());
+            throw new IOException("Error launching '" + Utils.arrayWithPrefix(var1, " ") + "' : " + var3);
         }
     }
 

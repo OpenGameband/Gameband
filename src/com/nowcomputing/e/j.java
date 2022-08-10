@@ -1,8 +1,8 @@
 package com.nowcomputing.e;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 
-public class j extends a {
+public class j extends funnyImageThing {
    protected int g;
    protected l h;
    private b i;
@@ -13,25 +13,25 @@ public class j extends a {
       this.d = 1;
    }
 
-   protected void a() {
+   protected void disable() {
       // $FF: Couldn't be decompiled
    }
 
-   public ImageDoodad e() {
+   public Image e() {
       // $FF: Couldn't be decompiled
    }
 
-   public boolean d() {
-      if (this.f != null) {
+   public boolean isEmpty() {
+      if (this.image2 != null) {
          return this.g > 0;
       } else {
          return false;
       }
    }
 
-   protected ImageDoodad a(ImageDoodad var1, int var2, int var3) {
-      ImageDoodad var4 = new ImageDoodad(20, 7);
-      var4.a(var1, var2, var3);
+   protected Image a(Image var1, int var2, int var3) {
+      Image var4 = new Image(20, 7);
+      var4.ramImageInForcefully(var1, var2, var3);
       return var4;
    }
 }

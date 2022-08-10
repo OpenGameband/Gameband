@@ -1,6 +1,7 @@
 package com.nowcomputing.uistuff;
 
 import com.nowcomputing.*;
+import com.nowcomputing.pixelfurnace.GBTime;
 
 import java.awt.Component;
 import java.awt.Cursor;
@@ -16,22 +17,22 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing.t, ActionListener {
+public class MainMenu extends JFrame implements e, com.nowcomputing.n, resetAction, ActionListener {
    private static final Logger a = Logger.getLogger(Utils.class.getName());
    private GamebandConfig b;
    private latchedCommandRun c;
    private com.nowcomputing.uistuff.apackage.p d;
    private M e;
    private aa f;
-   private com.nowcomputing.uistuff.f g;
+   private GBTime g;
    private boolean h;
    private b i;
    private CountDownLatch j = null;
 
-   public s(GamebandConfig var1, com.nowcomputing.uistuff.f var2) {
+   public MainMenu(GamebandConfig var1, GBTime var2) {
       this.b = var1;
       this.g = var2;
-      this.c = new com.nowcomputing.uistuff.c(var1);
+     // this.c = new com.nowcomputing.uistuff.c(var1); // not my problem
       this.c.a((com.nowcomputing.n)this);
       this.setTitle("Gameband " + WindowsVersionComparator.getImplementationVersion().toString());
       this.setDefaultCloseOperation(0);
@@ -63,7 +64,7 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
       } catch (IOException var6) {
       }
 
-      LocaleUtil.a((com.nowcomputing.t)this);
+      LocaleUtil.a((resetAction)this);
    }
 
    private void h() {
@@ -174,12 +175,12 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
          this.g.a(this.d.k());
       }
 
-      this.g.a(this.f.m());
-      this.g.b();
+      this.g.setOrientation(this.f.m());
+      this.g.setGamebandTimezone();
       Main.e();
    }
 
-   public void c() {
+   public void reset() {
       a.log(Level.FINE, "GamebandApplication.onLocaleChange()");
       this.i();
       this.r();
@@ -217,32 +218,32 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
    }
 
    // $FF: synthetic method
-   static b a(s var0) {
+   static b a(MainMenu var0) {
       return var0.i;
    }
 
    // $FF: synthetic method
-   static void b(s var0) {
+   static void b(MainMenu var0) {
       var0.q();
    }
 
    // $FF: synthetic method
-   static CountDownLatch c(s var0) {
+   static CountDownLatch c(MainMenu var0) {
       return var0.j;
    }
 
    // $FF: synthetic method
-   static boolean d(s var0) {
+   static boolean d(MainMenu var0) {
       return var0.h;
    }
 
    // $FF: synthetic method
-   static boolean a(s var0, boolean var1) {
+   static boolean a(MainMenu var0, boolean var1) {
       return var0.h = var1;
    }
 
    // $FF: synthetic method
-   static ImageDoodad.f e(s var0) {
+   static Image.f e(MainMenu var0) {
       return var0.g;
    }
 
@@ -252,12 +253,12 @@ public class s extends JFrame implements e, com.nowcomputing.n, com.nowcomputing
    }
 
    // $FF: synthetic method
-   static void f(s var0) {
+   static void f(MainMenu var0) {
       var0.k();
    }
 
    // $FF: synthetic method
-   static void g(s var0) {
+   static void g(MainMenu var0) {
       var0.m();
    }
 }

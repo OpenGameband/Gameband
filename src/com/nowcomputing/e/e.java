@@ -1,9 +1,10 @@
 package com.nowcomputing.e;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
+import com.nowcomputing.pixelfurnace.GBTime;
 
-public class e extends a {
+public class e extends funnyImageThing {
    private boolean g;
    private b h;
 
@@ -12,36 +13,31 @@ public class e extends a {
    }
 
    public void b() {
-      if (this.h == GamebandConfig.b.b) {
+      if (this.h == com.nowcomputing.e.b.b) {
          this.g = false;
-         ImageDoodad.f.l().execute(new f(this));
+         GBTime.getThreadPool().execute(new f(this));
       }
 
-      super.b();
+      super.resetTimer();
    }
 
-   public ImageDoodad e() {
-      if (this.h == GamebandConfig.b.b) {
+   public Image e() {
+      if (this.h == com.nowcomputing.e.b.b) {
          if (this.g) {
-            this.a(true);
+            this.setBool(true);
          }
       } else {
-         this.a(true);
+         this.setBool(true);
       }
 
-      return this.f;
+      return this.image2;
    }
 
-   public boolean d() {
-      if (this.f != null) {
-         return !this.g();
+   public boolean isEmpty() {
+      if (this.image2 != null) {
+         return !this.getBool();
       } else {
          return false;
       }
-   }
-
-   // $FF: synthetic method
-   static boolean a(e var0, boolean var1) {
-      return var0.g = var1;
    }
 }

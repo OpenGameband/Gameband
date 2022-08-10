@@ -5,9 +5,9 @@ import java.awt.event.WindowEvent;
 
 class t extends WindowAdapter {
    // $FF: synthetic field
-   final s a;
+   final MainMenu a;
 
-   t(s var1) {
+   t(MainMenu var1) {
       this.a = var1;
    }
 

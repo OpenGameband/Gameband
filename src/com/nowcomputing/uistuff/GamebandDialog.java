@@ -48,7 +48,7 @@ public class GamebandDialog extends JFrame {
 
    private void e() {
       this.setDefaultCloseOperation(0);
-      a var1 = new a();
+      ImagePanel var1 = new ImagePanel();
       this.setContentPane(var1);
       this.getContentPane().setLayout((LayoutManager)null);
       JPanel var2 = this.f();

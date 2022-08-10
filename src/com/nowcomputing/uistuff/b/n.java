@@ -1,7 +1,7 @@
 package com.nowcomputing.uistuff.b;
 
 import com.nowcomputing.*;
-import com.nowcomputing.ImageDoodad.q;
+import com.nowcomputing.Image.q;
 import com.nowcomputing.uistuff.apackage.t;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,14 +15,14 @@ import javax.swing.JRadioButton;
 
 public class n extends e implements ActionListener {
    private static final Logger g = Logger.getLogger(Utils.class.getName());
-   q a;
-   private otherImageThingy.g h;
+   ImageDisplay a;
+   private AnimatedImage.g h;
 
-   public n(t var1, q var2) {
+   public n(t var1, ImageDisplay var2) {
       super(var1, LocaleUtil.getLocalizedString("TIME"));
       this.a = var2;
       this.h();
-      this.h = new otherImageThingy.g();
+      this.h = new AnimatedImage.g();
       var2.a(this.h);
       JRadioButton var3 = new JRadioButton(N.a.a());
       var3.setActionCommand(N.a.a());
@@ -51,7 +51,7 @@ public class n extends e implements ActionListener {
       var4.addActionListener(this);
    }
 
-   public ImageDoodad.g b() {
+   public Image.g b() {
       return this.a;
    }
 
@@ -63,7 +63,7 @@ public class n extends e implements ActionListener {
       String var3 = var1.format(var2);
       g.log(Level.FINE, "PF: formatted time: " + var3);
       this.a(this.e.d().c());
-      ImageDoodad var4 = this.a(var3);
+      Image var4 = this.a(var3);
       if (this.a.b() == N.b) {
          Calendar var5 = Calendar.getInstance();
          this.a(var4, var5.get(11) > 11);
@@ -71,8 +71,8 @@ public class n extends e implements ActionListener {
 
       this.a.h().b(var4);
       this.a.i().a(var4);
-      this.a.i().b(new ImageDoodad(20, 7));
-      this.h.a(var4, otherImageThingy.h.a, 3000, 0);
+      this.a.i().b(new Image(20, 7));
+      this.h.a(var4, AnimatedImage.h.a, 3000, 0);
       super.d();
    }
 
@@ -91,7 +91,7 @@ public class n extends e implements ActionListener {
 
    }
 
-   private ImageDoodad a(String var1) {
+   private Image a(String var1) {
       boolean var2 = false;
       int var4;
       if (this.e.d().a() == 0) {
@@ -100,14 +100,14 @@ public class n extends e implements ActionListener {
          var4 = var1.length() == 4 ? 4 : 0;
       }
 
-      ImageDoodad var3 = new ImageDoodad(20, 7);
-      var3.a((ImageDoodad) ImageDoodad.a(var1), var4, 1);
+      Image var3 = new Image(20, 7);
+      var3.ramImageInForcefully((Image) Image.FromFile(var1), var4, 1);
       return var3;
    }
 
-   private void a(ImageDoodad var1, boolean var2) {
+   private void a(Image var1, boolean var2) {
       int var3 = this.e.d().a() == 0 ? 1 : 18;
-      var1.a(var3, var2 ? var1.b() - 3 : 1, true);
-      var1.a(var3, var2 ? var1.b() - 2 : 2, true);
+      var1.setPixel(var3, var2 ? var1.getHeight() - 3 : 1, true);
+      var1.setPixel(var3, var2 ? var1.getHeight() - 2 : 2, true);
    }
 }

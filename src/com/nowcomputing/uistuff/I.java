@@ -41,7 +41,7 @@ public class I extends JDialog {
 
    private void a(String var1, String var2, String var3, String var4, String var5) {
       this.setTitle(LocaleUtil.getLocalizedString("ERROR_WINDOW_TITLE"));
-      a var6 = new a();
+      ImagePanel var6 = new ImagePanel();
       this.add(var6);
       JPanel var7 = new JPanel();
       var7.setOpaque(false);

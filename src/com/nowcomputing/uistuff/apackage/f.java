@@ -1,7 +1,7 @@
 package com.nowcomputing.uistuff.apackage;
 
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.otherImageThingy;
+import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.uistuff.N;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -102,7 +102,7 @@ public class f extends JPanel {
       this.f.addFocusListener(new g(this));
       this.f.addActionListener(new h(this));
       var2.add(this.f);
-      this.k = new JComboBox(otherImageThingy.d.a());
+      this.k = new JComboBox(AnimatedImage.d.a());
       JPanel var3 = this.a(this.k, this.m);
       this.k.addActionListener(new i(this));
       var2.add(var3);
@@ -120,7 +120,7 @@ public class f extends JPanel {
       var3.setBounds(86, 50, 100, 26);
       var2.add(var3);
       var3.addActionListener(new j(this));
-      this.l = new JComboBox(otherImageThingy.d.a());
+      this.l = new JComboBox(AnimatedImage.d.a());
       JPanel var4 = this.a(this.l, this.n);
       var2.add(var4);
       return var2;
@@ -210,7 +210,7 @@ public class f extends JPanel {
       if (this.b.isSelected()) {
          String var1 = this.f.getText();
          if (!var1.equals("")) {
-            this.a.a(var1, (otherImageThingy.d)this.k.getSelectedItem(), this.m.isSelected());
+            this.a.a(var1, (AnimatedImage.d)this.k.getSelectedItem(), this.m.isSelected());
          }
 
          this.a.c(false);
@@ -228,7 +228,7 @@ public class f extends JPanel {
                      N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_2")}));
                   }
                } else {
-                  this.a.a(var5, (otherImageThingy.d)this.l.getSelectedItem(), this.n.isSelected());
+                  this.a.a(var5, (AnimatedImage.d)this.l.getSelectedItem(), this.n.isSelected());
                   this.a.c(false);
                }
             }

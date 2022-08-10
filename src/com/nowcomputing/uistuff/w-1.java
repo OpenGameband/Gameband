@@ -2,13 +2,13 @@ package com.nowcomputing.uistuff;
 
 class w extends Thread {
    // $FF: synthetic field
-   final s a;
+   final MainMenu a;
 
-   w(s var1) {
+   w(MainMenu var1) {
       this.a = var1;
    }
 
    public void run() {
-      s.g(this.a);
+      MainMenu.g(this.a);
    }
 }

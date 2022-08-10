@@ -1,7 +1,9 @@
 package com.nowcomputing.uistuff;
 
-final class r implements com.nowcomputing.t {
-   public void c() {
+import com.nowcomputing.resetAction;
+
+final class r implements resetAction {
+   public void reset() {
       GamebandFonts.a();
    }
 }

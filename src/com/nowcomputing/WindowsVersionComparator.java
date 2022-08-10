@@ -1,7 +1,7 @@
 package com.nowcomputing;
 
 /**
- * This is crap, it is bad
+ * This is crap, it is bad,
  * but it maybe works
  *
  * NOTE: might not work on modern java, it's funny because this thing only runs on java 8
@@ -15,7 +15,7 @@ public class WindowsVersionComparator implements Comparable<WindowsVersionCompar
    private static final String javaVersion = WindowsVersionComparator.class.getPackage().getImplementationVersion();
    public static final WindowsVersionComparator defaultWindowsVersion = new WindowsVersionComparator(0, 0, 0);
 
-   public WindowsVersionComparator(int major, int minor, int patch) { // NO BETA? *insert megamind peeking meme*
+   public WindowsVersionComparator(int major, int minor, int patch) {
       this.major = major;
       this.minor = minor;
       this.patch = patch;
@@ -39,7 +39,7 @@ public class WindowsVersionComparator implements Comparable<WindowsVersionCompar
       this.patch = 0;
    }
 
-   public WindowsVersionComparator(String versionString) { // TODO: this is a mess that I can not be bothered dealing with, needs refactoring
+   public WindowsVersionComparator(String versionString) {
       if (versionString == null) {
          this.major = 0;
          this.minor = 0;
@@ -53,7 +53,7 @@ public class WindowsVersionComparator implements Comparable<WindowsVersionCompar
 
             for(int i = 0; i < var2.length; ++i) {
                try {
-                  var3[i] = Integer.valueOf(var2[i]);
+                  var3[i] = Integer.parseInt(var2[i]);
                } catch (NumberFormatException var6) {
                   if (i != var2.length - 1 || !var2[i].equals("b")) {
                      throw new IllegalArgumentException("invalid version string.", var6);

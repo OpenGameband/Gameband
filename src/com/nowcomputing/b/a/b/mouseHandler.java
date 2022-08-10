@@ -1,7 +1,6 @@
 package com.nowcomputing.b.a.b;
 
-import com.nowcomputing.ImageDoodad;
-import com.nowcomputing.b.*;
+import com.nowcomputing.Image;
 import com.nowcomputing.b.a.*;
 import com.nowcomputing.uistuff.L;
 import java.awt.Cursor;
@@ -90,8 +89,8 @@ public class mouseHandler extends a {
 
       this.c = this.a.g();
       if (!this.c.c()) {
-         ImageDoodad var2 = new ImageDoodad(this.c.a().a(), this.c.a().b());
-         this.a.c().a(var2, this.c.b().x, this.c.b().y);
+         Image var2 = new Image(this.c.a().getWidth(), this.c.a().getHeight());
+         this.a.c().ramImageInForcefully(var2, this.c.b().x, this.c.b().y);
          this.a.a(this.c.a());
       }
 
@@ -100,12 +99,12 @@ public class mouseHandler extends a {
    private void b(int var1, int var2) {
       this.a.b().a(this.a.c(), 0, 0);
       this.a.b().a(this.c.a(), var1, var2);
-      this.a.a(new Rectangle(var1, var2, this.c.a().a(), this.c.a().b()));
+      this.a.a(new Rectangle(var1, var2, this.c.a().getWidth(), this.c.a().getHeight()));
    }
 
    void a(int var1, int var2) {
       p var3 = this.a.g();
-      if (var3 != null && var3.b().x + var1 >= 0 && var3.b().x + var3.a().a() + var1 <= 20 && var3.b().y + var2 >= 0 && var3.b().y + var3.a().b() + var2 <= 7) {
+      if (var3 != null && var3.b().x + var1 >= 0 && var3.b().x + var3.a().getWidth() + var1 <= 20 && var3.b().y + var2 >= 0 && var3.b().y + var3.a().getHeight() + var2 <= 7) {
          this.e();
          this.b(var3.b().x + var1, var3.b().y + var2);
       }

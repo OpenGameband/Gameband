@@ -2,9 +2,9 @@ package com.nowcomputing.pixelfurnace;
 
 class i implements Runnable {
    // $FF: synthetic field
-   final g a;
+   final Animation a;
 
-   i(g var1) {
+   i(Animation var1) {
       this.a = var1;
    }
 

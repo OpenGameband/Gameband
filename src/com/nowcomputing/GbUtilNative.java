@@ -26,19 +26,15 @@ public class GbUtilNative {
       return false;
    }
 
-   private static boolean loadNativeLibrary(String[] var0) {
-      String[] libArray = var0;
-      int var2 = var0.length;
-
-      for(int var3 = 0; var3 < var2; ++var3) {
-         String nativeLib = libArray[var3];
-         File libFile = new File(D.b(), nativeLib);
+   private static boolean loadNativeLibrary(String[] paths) {
+      for (String nativeLib : paths) { // slick :) (check commit history)
+         File libFile = new File(D.getLibPath(), nativeLib);
 
          try {
             Runtime.getRuntime().load(libFile.getAbsolutePath());
             logger.log(Level.FINE, "Successfully loaded native library: " + libFile.getAbsolutePath());
             return true;
-         } catch (Exception e) {
+         } catch (Exception e) { // not slick :(
             logger.log(Level.INFO, "Error loading library: " + libFile.getAbsolutePath(), e);
          } catch (UnsatisfiedLinkError ex) {
             logger.log(Level.INFO, ex.toString());
@@ -61,7 +57,7 @@ public class GbUtilNative {
          loadNativeLibrary();
       } catch (UnsatisfiedLinkError e) {
          logger.log(Level.INFO, e.toString());
-      } catch (Throwable ex) { // TODO: this is really bad exception handling, why.
+      } catch (Throwable ex) {
          logger.log(Level.INFO, "Exception loading native library: ", ex);
       }
 

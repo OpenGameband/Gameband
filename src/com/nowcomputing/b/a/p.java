@@ -1,19 +1,19 @@
 package com.nowcomputing.b.a;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 
 import java.awt.Point;
 
 public class p {
-   private ImageDoodad a;
+   private Image a;
    private Point b;
    private boolean c;
 
-   public ImageDoodad a() {
+   public Image a() {
       return this.a;
    }
 
-   public void a(ImageDoodad var1) {
+   public void a(Image var1) {
       this.a = var1;
    }
 

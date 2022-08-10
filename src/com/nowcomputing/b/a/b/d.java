@@ -1,6 +1,5 @@
 package com.nowcomputing.b.a.b;
 
-import com.nowcomputing.LockingUtil;
 import com.nowcomputing.uistuff.L;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -67,7 +66,7 @@ public class d extends a {
       if (var1 != null) {
          this.a.y();
          Point var3 = this.a.b().a(var1);
-         this.a.c().a(var3.x, var3.y, var2);
+         this.a.c().setPixel(var3.x, var3.y, var2);
          var1.a(var2);
          var1.repaint();
       }

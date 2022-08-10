@@ -1,6 +1,6 @@
 package com.nowcomputing.uistuff.apackage;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.uistuff.y;
 import java.awt.Color;
@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class q extends JPanel implements ImageDoodad.m {
+public class q extends JPanel implements Image.m {
    private final com.nowcomputing.uistuff.n a;
    private BufferedImage b;
    private List c;
@@ -26,7 +26,7 @@ public class q extends JPanel implements ImageDoodad.m {
       this.a = new com.nowcomputing.uistuff.n(LocaleUtil.n.a, LocaleUtil.n.a, 0);
       this.c = new ArrayList();
       this.setBackground(Color.BLACK);
-      boolean var2 = var1.g().a() == 1;
+      boolean var2 = var1.g().getOrientation() == 1;
 
       try {
          this.b = LocaleUtil.h.a(var2);
@@ -69,7 +69,7 @@ public class q extends JPanel implements ImageDoodad.m {
 
    public void a(List var1) {
       if (this.d != 0) {
-         ((ImageDoodad.g)this.c.get(this.d - 1)).g();
+         ((Image.g)this.c.get(this.d - 1)).g();
          this.d = 0;
       }
 
@@ -78,15 +78,15 @@ public class q extends JPanel implements ImageDoodad.m {
       Iterator var2 = this.c.iterator();
 
       while(var2.hasNext()) {
-         ImageDoodad.g var3 = (ImageDoodad.g)var2.next();
-         var3.a((ImageDoodad.m)this);
+         Image.g var3 = (Image.g)var2.next();
+         var3.a((Image.m)this);
       }
 
    }
 
    public void b() {
       if (this.d != 0) {
-         ((ImageDoodad.g)this.c.get(this.d - 1)).g();
+         ((Image.g)this.c.get(this.d - 1)).g();
       }
 
       if (this.d == this.c.size()) {
@@ -94,12 +94,12 @@ public class q extends JPanel implements ImageDoodad.m {
       }
 
       if (this.c.size() > 0) {
-         ((ImageDoodad.g)this.c.get(this.d++)).f();
+         ((Image.g)this.c.get(this.d++)).f();
       }
 
    }
 
-   public void a(ImageDoodad var1) {
+   public void a(Image var1) {
       if (var1 != null) {
          this.a.a(var1, 0, 0);
       }

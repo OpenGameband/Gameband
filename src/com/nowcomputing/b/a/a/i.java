@@ -39,7 +39,7 @@ public class i extends DialogButton {
             }
 
             try {
-               this.a.a().b(var3);
+               this.a.a().exportGIF(var3);
                N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TITLE"));
                this.a(j.a);
             } catch (IOException var5) {

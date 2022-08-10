@@ -1,28 +1,28 @@
 package com.nowcomputing.uistuff.b;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.otherImageThingy;
+import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.uistuff.apackage.t;
 import java.io.File;
 
 public class a extends e {
-   private ImageDoodad.a a;
-   private otherImageThingy.c g;
+   private Image.a a;
+   private AnimatedImage.c g;
 
-   public a(t var1, ImageDoodad.a var2) {
+   public a(t var1, Image.a var2) {
       super(var1, LocaleUtil.getLocalizedString("ANIMATION"));
       this.a = var2;
-      this.g = new otherImageThingy.c();
+      this.g = new AnimatedImage.c();
       var2.a(this.g);
       this.b().b(GamebandConfig.c.b(GamebandConfig.d.a));
-      var2.i().b(new ImageDoodad(20, 7));
+      var2.i().b(new Image(20, 7));
       this.i();
       this.f();
    }
 
-   public ImageDoodad.g b() {
+   public Image.g b() {
       return this.a;
    }
 
@@ -30,11 +30,11 @@ public class a extends e {
       this.g.a(var1);
    }
 
-   public void a(otherImageThingy var1) {
+   public void a(AnimatedImage var1) {
       this.g.a(var1);
    }
 
-   public otherImageThingy c() {
+   public AnimatedImage c() {
       return this.g.h();
    }
 

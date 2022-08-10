@@ -11,7 +11,7 @@ public class m extends DialogButton {
 
    public void actionPerformed(ActionEvent var1) {
       this.a.y();
-      this.a.a().c();
+      this.a.a().invertImage();
       this.a.m();
    }
 }

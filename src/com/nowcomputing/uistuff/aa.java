@@ -2,6 +2,7 @@ package com.nowcomputing.uistuff;
 
 import b.a.a.a.Class3;
 import com.nowcomputing.*;
+import com.nowcomputing.pixelfurnace.GBTime;
 
 import java.awt.Component;
 import java.awt.ComponentOrientation;
@@ -41,7 +42,7 @@ public class aa extends dialogPanel implements ActionListener {
    JRadioButton b;
    private ButtonGroup o;
    private short p;
-   private ImageDoodad.f q;
+   private GBTime q;
    private GamebandConfig r;
    private JComboBox s;
    private JEditorPane t;
@@ -51,7 +52,7 @@ public class aa extends dialogPanel implements ActionListener {
    JRadioButton i;
    private ButtonGroup w;
 
-   aa(ImageDoodad.f var1, GamebandConfig var2) {
+   aa(GBTime var1, GamebandConfig var2) {
       this.a = new JRadioButton(this.m);
       this.b = new JRadioButton(this.n);
       this.o = new ButtonGroup();
@@ -243,7 +244,7 @@ public class aa extends dialogPanel implements ActionListener {
       return var1;
    }
 
-   protected ImageDoodad.f d() {
+   protected Image.f d() {
       return this.q;
    }
 
@@ -433,7 +434,7 @@ public class aa extends dialogPanel implements ActionListener {
    }
 
    public void n() {
-      this.a(this.q.a());
+      this.a(this.q.getOrientation());
       this.c(this.r.getProperty("skin", "redstone"));
    }
 

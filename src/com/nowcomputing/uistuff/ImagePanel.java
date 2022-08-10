@@ -7,14 +7,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class a extends JPanel {
+public class ImagePanel extends JPanel {
    private Image a;
 
-   public a() {
+   public ImagePanel() {
       this("/resources/background.png");
    }
 
-   public a(String var1) {
+   public ImagePanel(String var1) {
       try {
          this.a = ImageIO.read(this.getClass().getResource(var1));
       } catch (IOException var3) {

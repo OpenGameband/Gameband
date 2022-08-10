@@ -1,9 +1,9 @@
 package com.nowcomputing.b.a;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.LockingUtil;
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.otherImageThingy;
+import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.uistuff.GamebandColors;
 import com.nowcomputing.uistuff.GamebandFonts;
 import com.nowcomputing.uistuff.L;
@@ -52,7 +52,7 @@ import javax.swing.border.EmptyBorder;
  */
 public class CustomDialog extends JDialog implements ActionListener, MouseListener, MouseMotionListener {
    private com.nowcomputing.b.FrameDingus a;
-   private otherImageThingy b;
+   private AnimatedImage b;
    private com.nowcomputing.uistuff.n c;
    private Deque d;
    private Deque e;
@@ -72,10 +72,10 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    private ImageIcon s;
    private ImageIcon t;
    private com.nowcomputing.b.a.a.a u;
-   private ImageDoodad v;
+   private Image v;
    private boolean w;
 
-   public CustomDialog(com.nowcomputing.b.FrameDingus var1, JFrame var2, otherImageThingy var3) {
+   public CustomDialog(com.nowcomputing.b.FrameDingus var1, JFrame var2, AnimatedImage var3) {
       super(var2, true);
       this.c = new com.nowcomputing.uistuff.n(GamebandColors.f, GamebandColors.a, 1);
       this.d = new ArrayDeque();
@@ -94,14 +94,14 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       this.setMaximumSize(new Dimension(800, 600 + var4.top + var4.bottom));
    }
 
-   public otherImageThingy a() {
+   public AnimatedImage a() {
       return this.b;
    }
 
    public void a(File var1) throws IOException {
-      this.b = otherImageThingy.a(var1);
-      this.c(this.b.b());
-      this.b(this.b.a());
+      this.b = AnimatedImage.LoadFromFile(var1);
+      this.c(this.b.getInt());
+      this.b(this.b.getFrameCount());
       this.h = 0;
       this.a(this.h);
    }
@@ -114,15 +114,15 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    private void c(int var1) {
       int var2 = var1 > 0 ? var1 : 20;
       this.q.setValue(var2);
-      this.b.c(var2);
+      this.b.setInt(var2);
    }
 
    public com.nowcomputing.uistuff.n b() {
       return this.c;
    }
 
-   public ImageDoodad c() {
-      return this.b.a(this.h);
+   public Image c() {
+      return this.b.getFrame(this.h);
    }
 
    public q d() {
@@ -205,8 +205,8 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
          int var2 = this.j.a().width;
          int var3 = this.j.a().height;
          if (this.v == null) {
-            ImageDoodad var4 = new ImageDoodad(var2, var3);
-            var4.a(this.c.a(), this.j.a().x, this.j.a().y, var2, var3, 0, 0);
+            Image var4 = new Image(var2, var3);
+            var4.gentlyCoerceImageIntoHole(this.c.a(), this.j.a().x, this.j.a().y, var2, var3, 0, 0);
             var1.a(var4);
          } else {
             var1.a(this.v);
@@ -220,8 +220,8 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    public void h() {
       this.f();
       p var1 = this.g();
-      ImageDoodad var2 = new ImageDoodad(var1.a().a(), var1.a().b());
-      this.c().a(var2, var1.b().x, var1.b().y);
+      Image var2 = new Image(var1.a().getWidth(), var1.a().getHeight());
+      this.c().ramImageInForcefully(var2, var1.b().x, var1.b().y);
       this.m();
    }
 
@@ -246,12 +246,12 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
 
    public void k() {
       if (this.k != null) {
-         this.v = new ImageDoodad(this.k.a().a(), this.k.a().b());
-         this.v.a(this.k.a());
+         this.v = new Image(this.k.a().getWidth(), this.k.a().getHeight());
+         this.v.setImage(this.k.a());
          this.a(this.h);
          this.b().a(this.v, this.k.b().x, this.k.b().y);
          this.e();
-         this.a(new Rectangle(this.k.b().x, this.k.b().y, this.k.a().a(), this.k.a().b()));
+         this.a(new Rectangle(this.k.b().x, this.k.b().y, this.k.a().getWidth(), this.k.a().getHeight()));
       }
 
    }
@@ -266,7 +266,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
 
    public void m() {
       this.a(this.h);
-      this.b(this.b.a());
+      this.b(this.b.getFrameCount());
    }
 
    public void a(KeyStroke var1, String var2, Action var3) {
@@ -289,7 +289,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    void o() {
       this.o = true;
       this.n.setIcon(this.t);
-      this.p = new Timer(1000 / this.b.b(), this);
+      this.p = new Timer(1000 / this.b.getInt(), this);
       this.p.start();
    }
 
@@ -304,8 +304,8 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    }
 
    void a(int var1) {
-      if (var1 >= 0 && var1 < this.b.a()) {
-         this.c.a(this.b.a(var1), 0, 0);
+      if (var1 >= 0 && var1 < this.b.getFrameCount()) {
+         this.c.a(this.b.getFrame(var1), 0, 0);
          this.h = var1;
          this.g.setValue(this.h);
       }
@@ -321,36 +321,36 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    }
 
    public void r() {
-      if (++this.h == this.b.a()) {
-         this.h = this.b.a() - 1;
+      if (++this.h == this.b.getFrameCount()) {
+         this.h = this.b.getFrameCount() - 1;
       }
 
       this.a(this.h);
    }
 
    public void s() {
-      if (this.b.a() > 0) {
-         this.b.e(this.h);
+      if (this.b.getFrameCount() > 0) {
+         this.b.truncateToSize(this.h);
          this.m();
-         this.u.o().setEnabled(this.b.a() > 1);
+         this.u.o().setEnabled(this.b.getFrameCount() > 1);
       }
 
    }
 
    public void t() {
-      this.b.d(this.h);
+      this.b.insertFrame(this.h);
       this.m();
-      this.u.n().setEnabled(this.b.a() < 50);
-      this.u.q().setEnabled(this.b.a() < 50);
+      this.u.n().setEnabled(this.b.getFrameCount() < 50);
+      this.u.q().setEnabled(this.b.getFrameCount() < 50);
    }
 
    public void u() {
-      ImageDoodad var1 = new ImageDoodad(20, 7);
-      var1.a(this.b.a(this.h));
-      this.b.a(this.h, var1);
+      Image var1 = new Image(20, 7);
+      var1.setImage(this.b.getFrame(this.h));
+      this.b.insertFrame(this.h, var1);
       this.m();
-      this.u.n().setEnabled(this.b.a() < 50);
-      this.u.q().setEnabled(this.b.a() < 50);
+      this.u.n().setEnabled(this.b.getFrameCount() < 50);
+      this.u.q().setEnabled(this.b.getFrameCount() < 50);
    }
 
    public com.nowcomputing.b.a.a.a v() {
@@ -461,7 +461,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       JLabel var3 = new JLabel(new ImageIcon(this.getClass().getResource("/resources/num_frames.png")));
       var2.add(var3);
       var2.add(Box.createHorizontalStrut(9));
-      this.r = new SpinnerNumberModel(this.b.a(), 1, Math.max(this.b.a(), 50), 1);
+      this.r = new SpinnerNumberModel(this.b.getFrameCount(), 1, Math.max(this.b.getFrameCount(), 50), 1);
       JSpinner var4 = new JSpinner(this.r);
       var4.setToolTipText(LocaleUtil.getLocalizedString("NUMBER_OF_FRAMES"));
       var4.setFont(GamebandFonts.z);
@@ -484,7 +484,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       JLabel var13 = new JLabel(new ImageIcon(this.getClass().getResource("/resources/speed.png")));
       var12.add(var13);
       var12.add(Box.createHorizontalStrut(6));
-      this.q = new SpinnerNumberModel(this.b.b(), 1, Math.max(this.b.b(), 30), 1);
+      this.q = new SpinnerNumberModel(this.b.getInt(), 1, Math.max(this.b.getInt(), 30), 1);
       JSpinner var14 = new JSpinner(this.q);
       var14.setToolTipText(LocaleUtil.getLocalizedString("FPS"));
       var14.setFont(GamebandFonts.z);
@@ -523,7 +523,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
       this.g = new JSlider();
       this.g.setForeground(Color.WHITE);
       this.g.setFont(GamebandFonts.z);
-      this.g.setMaximum(this.b.a() - 1);
+      this.g.setMaximum(this.b.getFrameCount() - 1);
       this.g.setMajorTickSpacing(5);
       this.g.setMinorTickSpacing(1);
       this.g.setPaintTicks(true);
@@ -662,7 +662,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
 
    public void actionPerformed(ActionEvent var1) {
       this.a(this.h);
-      if (++this.h == this.b.a()) {
+      if (++this.h == this.b.getFrameCount()) {
          this.h = 0;
       }
 
@@ -670,7 +670,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
 
    public void w() {
       if (this.d.size() > 0) {
-         this.a((ImageDoodad)null);
+         this.a((Image)null);
          this.e.push(new k(this.b, this.h));
          this.u.j().setEnabled(true);
          this.a((k)this.d.pop());
@@ -707,11 +707,11 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    }
 
    public void a(k var1) {
-      this.b = new otherImageThingy(var1.a());
+      this.b = new AnimatedImage(var1.a());
       this.a(var1.b());
    }
 
-   public void a(ImageDoodad var1) {
+   public void a(Image var1) {
       this.v = var1;
    }
 
@@ -720,10 +720,10 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
          q var1 = this.d();
          if (var1 != null) {
             this.y();
-            this.c().a(this.v, var1.a().x, var1.a().y);
+            this.c().ramImageInForcefully(this.v, var1.a().x, var1.a().y);
             this.m();
             this.a((Rectangle)null);
-            this.a((ImageDoodad)null);
+            this.a((Image)null);
          }
       }
 
@@ -753,7 +753,7 @@ public class CustomDialog extends JDialog implements ActionListener, MouseListen
    }
 
    // $FF: synthetic method
-   static otherImageThingy a(CustomDialog var0) {
+   static AnimatedImage a(CustomDialog var0) {
       return var0.b;
    }
 

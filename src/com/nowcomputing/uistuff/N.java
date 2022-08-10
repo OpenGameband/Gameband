@@ -148,7 +148,7 @@ public class N extends JDialog {
    }
 
    private static N a(Component var0, String var1) {
-      Window var3 = am.a(var0);
+      Window var3 = am.getWindow(var0);
       N var2;
       if (var3 instanceof Frame) {
          var2 = new N((Frame)var3, var1);

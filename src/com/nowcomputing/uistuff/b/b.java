@@ -1,9 +1,9 @@
 package com.nowcomputing.uistuff.b;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.N;
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.otherImageThingy;
+import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.uistuff.GamebandFonts;
 import com.nowcomputing.uistuff.apackage.t;
 import java.awt.event.ActionEvent;
@@ -14,14 +14,14 @@ import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 public class b extends e implements ActionListener {
-   ImageDoodad.b a;
-   private otherImageThingy.g g;
+   Image.b a;
+   private AnimatedImage.g g;
 
-   public b(t var1, ImageDoodad.b var2) {
+   public b(t var1, Image.b var2) {
       super(var1, LocaleUtil.getLocalizedString("DATE"));
       this.a = var2;
       this.h();
-      this.g = new otherImageThingy.g();
+      this.g = new AnimatedImage.g();
       var2.a(this.g);
       JRadioButton var3 = new JRadioButton(N.d.a());
       var3.setActionCommand(N.d.a());
@@ -50,7 +50,7 @@ public class b extends e implements ActionListener {
       var4.addActionListener(this);
    }
 
-   public ImageDoodad.g b() {
+   public Image.g b() {
       return this.a;
    }
 
@@ -59,11 +59,11 @@ public class b extends e implements ActionListener {
       var1.setTimeZone(LocaleUtil.e());
       String var2 = var1.format(new Date());
       this.a(this.e.d().c());
-      ImageDoodad var3 = this.a(var2);
+      Image var3 = this.a(var2);
       this.a.h().b(var3);
       this.a.i().a(var3);
-      this.a.i().b(new ImageDoodad(20, 7));
-      this.g.a(var3, otherImageThingy.h.a, 3000, 20);
+      this.a.i().b(new Image(20, 7));
+      this.g.a(var3, AnimatedImage.h.a, 3000, 20);
       super.d();
    }
 
@@ -82,10 +82,10 @@ public class b extends e implements ActionListener {
 
    }
 
-   private ImageDoodad a(String var1) {
+   private Image a(String var1) {
       int var2 = this.e.d().a() == 0 ? 3 : 0;
-      ImageDoodad var3 = new ImageDoodad(20, 7);
-      var3.a((ImageDoodad) ImageDoodad.a(var1), var2, 1);
+      Image var3 = new Image(20, 7);
+      var3.ramImageInForcefully((Image) Image.FromFile(var1), var2, 1);
       return var3;
    }
 }

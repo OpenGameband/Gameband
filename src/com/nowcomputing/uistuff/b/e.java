@@ -1,9 +1,9 @@
 package com.nowcomputing.uistuff.b;
 
 import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.otherImageThingy;
+import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.uistuff.GamebandFonts;
 import com.nowcomputing.uistuff.apackage.t;
 import java.awt.LayoutManager;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public abstract class e extends JPanel implements ImageDoodad.m {
+public abstract class e extends JPanel implements Image.m {
    private boolean a = true;
    private boolean g;
    protected final com.nowcomputing.uistuff.n b;
@@ -77,21 +77,21 @@ public abstract class e extends JPanel implements ImageDoodad.m {
    }
 
    public void d() {
-      this.b().a((ImageDoodad.m)this);
+      this.b().a((Image.m)this);
       this.b().f();
       this.g = false;
    }
 
    public void e() {
       this.g = true;
-      this.b().a((ImageDoodad.m)null);
+      this.b().a((Image.m)null);
       this.b().g();
       this.b.a(false);
    }
 
-   public abstract ImageDoodad.g b();
+   public abstract Image.g b();
 
-   public void a(ImageDoodad var1) {
+   public void a(Image var1) {
       if (var1 != null) {
          this.b.a(var1, 0, 0);
       }
@@ -99,7 +99,7 @@ public abstract class e extends JPanel implements ImageDoodad.m {
    }
 
    public void a() {
-      ImageDoodad.f.l().execute(new i(this));
+      Image.f.l().execute(new i(this));
    }
 
    public boolean j() {
@@ -138,11 +138,11 @@ public abstract class e extends JPanel implements ImageDoodad.m {
       this.b().b(GamebandConfig.c.b(var1));
    }
 
-   public otherImageThingy c() {
+   public AnimatedImage c() {
       return null;
    }
 
-   public void a(otherImageThingy var1) {
+   public void a(AnimatedImage var1) {
    }
 
    // $FF: synthetic method

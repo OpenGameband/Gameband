@@ -25,7 +25,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 public class b extends dialogPanel {
-   private static final Logger h = Logger.getLogger(Utils.class.getName());
+   private static final Logger logger = Logger.getLogger(Utils.class.getName());
    private boolean i = false;
    private final e j;
    protected final JPanel a = new JPanel();

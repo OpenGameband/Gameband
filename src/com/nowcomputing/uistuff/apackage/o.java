@@ -1,5 +1,7 @@
 package com.nowcomputing.uistuff.apackage;
 
+import com.nowcomputing.ImageDisplay;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +17,7 @@ public enum o {
       try {
          BufferedImage var1 = ImageIO.read(var0);
          if (var1 != null) {
-            com.nowcomputing.q var2 = new com.nowcomputing.q();
+            ImageDisplay var2 = new ImageDisplay();
             if (var2.a(var0.getPath()) == 0) {
                if (var2.a() > 1) {
                   return b;

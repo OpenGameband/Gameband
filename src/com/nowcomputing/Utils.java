@@ -775,24 +775,21 @@ public class Utils {
       }
    }
 
-   public static String a(String[] var0, String var1) {
-      StringBuilder var2 = new StringBuilder();
+   public static String arrayWithPrefix(String[] strings, String str) { // used for printing java command line params
+      StringBuilder sb = new StringBuilder();
       boolean var3 = true;
-      String[] var4 = var0;
-      int var5 = var0.length;
 
-      for(int var6 = 0; var6 < var5; ++var6) {
-         String var7 = var4[var6];
+      for (String s : strings) {
          if (var3) {
             var3 = false;
          } else {
-            var2.append(var1);
+            sb.append(str);
          }
 
-         var2.append(var7);
+         sb.append(s);
       }
 
-      return var2.toString();
+      return sb.toString();
    }
 
    /**
@@ -800,13 +797,8 @@ public class Utils {
     @param arr the array to search
     @param s the string to match against
     */
-   // TODO: This is highly memory inefficient
    public static boolean arrContains(String[] arr, String s) {
-      String[] strings = arr;
-      int strLen = arr.length;
-
-      for(int i = 0; i < strLen; ++i) {
-         String var5 = strings[i];
+      for (String var5 : arr) {
          if (s.equals(var5)) {
             return true;
          }
@@ -815,7 +807,7 @@ public class Utils {
       return false;
    }
 
-   public static InputStream e(String var0) throws IOException {
+   public static InputStream HttpGet(String var0) throws IOException {
       logger.log(Level.FINE, "Getting URL " + var0);
       URL var1 = new URL(var0);
       HttpURLConnection var2 = (HttpURLConnection)var1.openConnection();

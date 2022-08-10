@@ -47,7 +47,7 @@ public abstract class latchedCommandRun {
       BufferedReader var3 = null;
 
       try {
-         logger.log(Level.FINE, "Launching command: " + Utils.a(var0, " "));
+         logger.log(Level.FINE, "Launching command: " + Utils.arrayWithPrefix(var0, " "));
          ProcessBuilder var4 = new ProcessBuilder(var0);
          var4.redirectErrorStream(true);
          var4.directory(new File(var1));

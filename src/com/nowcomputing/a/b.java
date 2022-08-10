@@ -1,9 +1,9 @@
 package com.nowcomputing.a;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 
 public interface b {
-   void a(ImageDoodad var1);
+   void a(Image var1);
 
    void a();
 }

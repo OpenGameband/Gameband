@@ -1,7 +1,7 @@
 package com.nowcomputing.b;
 
 import com.nowcomputing.b.a.CustomDialog;
-import com.nowcomputing.otherImageThingy;
+import com.nowcomputing.AnimatedImage;
 
 import javax.swing.JFrame;
 
@@ -9,10 +9,10 @@ public class FrameDingus {
    private JFrame a;
    private CustomDialog b;
 
-   public FrameDingus(JFrame var1, otherImageThingy var2, boolean var3) {
+   public FrameDingus(JFrame var1, AnimatedImage var2, boolean var3) {
       this.a = var1;
       if (var2 == null) {
-         var2 = new otherImageThingy(10, 20);
+         var2 = new AnimatedImage(10, 20);
       }
 
       this.b = new CustomDialog(this, this.a, var2);
@@ -24,7 +24,7 @@ public class FrameDingus {
       this.b.setVisible(true);
    }
 
-   public otherImageThingy b() {
+   public AnimatedImage b() {
       return this.b.a();
    }
 }

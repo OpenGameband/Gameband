@@ -1,51 +1,51 @@
 package com.nowcomputing.pixelfurnace;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.Utils;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class o extends g {
+public class o extends Animation {
    private static final Logger f = Logger.getLogger(Utils.class.getName());
-   private ImageDoodad g;
+   private Image g;
 
    public o(ExecutorService var1) {
       super((short)16, var1);
    }
 
-   public o(n var1, ExecutorService var2) {
-      super(var1.d(), var2);
-      this.e = var1;
+   public o(GamebandScreen var1, ExecutorService var2) {
+      super(var1.getScreenType(), var2);
+      this.screen = var1;
 
       try {
-         this.g = var1.k();
+         this.g = var1.getScroll();
       } catch (IOException var4) {
          f.log(Level.WARNING, "Error reading scroll data from Gameband");
       }
 
    }
 
-   public void b(ImageDoodad var1) {
+   public void b(Image var1) {
       this.g = var1;
    }
 
-   public ImageDoodad b() {
+   public Image b() {
       return this.g;
    }
 
-   public n c() {
-      if (this.e == null) {
-         this.e = new n();
-         this.e.b((short)0);
-         this.e.a((int)0);
-         this.e.b((int)20);
-         this.e.a(this.e());
-         this.e.d(this.j());
+   public GamebandScreen c() {
+      if (this.screen == null) {
+         this.screen = new GamebandScreen();
+         this.screen.setPauseMode((short)0);
+         this.screen.setPauseDuration((int)0);
+         this.screen.b((int)20);
+         this.screen.setScreenType(this.e());
+         this.screen.d(this.j());
       }
 
-      this.e.a(this.g);
-      return this.e;
+      this.screen.setImage(this.g);
+      return this.screen;
    }
 }

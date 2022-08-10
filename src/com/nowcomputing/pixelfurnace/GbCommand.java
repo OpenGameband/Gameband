@@ -1,13 +1,13 @@
 package com.nowcomputing.pixelfurnace;
 
-public class p {
+public class GbCommand { // Another one of my magic wild guesses
    short[] a = new short[12];
 
-   public p() {
+   public GbCommand() {
       this.f((short)47);
    }
 
-   public p(short[] var1) {
+   public GbCommand(short[] var1) {
       System.arraycopy(var1, 0, this.a, 0, 12);
    }
 
@@ -51,7 +51,7 @@ public class p {
       return this.a[6];
    }
 
-   public void e(short var1) {
+   public void setSixthBit(short var1) {
       this.a[6] = var1;
    }
 

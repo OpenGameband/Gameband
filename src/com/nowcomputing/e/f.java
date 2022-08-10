@@ -13,7 +13,5 @@ class f implements Runnable {
          Thread.sleep(500L);
       } catch (InterruptedException var2) {
       }
-
-      e.a(this.a, true);
    }
 }

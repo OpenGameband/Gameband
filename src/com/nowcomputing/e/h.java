@@ -1,6 +1,6 @@
 package com.nowcomputing.e;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 
 import java.awt.Point;
 
@@ -18,7 +18,7 @@ public class h {
       this.d = var4;
    }
 
-   public boolean a(ImageDoodad var1) {
+   public boolean a(Image var1) {
       int var2 = this.c.x;
       Point var10000 = this.c;
       var10000.x -= this.d;
@@ -26,9 +26,9 @@ public class h {
          this.c.x = this.b.x;
       }
 
-      var1.a(this.c.x, this.c.y, true);
-      if (!this.a.f.a(var2, this.c.y) || this.a.a(new Point(var2, this.c.y))) {
-         var1.a(var2, this.c.y, false);
+      var1.setPixel(this.c.x, this.c.y, true);
+      if (!this.a.image2.getPixel(var2, this.c.y) || this.a.a(new Point(var2, this.c.y))) {
+         var1.setPixel(var2, this.c.y, false);
       }
 
       return this.c.x != this.b.x;

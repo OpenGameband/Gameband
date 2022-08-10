@@ -2,6 +2,7 @@ package com.nowcomputing.uistuff;
 
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.Utils;
+import com.nowcomputing.resetAction;
 import com.sun.java.swing.Painter;
 import java.awt.Color;
 import java.awt.Component;
@@ -20,7 +21,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 public abstract class am {
-   private static Painter b = new Y();
+   private static Painter b = new Y(); // very naughty deprecated class usage (javax vs com.sun.javax crap)
    private static Painter c = new Y();
    private static Painter d = new X();
    public static final UIDefaults a = new UIDefaults();
@@ -95,18 +96,18 @@ public abstract class am {
             }
          }
 
-         LocaleUtil.a((com.nowcomputing.t)(new an()));
+         LocaleUtil.a((resetAction)(new an()));
       } catch (Exception var7) {
          Utils.logger.log(Level.SEVERE, (String)null, var7);
       }
 
    }
 
-   public static Window a(Component var0) {
+   public static Window getWindow(Component var0) {
       if (var0 == null) {
          return null;
       } else {
-         return !(var0 instanceof Frame) && !(var0 instanceof Dialog) ? a(var0.getParent()) : (Window)var0;
+         return !(var0 instanceof Frame) && !(var0 instanceof Dialog) ? getWindow(var0.getParent()) : (Window)var0;
       }
    }
 }

@@ -70,23 +70,23 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       return var1;
    }
 
-   public void a(String var1, otherImageThingy.d var2, boolean var3) {
+   public void a(String var1, AnimatedImage.d var2, boolean var3) {
       if (var1 != null && !var1.equals("")) {
          Object var4;
-         if (var2 == otherImageThingy.d.a) {
+         if (var2 == AnimatedImage.d.a) {
             this.d();
-            ImageDoodad.o var5 = new ImageDoodad.o(ImageDoodad.f.l());
-            ImageDoodad var6;
+            Image.o var5 = new Image.o(Image.f.l());
+            Image var6;
             if (var3) {
-               var6 = ImageDoodad.a("     " + var1 + "     ");
+               var6 = Image.FromFile("     " + var1 + "     ");
             } else {
-               var6 = ImageDoodad.a("     " + var1);
+               var6 = Image.FromFile("     " + var1);
             }
 
             var5.b(var6);
             var4 = new com.nowcomputing.uistuff.b.m(this, var5, var3);
          } else {
-            var4 = new com.nowcomputing.uistuff.b.l(this, new ImageDoodad.a(ImageDoodad.f.l()), var1, var2, var3);
+            var4 = new com.nowcomputing.uistuff.b.l(this, new Image.a(Image.f.l()), var1, var2, var3);
          }
 
          this.c((com.nowcomputing.uistuff.b.e)var4);
@@ -95,10 +95,10 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
 
    }
 
-   public void a(File var1, otherImageThingy.d var2, boolean var3) {
+   public void a(File var1, AnimatedImage.d var2, boolean var3) {
       try {
          BufferedImage var4 = ImageIO.read(var1);
-         com.nowcomputing.uistuff.b.j var5 = new com.nowcomputing.uistuff.b.j(this, new ImageDoodad.a(ImageDoodad.f.l()), ImageDoodad.a(var4, Math.min(49, var4.getWidth()), Math.min(49, var4.getHeight())), var2, var3);
+         com.nowcomputing.uistuff.b.j var5 = new com.nowcomputing.uistuff.b.j(this, new Image.a(Image.f.l()), Image.FromBufferedImage(var4, Math.min(49, var4.getWidth()), Math.min(49, var4.getHeight())), var2, var3);
          this.c(var5);
          var5.a(true);
       } catch (IOException var6) {
@@ -107,14 +107,14 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
    }
 
    public void a(File var1) {
-      com.nowcomputing.uistuff.b.a var2 = new com.nowcomputing.uistuff.b.a(this, new ImageDoodad.a(ImageDoodad.f.l()));
+      com.nowcomputing.uistuff.b.a var2 = new com.nowcomputing.uistuff.b.a(this, new Image.a(Image.f.l()));
       ((com.nowcomputing.uistuff.b.a)var2).a(var1);
       this.c(var2);
       var2.a(true);
    }
 
-   public void a(otherImageThingy var1) {
-      com.nowcomputing.uistuff.b.a var2 = new com.nowcomputing.uistuff.b.a(this, new ImageDoodad.a(ImageDoodad.f.l()));
+   public void a(AnimatedImage var1) {
+      com.nowcomputing.uistuff.b.a var2 = new com.nowcomputing.uistuff.b.a(this, new Image.a(Image.f.l()));
       var2.a(var1);
       this.c(var2);
       var2.a(true);
@@ -145,7 +145,7 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       }
    }
 
-   public ImageDoodad.f d() {
+   public Image.f d() {
       return this.g.g();
    }
 
@@ -161,34 +161,34 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       Iterator var5 = var1.iterator();
 
       while(var5.hasNext()) {
-         ImageDoodad.g var6 = (ImageDoodad.g)var5.next();
+         Image.g var6 = (Image.g)var5.next();
          switch(var6.e()) {
          case 0:
          case 1:
-            this.c(new com.nowcomputing.uistuff.b.n(this, (ImageDoodad.q)var6));
+            this.c(new com.nowcomputing.uistuff.b.n(this, (Image.q)var6));
             var2 = true;
             break;
          case 2:
          case 3:
-            this.c(new com.nowcomputing.uistuff.b.b(this, (ImageDoodad.b)var6));
+            this.c(new com.nowcomputing.uistuff.b.b(this, (Image.b)var6));
             var3 = true;
             break;
          case 16:
             boolean var7 = false;
-            ImageDoodad.n var8 = var6.c();
+            Image.n var8 = var6.c();
             GamebandConfig.d var9 = GamebandConfig.c.a(var8.i());
             var7 = var9 == GamebandConfig.d.b;
-            com.nowcomputing.uistuff.b.m var10 = new com.nowcomputing.uistuff.b.m(this, (ImageDoodad.o)var6, var7);
+            com.nowcomputing.uistuff.b.m var10 = new com.nowcomputing.uistuff.b.m(this, (Image.o)var6, var7);
             this.c(var10);
             break;
          case 17:
-            this.c(new com.nowcomputing.uistuff.b.d(this, new ImageDoodad.c(ImageDoodad.f.l())));
+            this.c(new com.nowcomputing.uistuff.b.d(this, new Image.c(Image.f.l())));
             var4 = true;
             break;
          case 32:
             try {
-               com.nowcomputing.uistuff.b.a var11 = new com.nowcomputing.uistuff.b.a(this, (ImageDoodad.a)var6);
-               var11.a(((ImageDoodad.a)var6).b());
+               com.nowcomputing.uistuff.b.a var11 = new com.nowcomputing.uistuff.b.a(this, (Image.a)var6);
+               var11.a(((Image.a)var6).b());
                this.c(var11);
             } catch (IOException var12) {
                a.log(Level.WARNING, "", var12);
@@ -198,19 +198,19 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
       }
 
       if (!var2) {
-         com.nowcomputing.uistuff.b.n var13 = new com.nowcomputing.uistuff.b.n(this, new ImageDoodad.q(ImageDoodad.f.l()));
+         com.nowcomputing.uistuff.b.n var13 = new com.nowcomputing.uistuff.b.n(this, new Image.q(Image.f.l()));
          var13.a(false);
          this.c(var13);
       }
 
       if (!var3) {
-         com.nowcomputing.uistuff.b.b var14 = new com.nowcomputing.uistuff.b.b(this, new ImageDoodad.b(ImageDoodad.f.l()));
+         com.nowcomputing.uistuff.b.b var14 = new com.nowcomputing.uistuff.b.b(this, new Image.b(Image.f.l()));
          var14.a(false);
          this.c(var14);
       }
 
       if (!var4) {
-         com.nowcomputing.uistuff.b.d var15 = new com.nowcomputing.uistuff.b.d(this, new ImageDoodad.c(ImageDoodad.f.l()));
+         com.nowcomputing.uistuff.b.d var15 = new com.nowcomputing.uistuff.b.d(this, new Image.c(Image.f.l()));
          var15.a(false);
          this.c(var15);
       }

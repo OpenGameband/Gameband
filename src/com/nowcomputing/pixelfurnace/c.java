@@ -1,12 +1,12 @@
 package com.nowcomputing.pixelfurnace;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.Utils;
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
 
-public class c extends g {
+public class c extends Animation {
    private String f;
 
    public c(ExecutorService var1) {
@@ -14,8 +14,8 @@ public class c extends g {
       this.a(Utils.c());
    }
 
-   public c(n var1, ExecutorService var2) {
-      super(var1.d(), var2);
+   public c(GamebandScreen var1, ExecutorService var2) {
+      super(var1.getScreenType(), var2);
    }
 
    public void a(long var1) {
@@ -54,18 +54,18 @@ public class c extends g {
       return this.f;
    }
 
-   public n c() {
-      if (this.e == null) {
-         this.e = new n();
-         this.e.b((short)1);
-         this.e.a((int)1000);
-         this.e.b((int)20);
+   public GamebandScreen c() {
+      if (this.screen == null) {
+         this.screen = new GamebandScreen();
+         this.screen.setPauseMode((short)1);
+         this.screen.setPauseDuration((int)1000);
+         this.screen.b((int)20);
       }
 
-      this.e.a(this.e());
-      this.e.d(this.j());
+      this.screen.setScreenType(this.e());
+      this.screen.d(this.j());
       this.a(Utils.c());
-      this.e.a(ImageDoodad.a(this.b()));
-      return this.e;
+      this.screen.setImage(Image.FromFile(this.b()));
+      return this.screen;
    }
 }

@@ -82,7 +82,7 @@ public class TechnicLauncher extends AbstractMinecraftLauncher {
          var4.setVisible(true);
 
          try {
-            String var5 = Utils.getAllFromInputStream(Utils.e("http://api.technicpack.net/launcher/version/stable4"));
+            String var5 = Utils.getAllFromInputStream(Utils.HttpGet("http://api.technicpack.net/launcher/version/stable4"));
             b var6 = new b();
             c var7 = (c)var6.a(var5);
             c var8 = (c)var7.get("url");

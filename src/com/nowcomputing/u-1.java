@@ -3,7 +3,7 @@ package com.nowcomputing;
 import java.util.logging.Level;
 
 // this does mac shenanigans
-final class u extends Thread {
+final class ShutdownHook extends Thread { // thanks pringles
    public void run() {
       try {
          Main.getLogger().log(Level.FINE, "Gameband application exiting...");

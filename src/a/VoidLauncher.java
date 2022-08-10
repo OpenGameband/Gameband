@@ -56,7 +56,7 @@ public class VoidLauncher extends AbstractMinecraftLauncher {
 
    private X l() {
       try {
-         InputStream var1 = Utils.e("http://voidswrath.com/release/releases/version.txt");
+         InputStream var1 = Utils.HttpGet("http://voidswrath.com/release/releases/version.txt");
          BufferedReader var2 = new BufferedReader(new InputStreamReader(var1));
          String var3 = var2.readLine();
          return new X(var3);

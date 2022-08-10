@@ -1,6 +1,6 @@
 package com.nowcomputing.uistuff;
 
-import com.nowcomputing.ImageDoodad;
+import com.nowcomputing.Image;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -57,25 +57,25 @@ public class n extends JPanel {
 
    }
 
-   public void a(ImageDoodad var1, int var2, int var3) {
-      int var4 = var1.a();
-      int var5 = var1.b();
+   public void a(Image var1, int var2, int var3) {
+      int var4 = var1.getWidth();
+      int var5 = var1.getHeight();
 
       for(int var6 = 0; var6 < var5; ++var6) {
          for(int var7 = 0; var7 < var4; ++var7) {
-            this.a(var7 + var2, var6 + var3, var1.a(var7, var6));
+            this.a(var7 + var2, var6 + var3, var1.getPixel(var7, var6));
          }
       }
 
       this.repaint();
    }
 
-   public ImageDoodad a() {
-      ImageDoodad var1 = new ImageDoodad(20, 7);
+   public Image a() {
+      Image var1 = new Image(20, 7);
 
       for(int var2 = 0; var2 < 7; ++var2) {
          for(int var3 = 0; var3 < 20; ++var3) {
-            var1.a(var3, var2, this.b[var3][var2].a());
+            var1.setPixel(var3, var2, this.b[var3][var2].a());
          }
       }
 

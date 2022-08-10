@@ -3,7 +3,7 @@ package com.nowcomputing.e;
 public class c {
    public static final d a;
 
-   public static a a(d var0) {
+   public static funnyImageThing a(d var0) {
       if (var0.equals(d.a)) {
          return new e(b.a);
       } else if (var0.equals(d.c)) {
@@ -15,7 +15,7 @@ public class c {
       }
    }
 
-   public static a b(d var0) {
+   public static funnyImageThing b(d var0) {
       if (var0.equals(d.a)) {
          return new e(b.b);
       } else if (var0.equals(d.c)) {

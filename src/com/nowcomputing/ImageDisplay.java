@@ -11,8 +11,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class q {
-   protected BufferedInputStream a;
+public class ImageDisplay { // whew, this is a whole load of bullshit i'm not prepared to unwrap right now
+   protected BufferedInputStream inputStream;
    protected int b;
    protected int c;
    protected int d;
@@ -33,10 +33,10 @@ public class q {
    protected int s;
    protected int t;
    protected int u;
-   protected Rectangle v;
-   protected BufferedImage w;
-   protected BufferedImage x;
-   protected byte[] y = new byte[256];
+   protected Rectangle rectangle;
+   protected BufferedImage bufferedImage;
+   protected BufferedImage bufferedImage1;
+   protected byte[] bytes = new byte[256];
    protected int z = 0;
    protected int A = 0;
    protected int B = 0;
@@ -47,7 +47,7 @@ public class q {
    protected byte[] G;
    protected byte[] H;
    protected byte[] I;
-   protected ArrayList J;
+   protected ArrayList list;
    protected int K;
 
    public int a() {
@@ -55,23 +55,23 @@ public class q {
    }
 
    protected void b() {
-      int[] var1 = ((DataBufferInt)this.w.getRaster().getDataBuffer()).getData();
+      int[] imageData = ((DataBufferInt)this.bufferedImage.getRaster().getDataBuffer()).getData();
       int var2;
       if (this.B > 0) {
          if (this.B == 3) {
             var2 = this.K - 2;
             if (var2 > 0) {
-               this.x = this.a(var2 - 1);
+               this.bufferedImage1 = this.a(var2 - 1);
             } else {
-               this.x = null;
+               this.bufferedImage1 = null;
             }
          }
 
-         if (this.x != null) {
-            int[] var13 = ((DataBufferInt)this.x.getRaster().getDataBuffer()).getData();
-            System.arraycopy(var13, 0, var1, 0, this.c * this.d);
+         if (this.bufferedImage1 != null) {
+            int[] var13 = ((DataBufferInt)this.bufferedImage1.getRaster().getDataBuffer()).getData();
+            System.arraycopy(var13, 0, imageData, 0, this.c * this.d);
             if (this.B == 2) {
-               Graphics2D var3 = this.w.createGraphics();
+               Graphics2D var3 = this.bufferedImage.createGraphics();
                Color var4 = null;
                if (this.C) {
                   var4 = new Color(0, 0, 0, 0);
@@ -81,7 +81,7 @@ public class q {
 
                var3.setColor(var4);
                var3.setComposite(AlphaComposite.Src);
-               var3.fill(this.v);
+               var3.fill(this.rectangle);
                var3.dispose();
             }
          }
@@ -127,7 +127,7 @@ public class q {
                int var11 = this.I[var10++] & 255;
                int var12 = this.j[var11];
                if (var12 != 0) {
-                  var1[var8] = var12;
+                  imageData[var8] = var12;
                }
             }
          }
@@ -135,14 +135,14 @@ public class q {
 
    }
 
-   public ArrayList c() {
-      return this.J;
+   public ArrayList getList() {
+      return this.list;
    }
 
    public BufferedImage a(int var1) {
       BufferedImage var2 = null;
       if (var1 >= 0 && var1 < this.K) {
-         var2 = ((r)this.J.get(var1)).a;
+         var2 = ((ImageWithANumber)this.list.get(var1)).image;
       }
 
       return var2;
@@ -151,7 +151,7 @@ public class q {
    public int a(BufferedInputStream var1) {
       this.f();
       if (var1 != null) {
-         this.a = var1;
+         this.inputStream = var1;
          this.k();
          if (!this.e()) {
             this.i();
@@ -177,8 +177,8 @@ public class q {
       this.b = 0;
 
       try {
-         this.a = new BufferedInputStream(new FileInputStream(var1));
-         this.b = this.a(this.a);
+         this.inputStream = new BufferedInputStream(new FileInputStream(var1));
+         this.b = this.a(this.inputStream);
       } catch (IOException var3) {
          this.b = 2;
       }
@@ -240,7 +240,7 @@ public class q {
                   var18 = 0;
                }
 
-               var14 += (this.y[var18] & 255) << var10;
+               var14 += (this.bytes[var18] & 255) << var10;
                var10 += 8;
                ++var18;
                --var12;
@@ -315,7 +315,7 @@ public class q {
    protected void f() {
       this.b = 0;
       this.K = 0;
-      this.J = new ArrayList();
+      this.list = new ArrayList();
       this.h = null;
       this.i = null;
    }
@@ -324,7 +324,7 @@ public class q {
       int var1 = 0;
 
       try {
-         var1 = this.a.read();
+         var1 = this.inputStream.read();
       } catch (IOException var3) {
          this.b = 1;
       }
@@ -339,7 +339,7 @@ public class q {
          int var4;
          try {
             for(boolean var2 = false; var1 < this.z; var1 += var4) {
-               var4 = this.a.read(this.y, var1, this.z - var1);
+               var4 = this.inputStream.read(this.bytes, var1, this.z - var1);
                if (var4 == -1) {
                   break;
                }
@@ -362,7 +362,7 @@ public class q {
       int var5 = 0;
 
       try {
-         var5 = this.a.read(var4);
+         var5 = this.inputStream.read(var4);
       } catch (IOException var11) {
       }
 
@@ -404,7 +404,7 @@ public class q {
                String var3 = "";
 
                for(int var4 = 0; var4 < 11; ++var4) {
-                  var3 = var3 + (char)this.y[var4];
+                  var3 = var3 + (char)this.bytes[var4];
                }
 
                if (var3.equals("NETSCAPE2.0")) {
@@ -501,9 +501,9 @@ public class q {
          this.q();
          if (!this.e()) {
             ++this.K;
-            this.w = new BufferedImage(this.c, this.d, 3);
+            this.bufferedImage = new BufferedImage(this.c, this.d, 3);
             this.b();
-            this.J.add(new r(this.w, this.D));
+            this.list.add(new ImageWithANumber(this.bufferedImage, this.D));
             if (this.C) {
                this.j[this.E] = var2;
             }
@@ -526,9 +526,9 @@ public class q {
    protected void n() {
       do {
          this.h();
-         if (this.y[0] == 1) {
-            int var1 = this.y[1] & 255;
-            int var2 = this.y[2] & 255;
+         if (this.bytes[0] == 1) {
+            int var1 = this.bytes[1] & 255;
+            int var2 = this.bytes[2] & 255;
             this.g = var2 << 8 | var1;
          }
       } while(this.z > 0 && !this.e());
@@ -541,8 +541,8 @@ public class q {
 
    protected void p() {
       this.B = this.A;
-      this.v = new Rectangle(this.r, this.s, this.t, this.u);
-      this.x = this.w;
+      this.rectangle = new Rectangle(this.r, this.s, this.t, this.u);
+      this.bufferedImage1 = this.bufferedImage;
       this.m = this.l;
       this.A = 0;
       this.C = false;

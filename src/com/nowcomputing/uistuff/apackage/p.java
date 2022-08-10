@@ -1,9 +1,13 @@
 package com.nowcomputing.uistuff.apackage;
 
 import com.nowcomputing.*;
+import com.nowcomputing.a.Direction;
+import com.nowcomputing.pixelfurnace.GBTime;
+import com.nowcomputing.pixelfurnace.Animation;
 import com.nowcomputing.uistuff.GamebandColors;
 import com.nowcomputing.uistuff.GamebandFonts;
 import com.nowcomputing.uistuff.dialogPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -26,9 +30,9 @@ import javax.swing.JPanel;
 
 public class p {
    private static final Logger a = Logger.getLogger(Utils.class.getName());
-   private com.nowcomputing.pixelfurnace.f b;
+   private GBTime b;
    private dialogPanel c;
-   private a d;
+   private com.nowcomputing.uistuff.apackage.a d;
    private t e;
    private q f;
    private f g;
@@ -36,7 +40,7 @@ public class p {
    private JFrame i;
    private JLayeredPane j;
 
-   public p(JFrame var1, com.nowcomputing.pixelfurnace.f var2) throws IOException {
+   public p(JFrame var1, GBTime var2) throws IOException {
       this.i = var1;
       this.b = var2;
       JPanel var3 = new JPanel();
@@ -118,7 +122,7 @@ public class p {
       this.e = new t(this);
       this.e.setLayout((LayoutManager)null);
       this.e.setOpaque(false);
-      this.e.a(this.g().d());
+      this.e.a(this.g().getAnimations());
       var1.add(this.e);
       return var1;
    }
@@ -193,7 +197,7 @@ public class p {
       this.e.a();
    }
 
-   public com.nowcomputing.pixelfurnace.f g() {
+   public GBTime g() {
       return this.b;
    }
 
@@ -203,7 +207,7 @@ public class p {
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
-         com.nowcomputing.pixelfurnace.g var4 = (com.nowcomputing.pixelfurnace.g)var3.next();
+         Animation var4 = (Animation)var3.next();
          short var5 = var4.e();
          if (var5 != 0 && var5 != 1 && var5 != 3 && var5 != 2) {
             ++var1;
@@ -217,12 +221,12 @@ public class p {
       }
    }
 
-   public void a(String var1, com.nowcomputing.a.d var2, boolean var3) {
+   public void a(String var1, Direction var2, boolean var3) {
       this.e.a(var1, var2, var3);
       this.d(true);
    }
 
-   public void a(File var1, com.nowcomputing.a.d var2, boolean var3) {
+   public void a(File var1, Direction var2, boolean var3) {
       this.e.a(var1, var2, var3);
       this.d(true);
    }
@@ -233,7 +237,7 @@ public class p {
    }
 
    public void i() {
-      LockingUtil.a var1 = new LockingUtil.a(this.i, (otherImageThingy)null, true);
+      LockingUtil.a var1 = new LockingUtil.a(this.i, (AnimatedImage)null, true);
       var1.a();
       this.e.a(var1.b());
       this.d(true);
