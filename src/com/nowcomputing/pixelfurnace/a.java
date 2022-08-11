@@ -3,7 +3,7 @@ package com.nowcomputing.pixelfurnace;
 import com.nowcomputing.Utils;
 import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.a.ImagePlayer;
-import com.nowcomputing.e.funnyImageThing;
+import com.nowcomputing.e.imageTransition;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -20,10 +20,10 @@ public class a extends Animation {
    public a(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
       this.screen = var1;
-      this.b = new ImagePlayer();
+      this.Pause = new ImagePlayer();
 
       try {
-         ((ImagePlayer)this.b).a(var1.getAnimation());
+         ((ImagePlayer)this.Pause).a(var1.getAnimation());
       } catch (IOException e) {
          logger.log(Level.WARNING, "", e);
       }
@@ -42,11 +42,11 @@ public class a extends Animation {
 
       this.screen.d((short)0);
       this.screen.setPauseDuration((int)1000);
-      this.screen.b(this.b.f());
-      this.screen.fromAnimatedImage(((com.nowcomputing.a.ImagePlayer)this.b).h());
+      this.screen.b(this.Pause.f());
+      this.screen.fromAnimatedImage(((com.nowcomputing.a.ImagePlayer)this.Pause).h());
       return this.screen;
    }
 
-   public void a(funnyImageThing var1) {
+   public void a(imageTransition var1) {
    }
 }

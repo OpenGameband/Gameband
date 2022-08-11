@@ -1,13 +1,13 @@
 package com.nowcomputing.pixelfurnace;
 
-public class GbCommand { // Another one of my magic wild guesses
+public class GbData { // Another one of my magic wild guesses
    short[] a = new short[12];
 
-   public GbCommand() {
+   public GbData() {
       this.f((short)47);
    }
 
-   public GbCommand(short[] var1) {
+   public GbData(short[] var1) {
       System.arraycopy(var1, 0, this.a, 0, 12);
    }
 

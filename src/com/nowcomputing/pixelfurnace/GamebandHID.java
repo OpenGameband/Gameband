@@ -10,7 +10,6 @@ import java.io.IOException;
 public class GamebandHID {
    private HIDManager hidManager;
    private HIDDevice gamebandHIDDevice = null;
-   private int releaseNumber;
 
    public void open() throws IOException {
       if (this.gamebandHIDDevice != null) {
@@ -35,7 +34,7 @@ public class GamebandHID {
       for(int i = 0; i < devicesLen; ++i) {
          HIDDeviceInfo deviceInfo = devices1[i];
          if (deviceInfo.getVendor_id() == vid && deviceInfo.getProduct_id() == pid && (serial == null || deviceInfo.getSerial_number().equals(serial))) {
-            this.releaseNumber = deviceInfo.getRelease_number();
+            int releaseNumber = deviceInfo.getRelease_number();
             return deviceInfo.open();
          }
       }
@@ -43,12 +42,12 @@ public class GamebandHID {
       throw new HIDDeviceNotFoundException();
    }
 
-   public short[] getGBInfo() throws IOException { // wild guess on the name here
+   public short[] readGameband() throws IOException { // wild guess on the name here
       short[] buf = new short[2048]; // response from gameband
       short offset = 6144; // this is probably a command
 
       for(int i = 0; i < 128; ++i) {
-         short[] resp = this.execCommand(offset + i * 16);
+         short[] resp = this.readChunk(offset + i * 16);
          System.arraycopy(resp, 0, buf, i * 16, 16);
       }
 
@@ -65,7 +64,7 @@ public class GamebandHID {
 
          for(boolean var5 = false; var4 < var2.length; var4 += 16) { // what the assmunching fuck is this for loop
             this.writeWithData(6144 + var4, var2, var4);
-            short[] var6 = this.execCommand(6144 + var4);
+            short[] var6 = this.readChunk(6144 + var4);
             if (!compareResponse(var6, var2, var4, 16)) {
                throw new IOException("Error checking written data");
             }
@@ -99,7 +98,7 @@ public class GamebandHID {
       }
    }
 
-   public boolean getGBValue(int var1) throws IOException {
+   public boolean setTime(int var1) throws IOException {
       byte[] var2 = new byte[9];
       var2[0] = 0;
       var2[1] = 2;
@@ -147,13 +146,13 @@ public class GamebandHID {
 
    /**
     * I honestly have no fucking clue
-    * @param commandCode i'm making a wild fucking guess here
+    * @param offset i'm making a wild fucking guess here
     * @return the response from the gameband
     * @throws IOException (probably)
     */
-   private short[] execCommand(int commandCode) throws IOException {
+   private short[] readChunk(int offset) throws IOException {
       byte[] bytes = new byte[]{0, 8, 0, 0, 0}; // command (I think)
-      buildCommandFromCode(bytes, 3, commandCode);
+      buildCommandFromCode(bytes, 3, offset);
       short[] buf = new short[16];
       byte[] resp = new byte[34];
       if (this.writeToGameband(bytes, resp, 9)) { // nine is important probably, maybe it's a status code

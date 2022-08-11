@@ -1,7 +1,7 @@
 package com.nowcomputing.uistuff.b;
 
 import com.nowcomputing.Image;
-import com.nowcomputing.N;
+import com.nowcomputing.TimeDisplay;
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.uistuff.GamebandFonts;
@@ -23,15 +23,15 @@ public class b extends e implements ActionListener {
       this.h();
       this.g = new AnimatedImage.g();
       var2.a(this.g);
-      JRadioButton var3 = new JRadioButton(N.d.a());
-      var3.setActionCommand(N.d.a());
+      JRadioButton var3 = new JRadioButton(TimeDisplay.normal.a());
+      var3.setActionCommand(TimeDisplay.normal.a());
       var3.setOpaque(false);
       var3.setFont(GamebandFonts.u);
       var3.setForeground(LocaleUtil.h.m);
       var3.setBounds(278, 6, 120, 20);
       this.add(var3);
-      JRadioButton var4 = new JRadioButton(N.c.a());
-      var4.setActionCommand(N.c.a());
+      JRadioButton var4 = new JRadioButton(TimeDisplay.crackhead.a());
+      var4.setActionCommand(TimeDisplay.crackhead.a());
       var4.setOpaque(false);
       var4.setFont(GamebandFonts.u);
       var4.setForeground(LocaleUtil.h.m);
@@ -68,10 +68,10 @@ public class b extends e implements ActionListener {
    }
 
    public void actionPerformed(ActionEvent var1) {
-      if (N.d.a().equals(var1.getActionCommand())) {
-         this.a.a(N.d);
-      } else if (N.c.a().equals(var1.getActionCommand())) {
-         this.a.a(N.c);
+      if (TimeDisplay.normal.a().equals(var1.getActionCommand())) {
+         this.a.a(TimeDisplay.normal);
+      } else if (TimeDisplay.crackhead.a().equals(var1.getActionCommand())) {
+         this.a.a(TimeDisplay.crackhead);
       }
 
       this.e.a(true);

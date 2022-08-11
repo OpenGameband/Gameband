@@ -1,45 +1,41 @@
 package com.nowcomputing.e;
 
 public class c {
-   public static final d a;
+   public static final Transition DEFAULT_TRANSITION = Transition.rain;
 
-   public static funnyImageThing a(d var0) {
-      if (var0.equals(d.a)) {
-         return new e(b.a);
-      } else if (var0.equals(d.c)) {
+   public static imageTransition animateRight(Transition var0) {
+      if (var0.equals(Transition.none)) {
+         return new e(Hand.right);
+      } else if (var0.equals(Transition.dissolve)) {
          return new i();
-      } else if (var0.equals(d.b)) {
-         return new j(b.a);
+      } else if (var0.equals(Transition.scroll)) {
+         return new j(Hand.right);
       } else {
-         return var0.equals(d.d) ? new g(b.a) : null;
+         return var0.equals(Transition.rain) ? new g(Hand.right) : null;
       }
    }
 
-   public static funnyImageThing b(d var0) {
-      if (var0.equals(d.a)) {
-         return new e(b.b);
-      } else if (var0.equals(d.c)) {
+   public static imageTransition animateLeft(Transition var0) {
+      if (var0.equals(Transition.none)) {
+         return new e(Hand.left);
+      } else if (var0.equals(Transition.dissolve)) {
          return new i();
-      } else if (var0.equals(d.b)) {
-         return new j(b.b);
+      } else if (var0.equals(Transition.scroll)) {
+         return new j(Hand.left);
       } else {
-         return var0.equals(d.d) ? new g(b.b) : null;
+         return var0.equals(Transition.rain) ? new g(Hand.left) : null;
       }
    }
 
-   public static d a(int var0) {
-      if (var0 == 0) {
-         return d.a;
-      } else if (var0 == 1) {
-         return d.b;
-      } else if (var0 == 2) {
-         return d.c;
+   public static Transition getTransition(int transitionNum) {
+      if (transitionNum == 0) {
+         return Transition.none;
+      } else if (transitionNum == 1) {
+         return Transition.scroll;
+      } else if (transitionNum == 2) {
+         return Transition.dissolve;
       } else {
-         return var0 == 3 ? d.d : null;
+         return transitionNum == 3 ? Transition.rain : null;
       }
-   }
-
-   static {
-      a = d.d;
    }
 }

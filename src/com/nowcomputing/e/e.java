@@ -1,28 +1,27 @@
 package com.nowcomputing.e;
 
-import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.Image;
-import com.nowcomputing.pixelfurnace.GBTime;
+import com.nowcomputing.pixelfurnace.GBComms;
 
-public class e extends funnyImageThing {
+public class e extends imageTransition {
    private boolean g;
-   private b h;
+   private Hand h;
 
-   public e(b var1) {
+   public e(Hand var1) {
       this.h = var1;
    }
 
    public void b() {
-      if (this.h == com.nowcomputing.e.b.b) {
+      if (this.h == Hand.left) {
          this.g = false;
-         GBTime.getThreadPool().execute(new f(this));
+         GBComms.getThreadPool().execute(new f(this));
       }
 
       super.resetTimer();
    }
 
    public Image e() {
-      if (this.h == com.nowcomputing.e.b.b) {
+      if (this.h == Hand.left) {
          if (this.g) {
             this.setBool(true);
          }
@@ -30,11 +29,11 @@ public class e extends funnyImageThing {
          this.setBool(true);
       }
 
-      return this.image2;
+      return this.endImage;
    }
 
    public boolean isEmpty() {
-      if (this.image2 != null) {
+      if (this.endImage != null) {
          return !this.getBool();
       } else {
          return false;

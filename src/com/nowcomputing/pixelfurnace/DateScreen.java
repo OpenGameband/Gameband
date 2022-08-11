@@ -1,32 +1,32 @@
 package com.nowcomputing.pixelfurnace;
 
-import com.nowcomputing.N;
+import com.nowcomputing.TimeDisplay;
 import com.nowcomputing.LocaleUtil;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutorService;
 
-public class b extends Animation {
-   public b(ExecutorService var1) {
-      super(d(), var1);
+public class DateScreen extends Animation {
+   public DateScreen(ExecutorService exe) {
+      super(getDefaultDateFormat(), exe);
    }
 
-   public b(GamebandScreen var1, ExecutorService var2) {
+   public DateScreen(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
    }
 
-   public void a(N var1) {
-      if (var1 == N.d) {
+   public void SetDateFormat(TimeDisplay var1) {
+      if (var1 == TimeDisplay.normal) {
          this.a((short)3);
-      } else if (var1 == N.c) {
+      } else if (var1 == TimeDisplay.crackhead) {
          this.a((short)2);
       }
 
    }
 
-   public N b() {
-      return this.e() == 2 ? N.c : N.d;
+   public TimeDisplay b() {
+      return this.e() == 2 ? TimeDisplay.crackhead : TimeDisplay.normal;
    }
 
    public GamebandScreen c() {
@@ -44,7 +44,7 @@ public class b extends Animation {
       return this.screen;
    }
 
-   public static short d() {
+   public static short getDefaultDateFormat() {
       SimpleDateFormat var0 = (SimpleDateFormat)DateFormat.getDateInstance(3, LocaleUtil.a());
       String var1 = var0.toPattern();
       return (short)(var1.equals("M/d/yy") ? 2 : 3);

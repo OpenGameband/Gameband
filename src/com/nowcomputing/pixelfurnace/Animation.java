@@ -1,61 +1,59 @@
 package com.nowcomputing.pixelfurnace;
 
-import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.Image;
-import com.nowcomputing.AnimatedImage;
 import com.nowcomputing.a.TimerListener;
 import com.nowcomputing.a.b;
-import com.nowcomputing.e.funnyImageThing;
+import com.nowcomputing.e.imageTransition;
 
 import java.util.concurrent.ExecutorService;
 
 public abstract class Animation implements b {
-   protected funnyImageThing fi1;
-   protected com.nowcomputing.a.TimerListener b;
-   protected funnyImageThing fi2;
+   protected imageTransition AnimateIn;
+   protected com.nowcomputing.a.TimerListener Pause;// ?
+   protected imageTransition AnimateOut;
    protected m d;
    protected GamebandScreen screen;
    private AnimationState state;
-   private short g;
+   private short dateFormat;
    private ExecutorService executorService;
 
-   protected Animation(short var1, ExecutorService var2) {
+   protected Animation(short dateFormat, ExecutorService executorService) {
       this.state = AnimationState.stopped;
-      this.g = var1;
-      this.executorService = var2;
+      this.dateFormat = dateFormat;
+      this.executorService = executorService;
    }
 
    public short e() {
-      return this.g;
+      return this.dateFormat;
    }
 
    protected void a(short var1) {
-      this.g = var1;
+      this.dateFormat = var1;
    }
 
    public void f() {
-      if (this.fi1 != null) {
+      if (this.AnimateIn != null) {
          this.state = AnimationState.transitioningIn;
-         this.executorService.execute(new h(this));
-      } else if (this.b != null) {
+         this.executorService.execute(new TransitionIn(this));
+      } else if (this.Pause != null) {
          this.state = AnimationState.animating;
-         this.executorService.execute(new i(this));
+         this.executorService.execute(new Animating(this));
       }
 
    }
 
-   public void stopTimers() {
+   public void stopAnimation() {
       this.state = AnimationState.stopped;
-      if (this.fi1 != null) {
-         this.fi1.stopAndDestroyTimer();
+      if (this.AnimateIn != null) {
+         this.AnimateIn.stopAndDestroyTimer();
       }
 
-      if (this.b != null) {
-         this.b.stopAndDestroyTimer();
+      if (this.Pause != null) {
+         this.Pause.stopAndDestroyTimer();
       }
 
-      if (this.fi2 != null) {
-         this.fi2.stopAndDestroyTimer();
+      if (this.AnimateOut != null) {
+         this.AnimateOut.stopAndDestroyTimer();
       }
 
    }
@@ -71,37 +69,37 @@ public abstract class Animation implements b {
       this.executorService.execute(new j(this));
    }
 
-   public com.nowcomputing.e.funnyImageThing h() {
-      return this.fi1;
+   public imageTransition h() {
+      return this.AnimateIn;
    }
 
-   public void a(funnyImageThing var1) {
-      if (this.fi1 != null) {
-         this.fi1.a((com.nowcomputing.a.b)null);
-         this.fi1 = null;
+   public void a(imageTransition var1) {
+      if (this.AnimateIn != null) {
+         this.AnimateIn.a((com.nowcomputing.a.b)null);
+         this.AnimateIn = null;
       }
 
-      this.fi1 = var1;
-      this.fi1.a(this);
+      this.AnimateIn = var1;
+      this.AnimateIn.a(this);
    }
 
-   public funnyImageThing i() {
-      return this.fi2;
+   public imageTransition i() {
+      return this.AnimateOut;
    }
 
-   public void b(funnyImageThing var1) {
-      if (this.fi2 != null) {
-         this.fi2.a((b)null);
-         this.fi2 = null;
+   public void b(imageTransition var1) {
+      if (this.AnimateOut != null) {
+         this.AnimateOut.a((b)null);
+         this.AnimateOut = null;
       }
 
-      this.fi2 = var1;
-      this.fi2.a(this);
+      this.AnimateOut = var1;
+      this.AnimateOut.a(this);
    }
 
    public void a(TimerListener var1) {
-      this.b = var1;
-      this.b.a(this);
+      this.Pause = var1;
+      this.Pause.a(this);
    }
 
    public void a(m var1) {
@@ -111,16 +109,6 @@ public abstract class Animation implements b {
    public abstract GamebandScreen c();
 
    protected short j() {
-      return this.fi1 != null ? this.fi1.h() : 0;
-   }
-
-   // $FF: synthetic method
-   static AnimationState a(Animation var0) {
-      return var0.state;
-   }
-
-   // $FF: synthetic method
-   static AnimationState a(Animation var0, AnimationState var1) {
-      return var0.state = var1;
+      return this.AnimateIn != null ? this.AnimateIn.h() : 0;
    }
 }

@@ -2,7 +2,7 @@ package com.nowcomputing.uistuff.apackage;
 
 import com.nowcomputing.*;
 import com.nowcomputing.a.Direction;
-import com.nowcomputing.pixelfurnace.GBTime;
+import com.nowcomputing.pixelfurnace.GBComms;
 import com.nowcomputing.pixelfurnace.Animation;
 import com.nowcomputing.uistuff.GamebandColors;
 import com.nowcomputing.uistuff.GamebandFonts;
@@ -30,7 +30,7 @@ import javax.swing.JPanel;
 
 public class p {
    private static final Logger a = Logger.getLogger(Utils.class.getName());
-   private GBTime b;
+   private GBComms b;
    private dialogPanel c;
    private com.nowcomputing.uistuff.apackage.a d;
    private t e;
@@ -40,7 +40,7 @@ public class p {
    private JFrame i;
    private JLayeredPane j;
 
-   public p(JFrame var1, GBTime var2) throws IOException {
+   public p(JFrame var1, GBComms var2) throws IOException {
       this.i = var1;
       this.b = var2;
       JPanel var3 = new JPanel();
@@ -197,7 +197,7 @@ public class p {
       this.e.a();
    }
 
-   public GBTime g() {
+   public GBComms g() {
       return this.b;
    }
 

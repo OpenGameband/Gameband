@@ -2,7 +2,7 @@ package com.nowcomputing.uistuff;
 
 import b.a.a.a.Class3;
 import com.nowcomputing.*;
-import com.nowcomputing.pixelfurnace.GBTime;
+import com.nowcomputing.pixelfurnace.GBComms;
 
 import java.awt.Component;
 import java.awt.ComponentOrientation;
@@ -42,7 +42,7 @@ public class aa extends dialogPanel implements ActionListener {
    JRadioButton b;
    private ButtonGroup o;
    private short p;
-   private GBTime q;
+   private GBComms q;
    private GamebandConfig r;
    private JComboBox s;
    private JEditorPane t;
@@ -52,7 +52,7 @@ public class aa extends dialogPanel implements ActionListener {
    JRadioButton i;
    private ButtonGroup w;
 
-   aa(GBTime var1, GamebandConfig var2) {
+   aa(GBComms var1, GamebandConfig var2) {
       this.a = new JRadioButton(this.m);
       this.b = new JRadioButton(this.n);
       this.o = new ButtonGroup();

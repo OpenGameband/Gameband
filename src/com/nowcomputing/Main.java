@@ -1,7 +1,7 @@
 package com.nowcomputing;
 
 import com.codeminders.hidapi.ClassPathLibraryLoader;
-import com.nowcomputing.pixelfurnace.GBTime;
+import com.nowcomputing.pixelfurnace.GBComms;
 import com.nowcomputing.uistuff.ak;
 import com.nowcomputing.uistuff.am;
 import com.nowcomputing.uistuff.MainMenu;
@@ -16,7 +16,7 @@ import a.*;
 
 public class Main {
    private static final Logger logger;
-   private static GBTime gbTime;
+   private static GBComms gbComms;
    private static Vector<AbstractMinecraftLauncher> vec;
    private static MainMenu frame;
    private static LockingUtil lockingUtil;
@@ -43,7 +43,7 @@ public class Main {
 
          ak var2 = new ak(config, 1000);
          logger.log(Level.FINE, Utils.e());
-         removeOldPixelFurnaceBinariesBecauseYay();
+         deletePixelFurnace();
          Utils.d();
          ClassPathLibraryLoader.loadNativeHIDLibrary(D.getLibPath());
          addLaunchers(config);
@@ -56,7 +56,7 @@ public class Main {
             logger.log(Level.INFO, "Error reading serial: " + var5);
          }
 
-         frame = new MainMenu(config, gbTime);
+         frame = new MainMenu(config, gbComms);
          var2.b();
          var2.a();
          logger.log(Level.FINE, "Splash finished");
@@ -79,7 +79,7 @@ public class Main {
 
    }
 
-   private static void removeOldPixelFurnaceBinariesBecauseYay() {
+   private static void deletePixelFurnace() { // ngl this kinda dumb
       Utils.containsFiles(new File("PixelFurnace.app"));
       File var0 = new File("PixelFurnace.exe");
       if (var0.exists()) {
@@ -95,11 +95,11 @@ public class Main {
 
    public static boolean a() {
       try {
-         gbTime.GBTime();
-         gbTime.a(false);
+         gbComms.ReadData();
+         gbComms.a(false);
          return true;
-      } catch (Throwable var1) {
-         logger.log(Level.WARNING, "Error opening Gameband HID device: ", var1);
+      } catch (IOException e) {
+         logger.log(Level.WARNING, "Error opening Gameband HID device: ", e);
          return false;
       }
    }
@@ -138,7 +138,7 @@ public class Main {
       frame.setCursor(Cursor.getPredefinedCursor(3));
 
       try {
-         gbTime.setGamebandTime();
+         gbComms.setGamebandTime();
       } catch (IOException e) {
          logger.log(Level.SEVERE, "Error saving changes to Gameband: ", e);
          am.a(frame, LocaleUtil.getLocalizedString("GAMEBAND_WRITE_ERROR_TITLE"), LocaleUtil.getLocalizedString("GAMEBAND_WRITE_ERROR_TEXT"), "", "", "");
@@ -161,7 +161,7 @@ public class Main {
    static {
       System.setProperty("java.util.logging.manager", V.class.getName());
       logger = Logger.getLogger("com.nowcomputing");
-      gbTime = new GBTime();
+      gbComms = new GBComms();
       vec = null;
       lockingUtil = null;
    }

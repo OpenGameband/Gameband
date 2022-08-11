@@ -27,7 +27,7 @@ public class h {
       }
 
       var1.setPixel(this.c.x, this.c.y, true);
-      if (!this.a.image2.getPixel(var2, this.c.y) || this.a.a(new Point(var2, this.c.y))) {
+      if (!this.a.endImage.getPixel(var2, this.c.y) || this.a.a(new Point(var2, this.c.y))) {
          var1.setPixel(var2, this.c.y, false);
       }
 

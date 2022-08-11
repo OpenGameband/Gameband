@@ -1,6 +1,6 @@
 package com.nowcomputing.pixelfurnace;
 
-import com.nowcomputing.N;
+import com.nowcomputing.TimeDisplay;
 import com.nowcomputing.LocaleUtil;
 
 import java.text.DateFormat;
@@ -16,17 +16,17 @@ public class q extends Animation {
       super(var1.getScreenType(), var2);
    }
 
-   public void a(N var1) {
-      if (var1 == N.b) {
+   public void a(TimeDisplay var1) {
+      if (var1 == TimeDisplay.TWELVEHOUR) {
          this.a((short)0);
-      } else if (var1 == N.a) {
+      } else if (var1 == TimeDisplay.TWENTYFOURHOUR) {
          this.a((short)1);
       }
 
    }
 
-   public N b() {
-      return this.e() == 0 ? N.b : N.a;
+   public TimeDisplay b() {
+      return this.e() == 0 ? TimeDisplay.TWELVEHOUR : TimeDisplay.TWENTYFOURHOUR;
    }
 
    public GamebandScreen c() {

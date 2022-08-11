@@ -24,15 +24,15 @@ public class n extends e implements ActionListener {
       this.h();
       this.h = new AnimatedImage.g();
       var2.a(this.h);
-      JRadioButton var3 = new JRadioButton(N.a.a());
-      var3.setActionCommand(N.a.a());
+      JRadioButton var3 = new JRadioButton(TimeDisplay.TWENTYFOURHOUR.a());
+      var3.setActionCommand(TimeDisplay.TWENTYFOURHOUR.a());
       var3.setOpaque(false);
       var3.setFont(LocaleUtil.q.u);
       var3.setForeground(LocaleUtil.h.m);
       var3.setBounds(278, 6, 120, 20);
       this.add(var3);
-      JRadioButton var4 = new JRadioButton(N.b.a());
-      var4.setActionCommand(N.b.a());
+      JRadioButton var4 = new JRadioButton(TimeDisplay.TWELVEHOUR.a());
+      var4.setActionCommand(TimeDisplay.TWELVEHOUR.a());
       var4.setOpaque(false);
       var4.setFont(LocaleUtil.q.u);
       var4.setForeground(LocaleUtil.h.m);
@@ -64,7 +64,7 @@ public class n extends e implements ActionListener {
       g.log(Level.FINE, "PF: formatted time: " + var3);
       this.a(this.e.d().c());
       Image var4 = this.a(var3);
-      if (this.a.b() == N.b) {
+      if (this.a.b() == TimeDisplay.TWELVEHOUR) {
          Calendar var5 = Calendar.getInstance();
          this.a(var4, var5.get(11) > 11);
       }
@@ -77,10 +77,10 @@ public class n extends e implements ActionListener {
    }
 
    public void actionPerformed(ActionEvent var1) {
-      if (N.a.a().equals(var1.getActionCommand())) {
-         this.a.a(N.a);
-      } else if (N.b.a().equals(var1.getActionCommand())) {
-         this.a.a(N.b);
+      if (TimeDisplay.TWENTYFOURHOUR.a().equals(var1.getActionCommand())) {
+         this.a.a(TimeDisplay.TWENTYFOURHOUR);
+      } else if (TimeDisplay.TWELVEHOUR.a().equals(var1.getActionCommand())) {
+         this.a.a(TimeDisplay.TWELVEHOUR);
       }
 
       this.e.a(true);

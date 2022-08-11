@@ -2,15 +2,15 @@ package com.nowcomputing.e;
 
 import com.nowcomputing.Image;
 
-public class j extends funnyImageThing {
+public class j extends imageTransition {
    protected int g;
    protected l h;
-   private b i;
+   private Hand i;
 
-   public j(b var1) {
+   public j(Hand var1) {
       this.h = l.a;
       this.i = var1;
-      this.d = 1;
+      this.speed = 1;
    }
 
    protected void disable() {
@@ -22,7 +22,7 @@ public class j extends funnyImageThing {
    }
 
    public boolean isEmpty() {
-      if (this.image2 != null) {
+      if (this.endImage != null) {
          return this.g > 0;
       } else {
          return false;

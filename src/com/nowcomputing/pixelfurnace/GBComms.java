@@ -12,29 +12,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.nowcomputing.e.Transition;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
-public class GBTime {
+public class GBComms {
    private static final Logger logger = Logger.getLogger(Utils.class.getName());
-   private GbCommand command = new GbCommand();
-   private List animations = new ArrayList();
+   private GbData data = new GbData();
+   private List<Animation> animations = new ArrayList<>();
    private GamebandHID gbHID = new GamebandHID();
-   private com.nowcomputing.e.d e;
+   private Transition transition;
    private static final ExecutorService threadPool = Executors.newCachedThreadPool();
    private boolean g;
 
-   public GBTime() {
-      this.e = com.nowcomputing.e.c.a;
+   public GBComms() {
+      this.transition = com.nowcomputing.e.c.DEFAULT_TRANSITION;
    }
 
    public short getOrientation() {
-      return this.command != null ? this.command.d() : 0;
+      return this.data != null ? this.data.d() : 0;
    }
 
    public void setOrientation(short var1) {
-      if (this.command != null) {
-         this.command.setSixthBit(var1);
+      if (this.data != null) {
+         this.data.setSixthBit(var1);
       }
 
    }
@@ -42,35 +44,35 @@ public class GBTime {
    public void setGamebandTimezone() {
       DateTimeZone timeZone                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    = DateTimeZone.forTimeZone(LocaleUtil.e());
       logger.log(Level.FINE, "Setting Gameband timezone to: " + timeZone);
-      long var2 = System.currentTimeMillis();
-      int var4 = timeZone.getStandardOffset(var2) / '\uea60';
-      int var5 = a(timeZone) / '\uea60' + var4;
-      if (timeZone.isStandardOffset(var2)) {
-         this.command.c((short)(var4 / 15));
-         this.command.d((short)(var5 / 15));
+      long currentTime = System.currentTimeMillis();
+      int timeInMinutes = timeZone.getStandardOffset(currentTime) / '\uea60'; // so fucking dumb, \uea60 is just 60000, TODO: unfuck this
+      int var5 = ConvertLocalToUTC(timeZone) / '\uea60' + timeInMinutes;
+      if (timeZone.isStandardOffset(currentTime)) {
+         this.data.c((short)(timeInMinutes / 15));
+         this.data.d((short)(var5 / 15));
       } else {
-         this.command.c((short)(var5 / 15));
-         this.command.d((short)(var4 / 15));
+         this.data.c((short)(var5 / 15));
+         this.data.d((short)(timeInMinutes / 15));
       }
 
-      this.command.a(timeZone.nextTransition(var2) / 1000L);
+      this.data.a(timeZone.nextTransition(currentTime) / 1000L);
    }
 
-   public void a(com.nowcomputing.e.d var1) {
-      this.e = var1;
+   public void a(Transition var1) {
+      this.transition = var1;
       Iterator var2 = this.animations.iterator();
 
       while(var2.hasNext()) {
          Animation var3 = (Animation)var2.next();
          if (!(var3 instanceof o)) {
-            var3.a(com.nowcomputing.e.c.a(this.e));
+            var3.a(com.nowcomputing.e.c.animateRight(this.transition));
          }
       }
 
    }
 
-   public com.nowcomputing.e.d c() {
-      return this.e;
+   public Transition c() {
+      return this.transition;
    }
 
    public List<Animation> getAnimations() {
@@ -84,38 +86,38 @@ public class GBTime {
    public void a(List var1) {
       this.animations.clear();
       this.animations = var1;
-      this.command.g((short)this.animations.size());
+      this.data.g((short)this.animations.size());
    }
 
-   public void f() throws IOException {
-      short[] var1;
+   public void ReadData() throws IOException {
+      short[] data;
       try {
          this.gbHID.open();
          logger.log(Level.FINE, "Opened Gameband HID device");
-         var1 = this.gbHID.getGBInfo();
-      } catch (IOException var3) {
-         throw var3;
-      } catch (Throwable var4) {
-         logger.log(Level.WARNING, "Error reading from Gameband", var4);
-         throw var4;
+         data = this.gbHID.readGameband();
+      } catch (IOException e) {
+         throw e;
+      } catch (Throwable e) {
+         logger.log(Level.WARNING, "Error reading from Gameband", e);
+         throw e;
       }
 
       logger.log(Level.FINE, "Read data");
-      logger.log(Level.FINE, this.formatData(var1));
+      logger.log(Level.FINE, this.formatData(data));
 
       try {
-         short[] var2 = this.b(var1);
-         if (var2[0] == var1[10] && var2[1] == var1[11]) {
-            this.a(var1);
-            a(this, var1);
+         short[] var2 = this.b(data);
+         if (var2[0] == data[10] && var2[1] == data[11]) {
+            this.a(data);
+            a(this, data);
             logger.log(Level.FINE, this.h());
          } else {
             logger.log(Level.SEVERE, "Error reading from Gameband - incorrect checksum");
-            this.command = new GbCommand();
+            this.data = new GbData();
          }
       } catch (Exception var5) {
          logger.log(Level.SEVERE, "Error reading data Gameband", var5);
-         this.command = new GbCommand();
+         this.data = new GbData();
       }
 
    }
@@ -125,14 +127,14 @@ public class GBTime {
       logger.log(Level.FINE, "Computer local time: " + new Date());
       int seconds = (int)((new Date()).getTime() / 1000L);
       logger.log(Level.FINE, "Setting Gameband time (UTC) to: " + seconds);
-      if (!this.gbHID.getGBValue(seconds)) {
+      if (!this.gbHID.setTime(seconds)) {
          logger.log(Level.WARNING, "Error setting Gameband time!");
       }
 
       this.setGamebandTimezone();
-      this.command.f((short)47);
-      this.command.g((short)this.animations.size());
-      short[] var2 = this.m();
+      this.data.f((short)47);
+      this.data.g((short)this.animations.size());
+      short[] var2 = this.GetAnimationsAsData();
       short[] var3 = this.b(var2);
       var2[10] = var3[0];
       var2[11] = var3[1];
@@ -143,7 +145,7 @@ public class GBTime {
       try {
          this.a(var2);
       } catch (IOException var8) {
-         String var5 = this.command.f() + "|";
+         String var5 = this.data.f() + "|";
 
          Animation var7;
          for(Iterator var6 = this.animations.iterator(); var6.hasNext(); var5 = var5 + var7.e() + ":" + var7.c().a() + ",") {
@@ -161,7 +163,7 @@ public class GBTime {
       this.a(false);
    }
 
-   private short[] m() {
+   private short[] GetAnimationsAsData() {
       int var1 = 0;
 
       Animation var3;
@@ -169,21 +171,20 @@ public class GBTime {
          var3 = (Animation)var2.next();
       }
 
-      this.command.a(var1);
+      this.data.a(var1);
       short[] var8 = new short[12 + var1];
-      System.arraycopy(this.command.a, 0, var8, 0, 12);
+      System.arraycopy(this.data.a, 0, var8, 0, 12);
       int var9 = 12;
-      Iterator var4 = this.animations.iterator();
 
-      while(var4.hasNext()) {
-         Animation var5 = (Animation)var4.next();
-         GamebandScreen var6 = var5.c();
-         System.arraycopy(var6.getScreenInfo(), 0, var8, var9, 6);
+      for (Animation animation : this.animations) {
+
+         GamebandScreen screen = animation.c();
+         System.arraycopy(screen.getScreenInfo(), 0, var8, var9, 6);
          var9 += 6;
-         short[] var7 = var6.getImageData();
+         short[] var7 = screen.getImageData();
          if (var7 != null) {
-            System.arraycopy(var6.getImageData(), 0, var8, var9, var6.getImageData().length);
-            var9 += var6.getImageData().length;
+            System.arraycopy(screen.getImageData(), 0, var8, var9, screen.getImageData().length);
+            var9 += screen.getImageData().length;
          }
       }
 
@@ -191,7 +192,7 @@ public class GBTime {
    }
 
    private void a(short var1, short var2) throws IOException {
-      short[] var3 = this.gbHID.getGBInfo();
+      short[] var3 = this.gbHID.readGameband();
       short[] var4 = this.b(var3);
       if (var1 != var4[0] || var1 != var3[10] || var2 != var4[1] || var2 != var3[11]) {
          throw new IOException("Checksum error after writing data to Gameband");
@@ -235,21 +236,21 @@ public class GBTime {
    public String h() {
       StringBuilder var1 = new StringBuilder();
       var1.append('\n');
-      var1.append("Timezone 1: " + this.command.a());
+      var1.append("Timezone 1: " + this.data.a());
       var1.append('\n');
-      var1.append("Timezone 2: " + this.command.b());
+      var1.append("Timezone 2: " + this.data.b());
       var1.append('\n');
-      var1.append("Timezone Change: " + this.command.c());
+      var1.append("Timezone Change: " + this.data.c());
       var1.append('\n');
-      var1.append("Orientation: " + this.command.d());
+      var1.append("Orientation: " + this.data.d());
       var1.append('\n');
-      var1.append("Transition frame duration: " + this.command.e());
+      var1.append("Transition frame duration: " + this.data.e());
       var1.append('\n');
-      var1.append("Number of screens: " + this.command.f());
+      var1.append("Number of screens: " + this.data.f());
       var1.append('\n');
-      var1.append("Checksum0: " + this.command.g());
+      var1.append("Checksum0: " + this.data.g());
       var1.append('\n');
-      var1.append("Checksum1: " + this.command.h());
+      var1.append("Checksum1: " + this.data.h());
       var1.append('\n');
       Iterator var2 = this.animations.iterator();
 
@@ -261,8 +262,8 @@ public class GBTime {
       return var1.toString();
    }
 
-   private static void a(GBTime time, short[] var1) {
-      time.command = new GbCommand(var1);
+   private static void a(GBComms time, short[] var1) {
+      time.data = new GbData(var1);
       time.animations = new ArrayList();
       int var2 = 12;
 
@@ -273,12 +274,12 @@ public class GBTime {
          case 0:
          case 1:
             time.animations.add(new q(var4, threadPool));
-            time.a(com.nowcomputing.e.c.a(var4.i()));
+            time.a(com.nowcomputing.e.c.getTransition(var4.i()));
             break;
          case 2:
          case 3:
-            time.animations.add(new b(var4, threadPool));
-            time.a(com.nowcomputing.e.c.a(var4.i()));
+            time.animations.add(new DateScreen(var4, threadPool));
+            time.a(com.nowcomputing.e.c.getTransition(var4.i()));
          case 4:
          case 5:
          case 6:
@@ -355,29 +356,27 @@ public class GBTime {
 
    public void j() {
       boolean var1 = false;
-      Iterator var2 = this.animations.iterator();
 
-      while(var2.hasNext()) {
-         Animation var3 = (Animation)var2.next();
-         if (var3 instanceof b) {
+      for(Animation animation : animations) {
+         if (animation instanceof DateScreen) {
             var1 = true;
             break;
          }
       }
 
       if (!var1) {
-         this.animations.add(new b(threadPool));
+         this.animations.add(new DateScreen(threadPool));
       }
 
    }
 
-   public static int a(DateTimeZone var0) {
-      DateTime var1 = new DateTime(var0);
-      if (var0.isStandardOffset(var1.getMillis())) {
-         int var2 = var0.getOffset(var0.nextTransition(var1.getMillis()));
-         return var2 - var0.getStandardOffset(var1.getMillis());
+   public static int ConvertLocalToUTC(DateTimeZone timeZone) { // (I think)
+      DateTime dateTime = new DateTime(timeZone);
+      if (timeZone.isStandardOffset(dateTime.getMillis())) { // is DST
+         int var2 = timeZone.getOffset(timeZone.nextTransition(dateTime.getMillis()));
+         return var2 - timeZone.getStandardOffset(dateTime.getMillis());
       } else {
-         return var0.getOffset(var1) - var0.getStandardOffset(var1.getMillis());
+         return timeZone.getOffset(dateTime) - timeZone.getStandardOffset(dateTime.getMillis());
       }
    }
 

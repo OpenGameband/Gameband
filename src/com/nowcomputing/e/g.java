@@ -1,6 +1,5 @@
 package com.nowcomputing.e;
 
-import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.Image;
 
 import java.awt.Point;
@@ -9,32 +8,32 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class g extends funnyImageThing {
+public class g extends imageTransition {
    private List h;
    private List i = new ArrayList();
    Random g = new Random();
    private Image j;
-   private b k;
+   private Hand k;
 
-   g(b var1) {
+   g(Hand var1) {
       this.k = var1;
-      this.d = 3;
+      this.speed = 3;
    }
 
    protected void disable() {
-      if (this.image2 != null) {
+      if (this.endImage != null) {
          this.j = new Image(20, 7);
-         if (this.image1 != null) {
-            this.j.setImage(this.image1);
+         if (this.startImage != null) {
+            this.j.setImage(this.startImage);
          }
 
          this.h = new ArrayList(140);
 
          for(int x = 0; x < 20; ++x) {
             for(int y = 0; y < 7; ++y) {
-               if (this.k == com.nowcomputing.e.b.a && this.image2.getPixel(x, y)) {
+               if (this.k == Hand.right && this.endImage.getPixel(x, y)) {
                   this.h.add(new Point(x, y));
-               } else if (this.k == com.nowcomputing.e.b.b && this.image1.getPixel(x, y)) {
+               } else if (this.k == Hand.left && this.startImage.getPixel(x, y)) {
                   this.h.add(new Point(x, y));
                }
             }
@@ -63,7 +62,7 @@ public class g extends funnyImageThing {
          if (this.h.size() > 0) {
             int var3 = Math.min(this.g.nextInt(3), this.h.size() - 1);
             Point var4 = (Point)this.h.remove(var3);
-            if (this.k == com.nowcomputing.e.b.a) {
+            if (this.k == Hand.right) {
                this.i.add(new h(this, new Point(20, var4.y), var4, 1));
             } else {
                this.i.add(new h(this, var4, new Point(-1, var4.y), 1));
@@ -86,7 +85,7 @@ public class g extends funnyImageThing {
    }
 
    public boolean isEmpty() {
-      if (this.image2 != null) {
+      if (this.endImage != null) {
          return !this.getBool();
       } else {
          return false;

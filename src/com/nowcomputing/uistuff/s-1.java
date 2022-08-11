@@ -1,7 +1,7 @@
 package com.nowcomputing.uistuff;
 
 import com.nowcomputing.*;
-import com.nowcomputing.pixelfurnace.GBTime;
+import com.nowcomputing.pixelfurnace.GBComms;
 
 import java.awt.Component;
 import java.awt.Cursor;
@@ -24,12 +24,12 @@ public class MainMenu extends JFrame implements e, com.nowcomputing.n, resetActi
    private com.nowcomputing.uistuff.apackage.p d;
    private M e;
    private aa f;
-   private GBTime g;
+   private GBComms g;
    private boolean h;
    private b i;
    private CountDownLatch j = null;
 
-   public MainMenu(GamebandConfig var1, GBTime var2) {
+   public MainMenu(GamebandConfig var1, GBComms var2) {
       this.b = var1;
       this.g = var2;
      // this.c = new com.nowcomputing.uistuff.c(var1); // not my problem
