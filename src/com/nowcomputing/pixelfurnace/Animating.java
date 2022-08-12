@@ -2,10 +2,10 @@ package com.nowcomputing.pixelfurnace;
 
 class Animating implements Runnable {
    // $FF: synthetic field
-   final Animation a;
+   final Animation animation;
 
-   Animating(Animation var1) {
-      this.a = var1;
+   Animating(Animation animation) {
+      this.animation = animation;
    }
 
    public void run() {
@@ -14,6 +14,6 @@ class Animating implements Runnable {
       } catch (InterruptedException var2) {
       }
 
-      com.nowcomputing.e.e.a(this.a, true);
+      com.nowcomputing.e.e.a(this.animation, true);
    }
 }

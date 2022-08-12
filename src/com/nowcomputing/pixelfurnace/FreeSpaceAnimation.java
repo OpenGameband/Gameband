@@ -6,15 +6,15 @@ import com.nowcomputing.Utils;
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
 
-public class c extends Animation {
+public class FreeSpaceAnimation extends Animation {
    private String f;
 
-   public c(ExecutorService var1) {
+   public FreeSpaceAnimation(ExecutorService var1) {
       super((short)17, var1);
       this.a(Utils.c());
    }
 
-   public c(GamebandScreen var1, ExecutorService var2) {
+   public FreeSpaceAnimation(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
    }
 

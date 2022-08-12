@@ -4,11 +4,11 @@ import com.nowcomputing.Image;
 
 public class j extends imageTransition {
    protected int g;
-   protected l h;
+   protected Direction h;
    private Hand i;
 
    public j(Hand var1) {
-      this.h = l.a;
+      this.h = Direction.a;
       this.i = var1;
       this.speed = 1;
    }

@@ -51,7 +51,7 @@ public class gamebandMountUtil {
    private static void b(String var0) { // Wow, the only use of gbtool.exe, wonder what it does
       try {
          File var1 = File.createTempFile("gbtool", ".exe");
-         InputStream var2 = gamebandMountUtil.class.getResourceAsStream("/resources/gbtool.exe");
+         InputStream var2 = Main.class.getResourceAsStream("/resources/gbtool.exe");
          Utils.a(var2, var1);
          var1.setExecutable(true);
          logger.log(Level.FINE, "Executing " + var1.getPath() + " -e 2A90 0031 -d");

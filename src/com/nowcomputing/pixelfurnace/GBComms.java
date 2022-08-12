@@ -64,7 +64,7 @@ public class GBComms {
 
       while(var2.hasNext()) {
          Animation var3 = (Animation)var2.next();
-         if (!(var3 instanceof o)) {
+         if (!(var3 instanceof ImageAnimation)) {
             var3.a(com.nowcomputing.e.c.animateRight(this.transition));
          }
       }
@@ -273,7 +273,7 @@ public class GBComms {
          switch(var4.getScreenType()) {
          case 0:
          case 1:
-            time.animations.add(new q(var4, threadPool));
+            time.animations.add(new TimeAnimation(var4, threadPool));
             time.a(com.nowcomputing.e.c.getTransition(var4.i()));
             break;
          case 2:
@@ -310,14 +310,14 @@ public class GBComms {
          default:
             break;
          case 16:
-            time.animations.add(new o(var4, threadPool));
+            time.animations.add(new ImageAnimation(var4, threadPool));
             break;
          case 17:
-            time.animations.add(new c(var4, threadPool));
+            time.animations.add(new FreeSpaceAnimation(var4, threadPool));
             break;
          case 32:
          case 34:
-            time.animations.add(new a(var4, threadPool));
+            time.animations.add(new RawAnimation(var4, threadPool));
          }
       }
 
@@ -342,14 +342,14 @@ public class GBComms {
 
       while(var2.hasNext()) {
          Animation var3 = (Animation)var2.next();
-         if (var3 instanceof q) {
+         if (var3 instanceof TimeAnimation) {
             var1 = true;
             break;
          }
       }
 
       if (!var1) {
-         this.animations.add(new q(threadPool));
+         this.animations.add(new TimeAnimation(threadPool));
       }
 
    }

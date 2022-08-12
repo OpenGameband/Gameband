@@ -11,7 +11,7 @@ public abstract class Animation implements b {
    protected imageTransition AnimateIn;
    protected com.nowcomputing.a.TimerListener Pause;// ?
    protected imageTransition AnimateOut;
-   protected m d;
+   protected UnusedInterface d;
    protected GamebandScreen screen;
    private AnimationState state;
    private short dateFormat;
@@ -23,6 +23,12 @@ public abstract class Animation implements b {
       this.executorService = executorService;
    }
 
+   public AnimationState getState() {
+      return state;
+   }
+   public void setState(AnimationState animationState) {
+      this.state = animationState;
+   }
    public short e() {
       return this.dateFormat;
    }
@@ -66,7 +72,7 @@ public abstract class Animation implements b {
    }
 
    public void a() {
-      this.executorService.execute(new j(this));
+      this.executorService.execute(new AnimationTransition(this));
    }
 
    public imageTransition h() {
@@ -102,7 +108,7 @@ public abstract class Animation implements b {
       this.Pause.a(this);
    }
 
-   public void a(m var1) {
+   public void a(UnusedInterface var1) {
       this.d = var1;
    }
 

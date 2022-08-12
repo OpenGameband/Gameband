@@ -5,10 +5,8 @@
 
 package a;
 
-import com.nowcomputing.D;
-import com.nowcomputing.GamebandConfig;
-import com.nowcomputing.Utils;
-import com.nowcomputing.latchedCommandRun;
+import com.nowcomputing.*;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -53,19 +51,17 @@ public abstract class AbstractMinecraftLauncher {
     }
 
     public static String j() {
-        switch(f.a[Utils.b().ordinal()]) {
-            case 1:
+        switch(OSDetectionIsHard.getOS()) {
+            case windows:
                 String var0 = System.getProperty("os.arch");
                 File var1 = new File(D.getMinecraftPath(), "runtime");
                 File var2 = new File(var1, var0.contains("x86") ? "jre-x32" : "jre-x64");
                 return getJavaPath(var2.getAbsoluteFile());
-            case 2:
+            case osx:
                 if (MinecraftLauncher.isOSVersionCompatible()) {
                     return getJavaPath(new File(D.getMinecraftPath(), "Minecraft.app/Contents/runtime/jre-x64"));
                 }
-            case 3:
-            case 4:
-            default:
+            default: // rip linux users
                 return null;
         }
     }
@@ -73,10 +69,8 @@ public abstract class AbstractMinecraftLauncher {
     private static String getJavaPath(File path) {
         if (path.isDirectory()) {
             File[] fileList = path.listFiles();
-            int fileCount = fileList.length;
 
-            for(int i = 0; i < fileCount; ++i) {
-                File javaPath = fileList[i];
+            for (File javaPath : fileList) {
                 if (javaPath.isDirectory()) {
                     File javaBinPath = new File(javaPath, "bin/java");
                     if (doesJavaWork(javaBinPath.getAbsolutePath())) {

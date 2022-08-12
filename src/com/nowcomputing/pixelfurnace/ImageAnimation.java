@@ -7,15 +7,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class o extends Animation {
+public class ImageAnimation extends Animation {
    private static final Logger f = Logger.getLogger(Utils.class.getName());
    private Image g;
 
-   public o(ExecutorService var1) {
+   public ImageAnimation(ExecutorService var1) {
       super((short)16, var1);
    }
 
-   public o(GamebandScreen var1, ExecutorService var2) {
+   public ImageAnimation(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
       this.screen = var1;
 

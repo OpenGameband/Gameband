@@ -70,7 +70,7 @@ public class Utils {
       try {
          if (var0.exists()) {
             var0.setWritable(true);
-            if (b() == B.c) {
+            if (b() == OSDetectionIsHard.osx) {
                ProcessBuilder var4 = new ProcessBuilder("chflags", "-R", "nouchg", var0.getPath());
                var4.start();
             }
@@ -433,13 +433,10 @@ public class Utils {
       return var0 != null && !var0.equals("") && !var0.equals("00:00:00:00:00:00:00:E0") && !var0.startsWith("00:1C:42") && !var0.startsWith("00:16:3E") && !var0.startsWith("08:00:27") && !var0.startsWith("00:03:FF") && !var0.startsWith("00:50:56") && !var0.startsWith("00:0C:29") && !var0.startsWith("00:05:69");
    }
 
-   public static B b() {
+   public static OSDetectionIsHard b() {
       String var0 = System.getProperty("os.name").toLowerCase();
-      B[] var1 = B.a();
-      int var2 = var1.length;
 
-      for(int var3 = 0; var3 < var2; ++var3) {
-         B var4 = var1[var3];
+      for(OSDetectionIsHard var4 : OSDetectionIsHard.values()) {
          String[] var5 = var4.b();
          int var6 = var5.length;
 
@@ -451,7 +448,7 @@ public class Utils {
          }
       }
 
-      return B.d;
+      return OSDetectionIsHard.unknown;
    }
 
    public static short[] a(byte[] var0) {
@@ -543,7 +540,7 @@ public class Utils {
 
    public static String e() {
       String var0 = WindowsVersionComparator.getImplementationVersion().toString();
-      if (b() == B.b) {
+      if (b() == OSDetectionIsHard.windows) {
          var0 = var0 + '|' + g();
       } else {
          var0 = var0 + '|' + System.getProperty("os.name");
@@ -625,13 +622,13 @@ public class Utils {
       try {
          String var1 = var0.getCanonicalPath();
          ProcessBuilder var2;
-         if (b() == B.b) {
+         if (b() == OSDetectionIsHard.windows) {
             var2 = new ProcessBuilder(new String[]{"attrib", "+H", var1});
             var2.start();
-         } else if (b() == B.c) {
+         } else if (b() == OSDetectionIsHard.osx) {
             var2 = new ProcessBuilder(new String[]{"chflags", "hidden", var1});
             var2.start();
-         } else if (b() == B.a) {
+         } else if (b() == OSDetectionIsHard.linux) {
             var2 = new ProcessBuilder(new String[]{"fatattr", "+h", var1});
             var2.start();
          }
@@ -642,7 +639,7 @@ public class Utils {
    }
 
    public static void lsregisterShenanigans() throws IOException {
-      if (b() == B.c) {
+      if (b() == OSDetectionIsHard.osx) {
          String var0 = null;
          if ((new File("/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister")).exists()) {
             var0 = "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister";

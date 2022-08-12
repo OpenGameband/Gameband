@@ -17,7 +17,7 @@ public class e extends imageTransition {
          GBComms.getThreadPool().execute(new f(this));
       }
 
-      super.resetTimer();
+      super.startTimer();
    }
 
    public Image e() {

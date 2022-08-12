@@ -15,9 +15,9 @@ public class ImagePlayer extends TimerListener { // My guess is as good as yours
       this.e = 0;
    }
 
-   public void resetTimer() {
+   public void startTimer() {
       if (this.animatedImage != null && this.animatedImage.getFrameCount() > 0) {
-         super.resetTimer();
+         super.startTimer();
       }
 
    }

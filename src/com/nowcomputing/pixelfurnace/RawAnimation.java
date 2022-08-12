@@ -10,14 +10,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class a extends Animation {
+public class RawAnimation extends Animation {
    private static final Logger logger = Logger.getLogger(Utils.class.getName());
 
-   public a(ExecutorService var1) {
+   public RawAnimation(ExecutorService var1) {
       super((short)32, var1);
    }
 
-   public a(GamebandScreen var1, ExecutorService var2) {
+   public RawAnimation(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
       this.screen = var1;
       this.Pause = new ImagePlayer();

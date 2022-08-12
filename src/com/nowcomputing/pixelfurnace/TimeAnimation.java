@@ -7,12 +7,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutorService;
 
-public class q extends Animation {
-   public q(ExecutorService var1) {
+public class TimeAnimation extends Animation {
+   public TimeAnimation(ExecutorService var1) {
       super(d(), var1);
    }
 
-   public q(GamebandScreen var1, ExecutorService var2) {
+   public TimeAnimation(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
    }
 

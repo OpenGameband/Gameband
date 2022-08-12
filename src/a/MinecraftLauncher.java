@@ -181,7 +181,7 @@ public class MinecraftLauncher extends AbstractMinecraftLauncher {
    }
 
    private boolean n() {
-      if (Utils.b() == B.b) {
+      if (Utils.b() == OSDetectionIsHard.windows) {
          String[] var1 = this.buildJavaCommand();
          File var2 = new File(var1[0]);
          if (!var2.exists()) {

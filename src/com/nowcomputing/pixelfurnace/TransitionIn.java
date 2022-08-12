@@ -9,6 +9,6 @@ class TransitionIn implements Runnable {
    }
 
    public void run() {
-      this.parent.AnimateIn.resetTimer();
+      this.parent.AnimateIn.startTimer();
    }
 }

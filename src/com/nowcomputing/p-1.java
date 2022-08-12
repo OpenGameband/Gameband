@@ -3,21 +3,21 @@ package com.nowcomputing;
 // $FF: synthetic class
 class p {
    // $FF: synthetic field
-   static final int[] a = new int[B.a().length];
+   static final int[] a = new int[OSDetectionIsHard.values().length];
 
    static {
       try {
-         a[B.b.ordinal()] = 1;
+         a[OSDetectionIsHard.windows.ordinal()] = 1;
       } catch (NoSuchFieldError var3) {
       }
 
       try {
-         a[B.c.ordinal()] = 2;
+         a[OSDetectionIsHard.osx.ordinal()] = 2;
       } catch (NoSuchFieldError var2) {
       }
 
       try {
-         a[B.a.ordinal()] = 3;
+         a[OSDetectionIsHard.linux.ordinal()] = 3;
       } catch (NoSuchFieldError var1) {
       }
 

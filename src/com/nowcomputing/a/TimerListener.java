@@ -16,7 +16,7 @@ public abstract class TimerListener implements ActionListener {
       this.setBool(false);
    }
 
-   public void resetTimer() {
+   public void startTimer() {
       this.stopAndDestroyTimer();
       this.disable();
       if (this.randomNumber < 1) {

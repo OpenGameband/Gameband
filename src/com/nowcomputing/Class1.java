@@ -19,7 +19,7 @@ public abstract class Class1 implements randomInterfaceThatDoesNothing {
    protected long field6;
    protected boolean field7;
    protected DownloadRunnable field8;
-   private final FilenameFilter field9 = new H(this);
+   private final FilenameFilter field9 = new MD5FilenameFilter();
 
    protected Class1(File var1) {
       this.field2 = var1;

@@ -46,12 +46,12 @@ public class MinecraftDownloader {
       com.nowcomputing.c.a.a.c var1 = b();
       if (var1 != null) {
          switch(Utils.b()) {
-            case b:
+            case windows:
                return this.a(var1) ? M.b : M.a;
-            case c:
+            case osx:
                return this.c(var1) ? M.b : M.a;
-            case a:
-            case d:
+            case linux:
+            case unknown:
                return this.b(var1) ? M.b : M.a;
          }
       }
@@ -117,14 +117,14 @@ public class MinecraftDownloader {
       com.nowcomputing.c.a.a.c var1 = b();
       if (var1 != null) {
          switch(Utils.b()) {
-            case b:
+            case windows:
                this.e(var1);
                break;
-            case c:
+            case osx:
                this.d(var1);
                break;
-            case a:
-            case d:
+            case linux:
+            case unknown:
                this.f(var1);
                break;
             default:
