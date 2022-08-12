@@ -1,7 +1,7 @@
 package com.nowcomputing.pixelfurnace;
 
 import com.nowcomputing.Image;
-import com.nowcomputing.a.TimerListener;
+import com.nowcomputing.a.Transition;
 import com.nowcomputing.a.b;
 import com.nowcomputing.e.imageTransition;
 
@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 
 public abstract class Animation implements b {
    protected imageTransition AnimateIn;
-   protected com.nowcomputing.a.TimerListener Pause;// ?
+   protected Transition Animating;// ?
    protected imageTransition AnimateOut;
    protected UnusedInterface d;
    protected GamebandScreen screen;
@@ -29,11 +29,11 @@ public abstract class Animation implements b {
    public void setState(AnimationState animationState) {
       this.state = animationState;
    }
-   public short e() {
+   public short getDateFormat() {
       return this.dateFormat;
    }
 
-   protected void a(short var1) {
+   protected void setDateFormat(short var1) {
       this.dateFormat = var1;
    }
 
@@ -41,7 +41,7 @@ public abstract class Animation implements b {
       if (this.AnimateIn != null) {
          this.state = AnimationState.transitioningIn;
          this.executorService.execute(new TransitionIn(this));
-      } else if (this.Pause != null) {
+      } else if (this.Animating != null) {
          this.state = AnimationState.animating;
          this.executorService.execute(new Animating(this));
       }
@@ -54,8 +54,8 @@ public abstract class Animation implements b {
          this.AnimateIn.stopAndDestroyTimer();
       }
 
-      if (this.Pause != null) {
-         this.Pause.stopAndDestroyTimer();
+      if (this.Animating != null) {
+         this.Animating.stopAndDestroyTimer();
       }
 
       if (this.AnimateOut != null) {
@@ -103,16 +103,16 @@ public abstract class Animation implements b {
       this.AnimateOut.a(this);
    }
 
-   public void a(TimerListener var1) {
-      this.Pause = var1;
-      this.Pause.a(this);
+   public void a(Transition var1) {
+      this.Animating = var1;
+      this.Animating.a(this);
    }
 
    public void a(UnusedInterface var1) {
       this.d = var1;
    }
 
-   public abstract GamebandScreen c();
+   public abstract GamebandScreen getScreen();
 
    protected short j() {
       return this.AnimateIn != null ? this.AnimateIn.h() : 0;

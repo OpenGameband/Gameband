@@ -12,6 +12,6 @@ class T extends WindowAdapter {
    }
 
    public void windowClosing(WindowEvent var1) {
-      this.a.a();
+      this.a.ok();
    }
 }

@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 // Some of the only "sane" code in here, makes minimal references to the rest of the code, though I don't think it's even used
+// the native libraries in here DON'T FUCKING EXIST
 public class GbUtilNative {
    private static final Logger logger = Logger.getLogger(GbUtilNative.class.getName());
    private static final String[] windowsGBUtil = new String[]{"gbutil_jni_64.dll", "gbutil_jni_32.dll"};
@@ -28,7 +29,7 @@ public class GbUtilNative {
 
    private static boolean loadNativeLibrary(String[] paths) {
       for (String nativeLib : paths) { // slick :) (check commit history)
-         File libFile = new File(D.getLibPath(), nativeLib);
+         File libFile = new File(PathUtils.getLibPath(), nativeLib);
 
          try {
             Runtime.getRuntime().load(libFile.getAbsolutePath());

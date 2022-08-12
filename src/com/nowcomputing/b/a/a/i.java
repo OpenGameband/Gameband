@@ -1,7 +1,7 @@
 package com.nowcomputing.b.a.a;
 
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.uistuff.N;
+import com.nowcomputing.uistuff.GamebandPopup;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -32,7 +32,7 @@ public class i extends DialogButton {
             }
 
             if (var3.exists()) {
-               int var6 = N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("OVERWRITE_FILE_TEXT"), (String) LocaleUtil.getLocalizedString("OVERWRITE_FILE_TITLE"), (String[])(new String[]{LocaleUtil.getLocalizedString("YES"), LocaleUtil.getLocalizedString("NO")}));
+               int var6 = GamebandPopup.a((Component)this.a, (String) LocaleUtil.getLocalizedString("OVERWRITE_FILE_TEXT"), (String) LocaleUtil.getLocalizedString("OVERWRITE_FILE_TITLE"), (String[])(new String[]{LocaleUtil.getLocalizedString("YES"), LocaleUtil.getLocalizedString("NO")}));
                if (var6 == 1) {
                   return;
                }
@@ -40,10 +40,10 @@ public class i extends DialogButton {
 
             try {
                this.a.a().exportGIF(var3);
-               N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TITLE"));
+               GamebandPopup.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_SUCCESS_TITLE"));
                this.a(j.a);
             } catch (IOException var5) {
-               N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_ERROR_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_ERROR_TITLE"));
+               GamebandPopup.a((Component)this.a, (String) LocaleUtil.getLocalizedString("EXPORT_FILE_ERROR_TEXT"), (String) LocaleUtil.getLocalizedString("EXPORT_FILE_ERROR_TITLE"));
                var5.printStackTrace();
             }
          }

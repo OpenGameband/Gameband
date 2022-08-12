@@ -1,7 +1,7 @@
 package com.nowcomputing.uistuff.apackage;
 
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.uistuff.N;
+import com.nowcomputing.uistuff.GamebandPopup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +20,7 @@ class b implements ActionListener {
       if (this.a.h()) {
          this.a.c(true);
       } else {
-         N.a(this.a.j(), new String[]{LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_HEADER"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_1"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_2")});
+         GamebandPopup.a(this.a.j(), new String[]{LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_HEADER"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_1"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_2")});
       }
 
    }

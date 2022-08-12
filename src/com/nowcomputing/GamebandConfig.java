@@ -11,7 +11,7 @@ GamebandConfig is a thin veneer around the Properties class
 com.nowcomputing.e
  */
 public class GamebandConfig {
-   public static final File defaultConfigFile = new File(D.getLibPath(), "gameband.properties");
+   public static final File defaultConfigFile = new File(PathUtils.getLibPath(), "gameband.properties");
    private final File configFile;
    Properties properties = new Properties();
 
@@ -20,7 +20,7 @@ public class GamebandConfig {
 
       try { // Note from
          this.properties.load(new FileInputStream(defaultConfigFile));
-         D.setMinecraftPath(this.getProperty("minecraft_dir", "minecraft"));
+         PathUtils.setMinecraftPath(this.getProperty("minecraft_dir", "minecraft"));
       } catch (Exception ignored) {
       }
 

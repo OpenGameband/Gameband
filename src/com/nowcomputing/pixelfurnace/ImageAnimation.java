@@ -35,13 +35,13 @@ public class ImageAnimation extends Animation {
       return this.g;
    }
 
-   public GamebandScreen c() {
+   public GamebandScreen getScreen() {
       if (this.screen == null) {
          this.screen = new GamebandScreen();
          this.screen.setPauseMode((short)0);
          this.screen.setPauseDuration((int)0);
          this.screen.b((int)20);
-         this.screen.setScreenType(this.e());
+         this.screen.setScreenType(this.getDateFormat());
          this.screen.d(this.j());
       }
 

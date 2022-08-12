@@ -12,6 +12,6 @@ class V implements ActionListener {
    }
 
    public void actionPerformed(ActionEvent var1) {
-      this.a.b();
+      this.a.close();
    }
 }

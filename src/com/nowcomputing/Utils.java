@@ -182,7 +182,7 @@ public class Utils {
          Properties var2 = new Properties();
          var2.load((InputStream)var1);
          String var3 = var2.getProperty("java.util.logging.FileHandler.pattern");
-         File var4 = new File(D.getGamebandPath(), var3);
+         File var4 = new File(PathUtils.getGamebandPath(), var3);
          var2.setProperty("java.util.logging.FileHandler.pattern", var4.getAbsolutePath());
          ByteArrayOutputStream var5 = new ByteArrayOutputStream();
          var2.store(var5, "");
@@ -484,7 +484,7 @@ public class Utils {
          SSLContext sslContext = SSLContext.getInstance("SSL");
          sslContext.init((KeyManager[])null, trustManagers, new SecureRandom());
          HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
-         U var2 = new U();
+         CompletelySecureHostnameVerifier var2 = new CompletelySecureHostnameVerifier();
          HttpsURLConnection.setDefaultHostnameVerifier(var2);
       } catch (KeyManagementException e) {
          logger.log(Level.WARNING, e.toString(), e);
@@ -660,7 +660,7 @@ public class Utils {
          }
 
          String var5 = "sleep 1 \n";
-         String var6 = var0 + " -u " + (new File(D.getGamebandPath(), "Gameband.app")).getAbsolutePath() + " " + System.getProperty("user.dir") + "/PixelFurnace.app \n";
+         String var6 = var0 + " -u " + (new File(PathUtils.getGamebandPath(), "Gameband.app")).getAbsolutePath() + " " + System.getProperty("user.dir") + "/PixelFurnace.app \n";
          File var7 = new File("/tmp/gbunreg.sh");
          a(var7, var5 + var6);
          var7.setExecutable(true);

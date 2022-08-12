@@ -5,7 +5,7 @@
 
 package a;
 
-import com.nowcomputing.D;
+import com.nowcomputing.PathUtils;
 import com.nowcomputing.Main;
 import com.nowcomputing.GamebandConfig;
 import com.nowcomputing.LocaleUtil;
@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 public class c extends latchedCommandRun {
     public c(GamebandConfig var1) {
         super(var1);
-        File var2 = D.getMinecraftPath();
+        File var2 = PathUtils.getMinecraftPath();
         if (!var2.exists()) {
             var2.mkdir();
         }

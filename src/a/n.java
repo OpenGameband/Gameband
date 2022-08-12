@@ -22,7 +22,7 @@ class n implements randomInterfaceThatDoesNothing {
       VoidLauncher.a(this.c, var1);
       int var3 = (int)((float) VoidLauncher.a(this.c) / (float)this.a.a() * 100.0F);
       if (var3 == 100) {
-         this.b.b();
+         this.b.close();
       } else {
          this.b.setProgressBarValue(var3);
       }

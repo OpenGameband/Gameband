@@ -13,9 +13,9 @@ class AnimationTransition implements Runnable {
          case stopped:
             return;
          case transitioningIn:
-            if (this.a.Pause != null) {
+            if (this.a.Animating != null) {
                a.setState(AnimationState.animating);
-               this.a.Pause.startTimer();
+               this.a.Animating.startTimer();
                return;
             }
             break;

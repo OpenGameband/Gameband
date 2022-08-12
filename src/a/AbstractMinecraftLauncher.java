@@ -54,12 +54,12 @@ public abstract class AbstractMinecraftLauncher {
         switch(OSDetectionIsHard.getOS()) {
             case windows:
                 String var0 = System.getProperty("os.arch");
-                File var1 = new File(D.getMinecraftPath(), "runtime");
+                File var1 = new File(PathUtils.getMinecraftPath(), "runtime");
                 File var2 = new File(var1, var0.contains("x86") ? "jre-x32" : "jre-x64");
                 return getJavaPath(var2.getAbsoluteFile());
             case osx:
                 if (MinecraftLauncher.isOSVersionCompatible()) {
-                    return getJavaPath(new File(D.getMinecraftPath(), "Minecraft.app/Contents/runtime/jre-x64"));
+                    return getJavaPath(new File(PathUtils.getMinecraftPath(), "Minecraft.app/Contents/runtime/jre-x64"));
                 }
             default: // rip linux users
                 return null;
@@ -114,7 +114,7 @@ public abstract class AbstractMinecraftLauncher {
     }
 
     public String h() {
-        String var1 = D.getMinecraftPath().getAbsolutePath();
+        String var1 = PathUtils.getMinecraftPath().getAbsolutePath();
         var1 = GamebandConfig.fixPath(var1);
         return var1;
     }

@@ -19,9 +19,9 @@ import java.util.logging.Logger;
  */
 public class LocaleUtil {
    public static final Logger logger = Logger.getLogger(Utils.class.getName());
-   private static final File localePath = new File(D.getLibPath(), "locale");
-   private static final File tzPath = new File(D.getLibPath(), "tz");
-   private static final File tzonePath = new File(D.getLibPath(), "tzone");
+   private static final File localePath = new File(PathUtils.getLibPath(), "locale");
+   private static final File tzPath = new File(PathUtils.getLibPath(), "tz");
+   private static final File tzonePath = new File(PathUtils.getLibPath(), "tzone");
    static ResourceBundle resourceBundle = null;
    static Locale locale = null;
    static ArrayList list = new ArrayList();
@@ -98,7 +98,7 @@ public class LocaleUtil {
          locale = var0;
          setDateStyle();
          ResourceBundle.clearCache();
-         ClassLoader var1 = Utils.a(D.getLibPath().getPath());
+         ClassLoader var1 = Utils.a(PathUtils.getLibPath().getPath());
          resourceBundle = ResourceBundle.getBundle("translations", a(), var1);
          Iterator var2 = list.iterator();
 
@@ -127,7 +127,7 @@ public class LocaleUtil {
       if (resourceBundle == null) {
          try {
             if (loader == null) {
-               loader = Utils.a(D.getLibPath().getPath());
+               loader = Utils.a(PathUtils.getLibPath().getPath());
             }
 
             resourceBundle = ResourceBundle.getBundle("translations", a(), loader);
@@ -143,7 +143,7 @@ public class LocaleUtil {
       ResourceBundle[] var0 = new ResourceBundle[0];
 
       try {
-         ClassLoader var1 = Utils.a(D.getLibPath().getPath());
+         ClassLoader var1 = Utils.a(PathUtils.getLibPath().getPath());
          HashSet var2 = new HashSet();
          Locale[] var3 = Locale.getAvailableLocales();
          int var4 = var3.length;

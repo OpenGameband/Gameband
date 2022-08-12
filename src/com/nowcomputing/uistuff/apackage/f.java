@@ -2,7 +2,7 @@ package com.nowcomputing.uistuff.apackage;
 
 import com.nowcomputing.LocaleUtil;
 import com.nowcomputing.AnimatedImage;
-import com.nowcomputing.uistuff.N;
+import com.nowcomputing.uistuff.GamebandPopup;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
@@ -223,9 +223,9 @@ public class f extends JPanel {
                var2 = o.a(var5);
                if (var2 != o.a && var2 != o.c) {
                   if (var2 == o.b) {
-                     N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_1"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_2")}));
+                     GamebandPopup.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_1"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_2")}));
                   } else {
-                     N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_2")}));
+                     GamebandPopup.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_STATIC_IMAGE_2")}));
                   }
                } else {
                   this.a.a(var5, (AnimatedImage.d)this.l.getSelectedItem(), this.n.isSelected());
@@ -237,12 +237,12 @@ public class f extends JPanel {
             if (var5 != null) {
                var2 = o.a(var5);
                if (var2 != o.a && var2 != o.b) {
-                  N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_GIF")}));
+                  GamebandPopup.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_GIF")}));
                } else {
                   try {
                      this.a.a(var5);
                   } catch (IOException var4) {
-                     N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_GIF")}));
+                     GamebandPopup.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT_HEADER"), LocaleUtil.getLocalizedString("ERROR_WRONG_FORMAT"), LocaleUtil.getLocalizedString("ERROR_NOT_GIF")}));
                   }
 
                   this.a.c(false);

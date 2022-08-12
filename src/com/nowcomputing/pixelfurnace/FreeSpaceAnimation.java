@@ -54,7 +54,7 @@ public class FreeSpaceAnimation extends Animation {
       return this.f;
    }
 
-   public GamebandScreen c() {
+   public GamebandScreen getScreen() {
       if (this.screen == null) {
          this.screen = new GamebandScreen();
          this.screen.setPauseMode((short)1);
@@ -62,7 +62,7 @@ public class FreeSpaceAnimation extends Animation {
          this.screen.b((int)20);
       }
 
-      this.screen.setScreenType(this.e());
+      this.screen.setScreenType(this.getDateFormat());
       this.screen.d(this.j());
       this.a(Utils.c());
       this.screen.setImage(Image.FromFile(this.b()));

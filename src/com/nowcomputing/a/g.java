@@ -2,7 +2,7 @@ package com.nowcomputing.a;
 
 import com.nowcomputing.Image;
 
-public class g extends TimerListener {
+public class g extends Transition {
    private Image image;
    private int e;
    private int f;

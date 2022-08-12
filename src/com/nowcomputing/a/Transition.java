@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
-public abstract class TimerListener implements ActionListener {
+public abstract class Transition implements ActionListener {
    protected int randomNumber = 20;
    protected b b;
    protected Timer timer;

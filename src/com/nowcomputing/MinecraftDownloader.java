@@ -27,7 +27,7 @@ public class MinecraftDownloader {
    protected Exception ex;
 
    public MinecraftDownloader(GamebandConfig var1) {
-      String var2 = D.getMinecraftPath().getAbsolutePath();
+      String var2 = PathUtils.getMinecraftPath().getAbsolutePath();
       var2 = GamebandConfig.fixPath(var2);
       c = var2 + File.separator + "launcher.jar";
       d = c + ".lzma";
@@ -42,21 +42,21 @@ public class MinecraftDownloader {
       this.j = var1;
    }
 
-   public M a() {
+   public Severity a() {
       com.nowcomputing.c.a.a.c var1 = b();
       if (var1 != null) {
          switch(Utils.b()) {
             case windows:
-               return this.a(var1) ? M.b : M.a;
+               return this.a(var1) ? Severity.normal : Severity.none;
             case osx:
-               return this.c(var1) ? M.b : M.a;
+               return this.c(var1) ? Severity.normal : Severity.none;
             case linux:
             case unknown:
-               return this.b(var1) ? M.b : M.a;
+               return this.b(var1) ? Severity.normal : Severity.none;
          }
       }
 
-      return M.a;
+      return Severity.none;
    }
 
    public static com.nowcomputing.c.a.a.c b() {

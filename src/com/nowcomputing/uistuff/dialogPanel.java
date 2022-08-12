@@ -176,6 +176,6 @@ public class dialogPanel extends JPanel {
    }
 
    public void l() {
-      N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("DISCLAIMER_HEADING"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_1"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_2"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_3"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_4")}), (String)"Gameband", (String)"www.nowcomputing.com/support");
+      GamebandPopup.PopupDialog(this, new String[]{LocaleUtil.getLocalizedString("DISCLAIMER_HEADING"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_1"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_2"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_3"), LocaleUtil.getLocalizedString("DISCLAIMER_TEXT_4")}, (String)"Gameband", (String)"www.nowcomputing.com/support");
    }
 }

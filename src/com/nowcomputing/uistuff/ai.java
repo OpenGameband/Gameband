@@ -1,6 +1,8 @@
 package com.nowcomputing.uistuff;
 
 import com.codeminders.hidapi.ClassPathLibraryLoader;
+import com.nowcomputing.PathUtils;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -13,7 +15,7 @@ public class ai extends JFrame implements as {
    private aq c;
 
    public ai() {
-      ClassPathLibraryLoader.loadNativeHIDLibrary(com.nowcomputing.D.b());
+      ClassPathLibraryLoader.loadNativeHIDLibrary(PathUtils.b());
       this.c = new aq();
       this.getContentPane().add(this.c);
       this.c.a((as)this);

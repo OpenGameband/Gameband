@@ -33,6 +33,6 @@ class MinecraftDownloadDialog implements R {
    }
 
    public void exit() {
-      this.a.b();
+      this.a.close();
    }
 }

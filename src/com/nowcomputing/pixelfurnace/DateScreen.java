@@ -18,18 +18,18 @@ public class DateScreen extends Animation {
 
    public void SetDateFormat(TimeDisplay var1) {
       if (var1 == TimeDisplay.normal) {
-         this.a((short)3);
+         this.setDateFormat((short)3);
       } else if (var1 == TimeDisplay.crackhead) {
-         this.a((short)2);
+         this.setDateFormat((short)2);
       }
 
    }
 
    public TimeDisplay b() {
-      return this.e() == 2 ? TimeDisplay.crackhead : TimeDisplay.normal;
+      return this.getDateFormat() == 2 ? TimeDisplay.crackhead : TimeDisplay.normal;
    }
 
-   public GamebandScreen c() {
+   public GamebandScreen getScreen() {
       if (this.screen == null) {
          this.screen = new GamebandScreen();
          this.screen.c((short)3000);
@@ -40,7 +40,7 @@ public class DateScreen extends Animation {
          this.screen.setPauseDuration((int)1000);
       }
 
-      this.screen.setScreenType(this.e());
+      this.screen.setScreenType(this.getDateFormat());
       return this.screen;
    }
 

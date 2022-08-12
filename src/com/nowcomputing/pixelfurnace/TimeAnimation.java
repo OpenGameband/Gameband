@@ -18,18 +18,18 @@ public class TimeAnimation extends Animation {
 
    public void a(TimeDisplay var1) {
       if (var1 == TimeDisplay.TWELVEHOUR) {
-         this.a((short)0);
+         this.setDateFormat((short)0);
       } else if (var1 == TimeDisplay.TWENTYFOURHOUR) {
-         this.a((short)1);
+         this.setDateFormat((short)1);
       }
 
    }
 
    public TimeDisplay b() {
-      return this.e() == 0 ? TimeDisplay.TWELVEHOUR : TimeDisplay.TWENTYFOURHOUR;
+      return this.getDateFormat() == 0 ? TimeDisplay.TWELVEHOUR : TimeDisplay.TWENTYFOURHOUR;
    }
 
-   public GamebandScreen c() {
+   public GamebandScreen getScreen() {
       if (this.screen == null) {
          this.screen = new GamebandScreen();
          this.screen.c((short)3000);
@@ -40,7 +40,7 @@ public class TimeAnimation extends Animation {
          this.screen.setPauseDuration((int)1000);
       }
 
-      this.screen.setScreenType(this.e());
+      this.screen.setScreenType(this.getDateFormat());
       return this.screen;
    }
 

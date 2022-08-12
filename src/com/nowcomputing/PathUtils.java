@@ -5,7 +5,7 @@ import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class D {
+public class PathUtils {
    public static final Logger logger = Logger.getLogger(Utils.class.getName());
    private static File gamebandPath = getJarLocation();
    private static File libPath;
@@ -34,7 +34,7 @@ public class D {
       File gamebandPath = null;
 
       try {
-         File jarPath = new File(D.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+         File jarPath = new File(PathUtils.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
          gamebandPath = jarPath.getParentFile().getParentFile();
       } catch (URISyntaxException var2) {
       }

@@ -4,7 +4,7 @@ public class GbData { // Another one of my magic wild guesses
    short[] a = new short[12];
 
    public GbData() {
-      this.f((short)47);
+      this.setTransitionFrameDuration((short)47);
    }
 
    public GbData(short[] var1) {
@@ -19,63 +19,63 @@ public class GbData { // Another one of my magic wild guesses
       return (short)(var0 & 16383);
    }
 
-   public short a() {
+   public short getTimezone() {
       return (short)a(this.a[0]);
    }
 
-   public void c(short var1) {
+   public void setTimezone(short var1) {
       this.a[0] = b(var1);
    }
 
-   public short b() {
+   public short getAlternateTimezone() {
       return (short)a(this.a[1]);
    }
 
-   public void d(short var1) {
+   public void setAlternateTimezone(short var1) {
       this.a[1] = b(var1);
    }
 
-   public long c() {
+   public long getTimezoneChange() {
       long var1 = (long)(this.a[2] & 255 | (this.a[3] & 255) << 8 | (this.a[4] & 255) << 16 | (this.a[5] & 255) << 24);
       return var1;
    }
 
-   public void a(long var1) {
+   public void setTimezoneChange(long var1) {
       this.a[2] = (short)((int)(var1 & 255L));
       this.a[3] = (short)((int)(var1 >> 8 & 255L));
       this.a[4] = (short)((int)(var1 >> 16 & 255L));
       this.a[5] = (short)((int)(var1 >> 24 & 255L));
    }
 
-   public short d() {
+   public short getOrientation() {
       return this.a[6];
    }
 
-   public void setSixthBit(short var1) {
+   public void setOrientation(short var1) {
       this.a[6] = var1;
    }
 
-   public short e() {
+   public short getTransitionFrameDuration() {
       return this.a[7];
    }
 
-   public void f(short var1) {
+   public void setTransitionFrameDuration(short var1) {
       this.a[7] = var1;
    }
 
-   public short f() {
+   public short getScreenCount() {
       return this.a[8];
    }
 
-   public void g(short var1) {
+   public void setScreenCount(short var1) {
       this.a[8] = var1;
    }
 
-   public short g() {
+   public short getChecksum0() {
       return this.a[10];
    }
 
-   public short h() {
+   public short getChecksum1() {
       return this.a[11];
    }
 

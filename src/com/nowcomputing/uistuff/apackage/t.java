@@ -1,7 +1,7 @@
 package com.nowcomputing.uistuff.apackage;
 
 import com.nowcomputing.*;
-import com.nowcomputing.uistuff.N;
+import com.nowcomputing.uistuff.GamebandPopup;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -136,7 +136,7 @@ public class t extends JPanel implements MouseListener, MouseMotionListener {
 
    public boolean a(com.nowcomputing.uistuff.b.e var1, boolean var2) {
       if (var2 && !(var1 instanceof com.nowcomputing.uistuff.b.n) && !(var1 instanceof com.nowcomputing.uistuff.b.b) && !this.g.h()) {
-         N.a(this.g.j(), new String[]{LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_HEADER"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_1"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_2")});
+         GamebandPopup.a(this.g.j(), new String[]{LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_HEADER"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_1"), LocaleUtil.getLocalizedString("ERROR_MAX_ANIMATIONS_2")});
          return false;
       } else {
          var1.a(var2);

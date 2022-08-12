@@ -17,7 +17,7 @@ import a.*;
 public class Main {
    private static final Logger logger;
    private static GBComms gbComms;
-   private static Vector<AbstractMinecraftLauncher> vec;
+   private static Vector<AbstractMinecraftLauncher> launchers;
    private static MainMenu frame;
    private static LockingUtil lockingUtil;
 
@@ -31,7 +31,7 @@ public class Main {
          lockingUtil = new LockingUtil("Gameband"); // fun fact, this doesn't work
 
          try {
-            if (!lockingUtil.lock()) {
+            if (!lockingUtil.lock()) { // lol, doesn't even fucking work
                logger.log(Level.INFO, "Another instance of this application is already running. Exiting.");
                System.out.println("Another instance of this application is already running. Exiting.");
                System.exit(0);
@@ -45,9 +45,9 @@ public class Main {
          logger.log(Level.FINE, Utils.e());
          deletePixelFurnace();
          Utils.d();
-         ClassPathLibraryLoader.loadNativeHIDLibrary(D.getLibPath());
+         ClassPathLibraryLoader.loadNativeHIDLibrary(PathUtils.getLibPath());
          addLaunchers(config);
-         F.a(D.getLibPath());
+         F.a(PathUtils.getLibPath());
 
          try {
             String var3 = GbUtilNative.getUsbSerial(10896, 49);
@@ -62,12 +62,12 @@ public class Main {
          logger.log(Level.FINE, "Splash finished");
          frame.setVisible(true);
          logger.log(Level.FINE, "Showed Main window");
-         File var8 = new File(D.getLibPath(), ".acs");
-         File var4 = new File(D.getLibPath(), ".act");
-         if (var8.exists() || var4.exists()) {
+         File ACSfile = new File(PathUtils.getLibPath(), ".acs");
+         File ACTfile = new File(PathUtils.getLibPath(), ".act");
+         if (ACSfile.exists() || ACTfile.exists()) {
             frame.f();
-            var8.delete();
-            var4.delete();
+            ACSfile.delete();
+            ACTfile.delete();
          }
 
          frame.e();
@@ -105,27 +105,27 @@ public class Main {
    }
 
    public static void addLaunchers(GamebandConfig config) {
-      vec = new Vector<>();
-      vec.add(new MinecraftLauncher(config));
-      vec.add(new TechnicLauncher(config));
-      vec.add(new FTBLauncher(config));
-      vec.add(new VoidLauncher(config));
+      launchers = new Vector<>();
+      launchers.add(new MinecraftLauncher(config));
+      launchers.add(new TechnicLauncher(config));
+      launchers.add(new FTBLauncher(config));
+      launchers.add(new VoidLauncher(config));
       if (Boolean.parseBoolean(config.getProperty("launcher.minecraftedu", "false"))) {
-         vec.add(new MinecraftEduLauncher(config));
+         launchers.add(new MinecraftEduLauncher(config));
       }
    }
 
    public static Vector getLaunchers() {
-      return vec;
+      return launchers;
    }
 
    public static AbstractMinecraftLauncher c() {
-      Iterator<AbstractMinecraftLauncher> var0 = vec.iterator();
+      Iterator<AbstractMinecraftLauncher> var0 = launchers.iterator();
 
       AbstractMinecraftLauncher launcher;
       do {
          if (!var0.hasNext()) {
-            return vec.get(0);
+            return launchers.get(0);
          }
 
          launcher = var0.next();
@@ -162,7 +162,7 @@ public class Main {
       System.setProperty("java.util.logging.manager", V.class.getName());
       logger = Logger.getLogger("com.nowcomputing");
       gbComms = new GBComms();
-      vec = null;
+      launchers = null;
       lockingUtil = null;
    }
 }

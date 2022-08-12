@@ -29,13 +29,13 @@ public class MainMenu extends JFrame implements e, com.nowcomputing.n, resetActi
    private b i;
    private CountDownLatch j = null;
 
-   public MainMenu(GamebandConfig var1, GBComms var2) {
-      this.b = var1;
-      this.g = var2;
+   public MainMenu(GamebandConfig config, GBComms gbComms) {
+      this.b = config;
+      this.g = gbComms;
      // this.c = new com.nowcomputing.uistuff.c(var1); // not my problem
-      this.c.a((com.nowcomputing.n)this);
-      this.setTitle("Gameband " + WindowsVersionComparator.getImplementationVersion().toString());
-      this.setDefaultCloseOperation(0);
+      this.c.a(this);
+      this.setTitle("Gameband " + WindowsVersionComparator.getImplementationVersion());
+      this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
       this.setResizable(false);
       this.h();
       this.o();
@@ -136,7 +136,7 @@ public class MainMenu extends JFrame implements e, com.nowcomputing.n, resetActi
          try {
             boolean var1 = Main.a();
             if (!var1) {
-               N.a((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("GAMEBAND_NOT_DETECTED_TITLE"), LocaleUtil.getLocalizedString("GAMEBAND_NOT_DETECTED_TEXT"), LocaleUtil.getLocalizedString("GAMEBAND_NOT_DETECTED_TEXT_1")}), (String) LocaleUtil.getLocalizedString("ERROR_WINDOW_TITLE"), (String)"www.nowcomputing.com/contact");
+               GamebandPopup.PopupDialog((Component)this, (String[])(new String[]{LocaleUtil.getLocalizedString("GAMEBAND_NOT_DETECTED_TITLE"), LocaleUtil.getLocalizedString("GAMEBAND_NOT_DETECTED_TEXT"), LocaleUtil.getLocalizedString("GAMEBAND_NOT_DETECTED_TEXT_1")}), (String) LocaleUtil.getLocalizedString("ERROR_WINDOW_TITLE"), (String)"www.nowcomputing.com/contact");
             }
          } finally {
             this.setCursor(Cursor.getDefaultCursor());

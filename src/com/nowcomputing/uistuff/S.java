@@ -13,7 +13,7 @@ class S extends AbstractAction {
 
    public void actionPerformed(ActionEvent var1) {
       if (GamebandDialog.a(this.a)) {
-         this.a.a();
+         this.a.ok();
       }
 
    }

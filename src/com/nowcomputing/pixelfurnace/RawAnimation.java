@@ -20,10 +20,10 @@ public class RawAnimation extends Animation {
    public RawAnimation(GamebandScreen var1, ExecutorService var2) {
       super(var1.getScreenType(), var2);
       this.screen = var1;
-      this.Pause = new ImagePlayer();
+      this.Animating = new ImagePlayer();
 
       try {
-         ((ImagePlayer)this.Pause).a(var1.getAnimation());
+         ((ImagePlayer)this.Animating).a(var1.getAnimation());
       } catch (IOException e) {
          logger.log(Level.WARNING, "", e);
       }
@@ -34,16 +34,16 @@ public class RawAnimation extends Animation {
       return this.screen != null ? this.screen.getAnimation() : null;
    }
 
-   public GamebandScreen c() {
+   public GamebandScreen getScreen() {
       if (this.screen == null) {
          this.screen = new GamebandScreen();
-         this.screen.setScreenType(this.e());
+         this.screen.setScreenType(this.getDateFormat());
       }
 
       this.screen.d((short)0);
       this.screen.setPauseDuration((int)1000);
-      this.screen.b(this.Pause.f());
-      this.screen.fromAnimatedImage(((com.nowcomputing.a.ImagePlayer)this.Pause).h());
+      this.screen.b(this.Animating.f());
+      this.screen.fromAnimatedImage(((com.nowcomputing.a.ImagePlayer)this.Animating).h());
       return this.screen;
    }
 

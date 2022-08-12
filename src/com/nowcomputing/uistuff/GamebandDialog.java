@@ -95,12 +95,12 @@ public class GamebandDialog extends JFrame {
       return var1;
    }
 
-   protected void a() {
+   protected void ok() {
       this.l = true;
-      this.b();
+      this.close();
    }
 
-   public void b() {
+   public void close() {
       this.dispose();
       this.a.countDown();
    }

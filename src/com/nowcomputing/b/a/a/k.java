@@ -1,7 +1,7 @@
 package com.nowcomputing.b.a.a;
 
 import com.nowcomputing.LocaleUtil;
-import com.nowcomputing.uistuff.N;
+import com.nowcomputing.uistuff.GamebandPopup;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -28,7 +28,7 @@ public class k extends DialogButton {
             byte var4 = 0;
             int var6 = var4 + 1;
          } catch (Exception var5) {
-            N.a((Component)this.a, (String) LocaleUtil.getLocalizedString("IMPORT_FILE_ERROR_TEXT"), (String) LocaleUtil.getLocalizedString("IMPORT_FILE_ERROR_TITLE"));
+            GamebandPopup.a((Component)this.a, (String) LocaleUtil.getLocalizedString("IMPORT_FILE_ERROR_TEXT"), (String) LocaleUtil.getLocalizedString("IMPORT_FILE_ERROR_TITLE"));
             var5.printStackTrace();
          }
       }

@@ -208,7 +208,7 @@ public class p {
 
       while(var3.hasNext()) {
          Animation var4 = (Animation)var3.next();
-         short var5 = var4.e();
+         short var5 = var4.getDateFormat();
          if (var5 != 0 && var5 != 1 && var5 != 3 && var5 != 2) {
             ++var1;
          }

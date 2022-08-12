@@ -6,7 +6,7 @@ import com.nowcomputing.AnimatedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class ImagePlayer extends TimerListener { // My guess is as good as yours buddy
+public class ImagePlayer extends Transition { // My guess is as good as yours buddy
    private AnimatedImage animatedImage;
    private int e;
 

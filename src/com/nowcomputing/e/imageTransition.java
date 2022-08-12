@@ -1,8 +1,9 @@
 package com.nowcomputing.e;
 
 import com.nowcomputing.Image;
+import com.nowcomputing.a.Transition;
 
-public abstract class imageTransition extends com.nowcomputing.a.TimerListener {
+public abstract class imageTransition extends Transition {
    protected short speed; // ?
    protected Image startImage;
    protected Image endImage;

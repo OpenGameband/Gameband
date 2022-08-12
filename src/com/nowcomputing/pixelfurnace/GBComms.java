@@ -31,12 +31,12 @@ public class GBComms {
    }
 
    public short getOrientation() {
-      return this.data != null ? this.data.d() : 0;
+      return this.data != null ? this.data.getOrientation() : 0;
    }
 
    public void setOrientation(short var1) {
       if (this.data != null) {
-         this.data.setSixthBit(var1);
+         this.data.setOrientation(var1);
       }
 
    }
@@ -45,17 +45,17 @@ public class GBComms {
       DateTimeZone timeZone                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    = DateTimeZone.forTimeZone(LocaleUtil.e());
       logger.log(Level.FINE, "Setting Gameband timezone to: " + timeZone);
       long currentTime = System.currentTimeMillis();
-      int timeInMinutes = timeZone.getStandardOffset(currentTime) / '\uea60'; // so fucking dumb, \uea60 is just 60000, TODO: unfuck this
-      int var5 = ConvertLocalToUTC(timeZone) / '\uea60' + timeInMinutes;
+      int offsetInMinutes = timeZone.getStandardOffset(currentTime) / '\uea60'; // so fucking dumb, \uea60 is just 60000, TODO: unfuck this
+      int var5 = GetTimeWithZone(timeZone) / '\uea60' + offsetInMinutes;
       if (timeZone.isStandardOffset(currentTime)) {
-         this.data.c((short)(timeInMinutes / 15));
-         this.data.d((short)(var5 / 15));
+         this.data.setTimezone((short)(offsetInMinutes / 15));
+         this.data.setAlternateTimezone((short)(var5 / 15));
       } else {
-         this.data.c((short)(var5 / 15));
-         this.data.d((short)(timeInMinutes / 15));
+         this.data.setTimezone((short)(var5 / 15));
+         this.data.setAlternateTimezone((short)(offsetInMinutes / 15));
       }
 
-      this.data.a(timeZone.nextTransition(currentTime) / 1000L);
+      this.data.setTimezoneChange(timeZone.nextTransition(currentTime) / 1000L);
    }
 
    public void a(Transition var1) {
@@ -86,7 +86,7 @@ public class GBComms {
    public void a(List var1) {
       this.animations.clear();
       this.animations = var1;
-      this.data.g((short)this.animations.size());
+      this.data.setScreenCount((short)this.animations.size());
    }
 
    public void ReadData() throws IOException {
@@ -132,8 +132,8 @@ public class GBComms {
       }
 
       this.setGamebandTimezone();
-      this.data.f((short)47);
-      this.data.g((short)this.animations.size());
+      this.data.setTransitionFrameDuration((short)47);
+      this.data.setScreenCount((short)this.animations.size());
       short[] var2 = this.GetAnimationsAsData();
       short[] var3 = this.b(var2);
       var2[10] = var3[0];
@@ -145,10 +145,10 @@ public class GBComms {
       try {
          this.a(var2);
       } catch (IOException var8) {
-         String var5 = this.data.f() + "|";
+         String var5 = this.data.getScreenCount() + "|";
 
          Animation var7;
-         for(Iterator var6 = this.animations.iterator(); var6.hasNext(); var5 = var5 + var7.e() + ":" + var7.c().a() + ",") {
+         for(Iterator var6 = this.animations.iterator(); var6.hasNext(); var5 = var5 + var7.getDateFormat() + ":" + var7.getScreen().a() + ",") {
             var7 = (Animation)var6.next();
          }
 
@@ -167,7 +167,7 @@ public class GBComms {
       int var1 = 0;
 
       Animation var3;
-      for(Iterator var2 = this.animations.iterator(); var2.hasNext(); var1 += var3.c().a()) {
+      for(Iterator var2 = this.animations.iterator(); var2.hasNext(); var1 += var3.getScreen().a()) {
          var3 = (Animation)var2.next();
       }
 
@@ -178,7 +178,7 @@ public class GBComms {
 
       for (Animation animation : this.animations) {
 
-         GamebandScreen screen = animation.c();
+         GamebandScreen screen = animation.getScreen();
          System.arraycopy(screen.getScreenInfo(), 0, var8, var9, 6);
          var9 += 6;
          short[] var7 = screen.getImageData();
@@ -234,90 +234,61 @@ public class GBComms {
    }
 
    public String h() {
-      StringBuilder var1 = new StringBuilder();
-      var1.append('\n');
-      var1.append("Timezone 1: " + this.data.a());
-      var1.append('\n');
-      var1.append("Timezone 2: " + this.data.b());
-      var1.append('\n');
-      var1.append("Timezone Change: " + this.data.c());
-      var1.append('\n');
-      var1.append("Orientation: " + this.data.d());
-      var1.append('\n');
-      var1.append("Transition frame duration: " + this.data.e());
-      var1.append('\n');
-      var1.append("Number of screens: " + this.data.f());
-      var1.append('\n');
-      var1.append("Checksum0: " + this.data.g());
-      var1.append('\n');
-      var1.append("Checksum1: " + this.data.h());
-      var1.append('\n');
+      StringBuilder sb = new StringBuilder();
+      sb.append('\n');
+      sb.append("Timezone 1: " + this.data.getTimezone());
+      sb.append('\n');
+      sb.append("Timezone 2: " + this.data.getAlternateTimezone());
+      sb.append('\n');
+      sb.append("Timezone Change: " + this.data.getTimezoneChange());
+      sb.append('\n');
+      sb.append("Orientation: " + this.data.getOrientation());
+      sb.append('\n');
+      sb.append("Transition frame duration: " + this.data.getTransitionFrameDuration());
+      sb.append('\n');
+      sb.append("Number of screens: " + this.data.getScreenCount());
+      sb.append('\n');
+      sb.append("Checksum0: " + this.data.getChecksum0());
+      sb.append('\n');
+      sb.append("Checksum1: " + this.data.getChecksum1());
+      sb.append('\n');
       Iterator var2 = this.animations.iterator();
 
       while(var2.hasNext()) {
          Animation var3 = (Animation)var2.next();
-         var1.append(var3.c().toString());
+         sb.append(var3.getScreen().toString());
       }
 
-      return var1.toString();
+      return sb.toString();
    }
 
-   private static void a(GBComms time, short[] var1) {
-      time.data = new GbData(var1);
-      time.animations = new ArrayList();
+   private static void a(GBComms comms, short[] data) {
+      comms.data = new GbData(data);
+      comms.animations = new ArrayList();
       int var2 = 12;
 
-      for(int var3 = 0; var3 < var1[8]; ++var3) {
-         GamebandScreen var4 = GamebandScreen.a(var1, var2);
-         var2 += 6 + var1[var2 + 5];
-         switch(var4.getScreenType()) {
+      for(int i = 0; i < data[8]; ++i) {
+         GamebandScreen screen = GamebandScreen.a(data, var2);
+         var2 += 6 + data[var2 + 5];
+         switch(screen.getScreenType()) {
          case 0:
          case 1:
-            time.animations.add(new TimeAnimation(var4, threadPool));
-            time.a(com.nowcomputing.e.c.getTransition(var4.i()));
+            comms.animations.add(new TimeAnimation(screen, threadPool));
+            comms.a(com.nowcomputing.e.c.getTransition(screen.i()));
             break;
          case 2:
          case 3:
-            time.animations.add(new DateScreen(var4, threadPool));
-            time.a(com.nowcomputing.e.c.getTransition(var4.i()));
-         case 4:
-         case 5:
-         case 6:
-         case 7:
-         case 8:
-         case 9:
-         case 10:
-         case 11:
-         case 12:
-         case 13:
-         case 14:
-         case 15:
-         case 18:
-         case 19:
-         case 20:
-         case 21:
-         case 22:
-         case 23:
-         case 24:
-         case 25:
-         case 26:
-         case 27:
-         case 28:
-         case 29:
-         case 30:
-         case 31:
-         case 33:
-         default:
-            break;
+            comms.animations.add(new DateScreen(screen, threadPool));
+            comms.a(com.nowcomputing.e.c.getTransition(screen.i()));
          case 16:
-            time.animations.add(new ImageAnimation(var4, threadPool));
+            comms.animations.add(new ImageAnimation(screen, threadPool));
             break;
          case 17:
-            time.animations.add(new FreeSpaceAnimation(var4, threadPool));
+            comms.animations.add(new FreeSpaceAnimation(screen, threadPool));
             break;
          case 32:
          case 34:
-            time.animations.add(new RawAnimation(var4, threadPool));
+            comms.animations.add(new RawAnimation(screen, threadPool));
          }
       }
 
@@ -370,7 +341,7 @@ public class GBComms {
 
    }
 
-   public static int ConvertLocalToUTC(DateTimeZone timeZone) { // (I think)
+   public static int GetTimeWithZone(DateTimeZone timeZone) { // (I think)
       DateTime dateTime = new DateTime(timeZone);
       if (timeZone.isStandardOffset(dateTime.getMillis())) { // is DST
          int var2 = timeZone.getOffset(timeZone.nextTransition(dateTime.getMillis()));

@@ -5,7 +5,7 @@ import com.nowcomputing.AnimatedImage;
 
 import java.util.ArrayList;
 
-public class e extends TimerListener {
+public class e extends Transition {
    private Image image;
    private int e;
    private int f;

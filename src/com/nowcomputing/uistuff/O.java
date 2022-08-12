@@ -5,9 +5,9 @@ import java.awt.event.WindowEvent;
 
 class O extends WindowAdapter {
    // $FF: synthetic field
-   final N a;
+   final GamebandPopup a;
 
-   O(N var1) {
+   O(GamebandPopup var1) {
       this.a = var1;
    }
 

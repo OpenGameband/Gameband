@@ -16,18 +16,18 @@ import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class N extends JDialog {
+public class GamebandPopup extends JDialog {
    private int a;
 
-   public N(Frame var1, String var2) {
+   public GamebandPopup(Frame var1, String var2) {
       super(var1, var2, true);
    }
 
-   public N(Dialog var1, String var2) {
+   public GamebandPopup(Dialog var1, String var2) {
       super(var1, var2, true);
    }
 
-   private void a(JPanel var1) {
+   private void setPanel(JPanel var1) {
       Container var2 = this.getContentPane();
       var2.setLayout(new BorderLayout());
       var2.add(var1, "Center");
@@ -37,20 +37,20 @@ public class N extends JDialog {
       this.addWindowListener(new O(this));
    }
 
-   private static JPanel a(N var0, String[] var1, String[] var2) {
-      JPanel var3 = a();
-      a(var1, var3);
+   private static JPanel a(GamebandPopup var0, String[] var1, String[] var2) {
+      JPanel var3 = NewPanel();
+      CreatePanel(var1, var3);
       a(var0, var2, var3);
       return var3;
    }
 
-   private static JPanel a(N var0, String[] var1, String[] var2, String var3) {
-      JPanel var4 = a();
-      a(var1, var4);
-      var4.add(Box.createVerticalStrut(10));
-      a(var3, var4);
-      a(var0, var2, var4);
-      return var4;
+   private static JPanel a(GamebandPopup var0, String[] var1, String[] var2, String var3) {
+      JPanel panel = NewPanel();
+      CreatePanel(var1, panel);
+      panel.add(Box.createVerticalStrut(10));
+      a(var3, panel);
+      a(var0, var2, panel);
+      return panel;
    }
 
    private static void a(String var0, JPanel var1) {
@@ -68,7 +68,7 @@ public class N extends JDialog {
       var1.add(var2);
    }
 
-   public static JPanel a() {
+   public static JPanel NewPanel() {
       JPanel var0 = new JPanel();
       var0.setBackground(GamebandColors.n);
       var0.setLayout(new BoxLayout(var0, 1));
@@ -76,7 +76,7 @@ public class N extends JDialog {
       return var0;
    }
 
-   public static void a(N var0, String[] var1, JPanel var2) {
+   public static void a(GamebandPopup var0, String[] var1, JPanel var2) {
       JPanel var3 = new JPanel();
       var3.setAlignmentX(0.5F);
       var2.add(var3);
@@ -92,13 +92,9 @@ public class N extends JDialog {
 
    }
 
-   public static void a(String[] var0, JPanel var1) {
-      String[] var2 = var0;
-      int var3 = var0.length;
-
-      for(int var4 = 0; var4 < var3; ++var4) {
-         String var5 = var2[var4];
-         C var6 = new C(var5, 360, "center");
+   public static void CreatePanel(String[] var0, JPanel var1) {
+      for (String s : var0) {
+         C var6 = new C(s, 360, "center");
          var6.setFont(GamebandFonts.k);
          var6.setForeground(Color.WHITE);
          var6.setAlignmentX(0.5F);
@@ -125,15 +121,15 @@ public class N extends JDialog {
    }
 
    public static void a(Component var0, String[] var1, String var2) {
-      N var3 = a(var0, var2);
-      var3.a(a(var3, var1, new String[]{"OK"}));
+      GamebandPopup var3 = a(var0, var2);
+      var3.setPanel(a(var3, var1, new String[]{"OK"}));
       var3.setVisible(true);
    }
 
-   public static void a(Component var0, String[] var1, String var2, String var3) {
-      N var4 = a(var0, var2);
-      var4.a(a(var4, var1, new String[]{"OK"}, var3));
-      var4.setVisible(true);
+   public static void PopupDialog(Component rootWindow, String[] text, String title, String var3) {
+      GamebandPopup popup = a(rootWindow, title);
+      popup.setPanel(a(popup, text, new String[]{"OK"}, var3));
+      popup.setVisible(true);
    }
 
    public static int a(Component var0, String var1, String var2, String[] var3) {
@@ -141,19 +137,19 @@ public class N extends JDialog {
    }
 
    public static int a(Component var0, String[] var1, String var2, String[] var3) {
-      N var4 = a(var0, var2);
-      var4.a(a(var4, var1, var3));
+      GamebandPopup var4 = a(var0, var2);
+      var4.setPanel(a(var4, var1, var3));
       var4.setVisible(true);
       return var4.b();
    }
 
-   private static N a(Component var0, String var1) {
+   private static GamebandPopup a(Component var0, String var1) {
       Window var3 = am.getWindow(var0);
-      N var2;
+      GamebandPopup var2;
       if (var3 instanceof Frame) {
-         var2 = new N((Frame)var3, var1);
+         var2 = new GamebandPopup((Frame)var3, var1);
       } else {
-         var2 = new N((Dialog)var3, var1);
+         var2 = new GamebandPopup((Dialog)var3, var1);
       }
 
       return var2;

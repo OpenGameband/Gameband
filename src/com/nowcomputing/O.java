@@ -92,15 +92,15 @@ public class O {
             Entry var21 = (Entry)var19.next();
             var5 = (Integer)var21.getKey();
             int var24 = var5 / '\uea60';
-            boolean var25 = false;
+            boolean GMTPlus = false;
             if (var24 < 0) {
-               var25 = true;
+               GMTPlus = true;
                var24 = -var24;
             }
 
             var8 = var24 / 60;
             int var26 = var24 - var8 * 60;
-            String var27 = "GMT" + (var25 ? "-" : "+") + (var8 < 10 ? "0" : "") + var8 + ":" + (var26 < 10 ? "0" : "") + var26;
+            String var27 = "GMT" + (GMTPlus ? "-" : "+") + (var8 < 10 ? "0" : "") + var8 + ":" + (var26 < 10 ? "0" : "") + var26;
             var11 = ((List)var21.getValue()).iterator();
 
             while(var11.hasNext()) {
