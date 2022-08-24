@@ -8,7 +8,7 @@ public class j extends imageTransition {
    private Hand i;
 
    public j(Hand var1) {
-      this.h = Direction.a;
+      this.h = Direction.left;
       this.i = var1;
       this.speed = 1;
    }
